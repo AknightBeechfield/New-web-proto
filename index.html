@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>B191R Water Resistant Lifestyle Cap — Beechfield (Mockup V3)</title>
+<title>B191R Water Resistant Lifestyle Cap — Beechfield (Mockup V4)</title>
 <link rel="stylesheet" href="https://use.typekit.net/sep5cxb.css">
 <style>
 :root {
@@ -40,13 +40,11 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 }
 .mockup-banner strong { font-weight: 700; }
 
-/* Image fallback pattern: real img/video layers over placeholder.
-   If the URL loads, you see the image. If it fails, onerror hides it and the placeholder shows through. */
-.gallery .hero, .gallery .thumb,
-.branding-block > .image,
+/* Image fallback pattern: real img/video layers over placeholder. */
+.gallery .g-item,
+.branding-figure,
 .ed-tile .image,
-.sec-large, .sec-small,
-.anatomy-image,
+.sec-cell,
 .cl-hero,
 .cl-product .image,
 .compare-products .product-image,
@@ -61,7 +59,6 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
   display: block;
   z-index: 1;
 }
-.ph + .real-img, .ph + .real-video { /* explicit stacking */ }
 
 /* PLACEHOLDER IMAGE SYSTEM */
 .ph {
@@ -71,7 +68,6 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
   z-index: 0;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 12px;
-  position: relative;
   border: 1px dashed #d6cfc4;
   color: var(--muted);
   font-size: 12px; line-height: 1.4;
@@ -82,9 +78,6 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
   background: var(--peach); color: var(--cool-black);
   font-size: 8px; letter-spacing: 0.1em; padding: 2px 5px;
   font-weight: 700; border-radius: 2px; text-transform: uppercase;
-}
-.ph .ph-icon {
-  width: 28px; height: 28px; opacity: 0.4; margin-bottom: 8px;
 }
 .ph .ph-label {
   font-weight: 600; color: var(--cool-black); font-size: 12px;
@@ -104,8 +97,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 .ph[data-type="video"] { background: var(--cool-black); color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }
 .ph[data-type="video"] .ph-label { color: white; }
 .ph[data-type="video"]::before {
-  content: "▶"; font-size: 32px; color: white; opacity: 0.6;
-  margin-bottom: 8px;
+  content: "\25B6"; font-size: 32px; color: white; opacity: 0.6; margin-bottom: 8px;
 }
 .ph[data-type="lifestyle"] { background: linear-gradient(135deg, #9b8a73 0%, #6c5d4a 100%); color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.2); }
 .ph[data-type="lifestyle"] .ph-label { color: white; }
@@ -125,41 +117,48 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 .nav .links { display: flex; gap: 28px; }
 .nav .links a { color: var(--cool-black); text-decoration: none; }
 
-.breadcrumb { padding: 16px 32px 0; font-size: 12px; color: var(--muted); }
+.breadcrumb { padding: 12px 32px 0; font-size: 12px; color: var(--muted); }
 .breadcrumb a { color: var(--muted); text-decoration: none; }
 .breadcrumb span { margin: 0 8px; }
 
 /* Top product area */
-.product-top { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; padding: 32px 0 32px; }
+.product-top { display: grid; grid-template-columns: 1.35fr 1fr; gap: 48px; padding: 20px 0 40px; }
 
-/* Gallery */
-.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.gallery .hero { grid-column: span 2; aspect-ratio: 4 / 3; }
-.gallery .thumb { aspect-ratio: 1 / 1; }
+/* Gallery — all square, equal size */
+.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }
+.gallery .g-item { aspect-ratio: 1 / 1; }
+.gallery .g-item .real-img { object-position: center top; }
 
 /* Buy box */
-.buybox { display: flex; flex-direction: column; gap: 24px; }
+.buybox { display: flex; flex-direction: column; gap: 16px; }
 .eyebrow { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
-.product-name { font-size: 36px; margin-top: 6px; }
-.lozenges { display: flex; gap: 8px; margin-top: 14px; }
+.product-name { font-size: 32px; margin-top: 4px; }
+.lozenges { display: flex; gap: 8px; margin-top: 10px; }
 .lozenge {
   font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
   padding: 6px 12px; border-radius: 100px; font-weight: 500;
 }
 .lozenge.primary { background: var(--cool-black); color: var(--white); }
 .lozenge.secondary { background: var(--light-green); color: var(--cool-black); }
-.stock { font-size: 13px; color: var(--dark-green); font-weight: 500; }
-.stock::before { content: "● "; color: var(--dark-green); }
 
-.blurb { font-size: 16px; line-height: 1.6; color: var(--cool-black); }
+.stock-line { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--dark-green); font-weight: 500; }
+.stock-line .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--dark-green); flex-shrink: 0; }
+.stock-line .qty { font-weight: 700; }
+.stock-line .ph-tag {
+  font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--peach); color: var(--cool-black); padding: 1px 4px;
+  border-radius: 2px; font-weight: 700;
+}
+
+.blurb { font-size: 15px; line-height: 1.55; color: var(--cool-black); }
 
 .colour-section .label, .panel .label {
   font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 12px; font-weight: 500;
+  color: var(--muted); margin-bottom: 8px; font-weight: 500;
 }
 .swatches { display: flex; gap: 10px; }
 .swatch {
-  width: 44px; height: 44px; border-radius: 50%;
+  width: 40px; height: 40px; border-radius: 50%;
   border: 2px solid var(--border); cursor: pointer; position: relative;
 }
 .swatch.active { border-color: var(--cool-black); }
@@ -168,31 +167,25 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 .swatch[data-colour="Olive Green"] { background: #524f26; }
 .swatch[data-colour="White"] { background: #fafafa; border-color: #d0d0d0; }
 
-/* Cap DNA panel */
-.cap-dna { background: var(--light-grey); padding: 24px; border-radius: 4px; }
-.cap-dna h3 { font-size: 18px; margin-bottom: 16px; }
+/* Cap DNA panel — compact quick-scan card */
+.cap-dna { background: var(--light-grey); padding: 14px 16px; border-radius: 4px; }
+.cap-dna h3 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
 .cap-dna .row {
-  display: flex; justify-content: space-between; padding: 10px 0;
-  border-bottom: 1px solid var(--border); font-size: 14px; gap: 12px;
+  display: flex; justify-content: space-between; padding: 5px 0;
+  border-bottom: 1px solid var(--border); font-size: 13px; gap: 12px;
 }
 .cap-dna .row:last-of-type { border-bottom: none; }
 .cap-dna .row span:first-child { color: var(--muted); white-space: nowrap; }
 .cap-dna .row span:last-child { font-weight: 500; text-align: right; }
-.cap-dna .decoration { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
-.deco-icons { display: flex; gap: 8px; flex-wrap: wrap; }
-.deco-icon {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--white); padding: 6px 12px; border-radius: 100px;
-  font-size: 12px; border: 1px solid var(--border);
+.cap-dna .dna-link {
+  display: inline-block; margin-top: 10px; font-size: 13px;
+  color: var(--cool-black); text-decoration: underline; font-weight: 500;
 }
-.deco-icon.primary { background: var(--cool-black); color: var(--white); border-color: var(--cool-black); }
-.deco-icon::before { content: "●"; font-size: 8px; color: var(--dark-green); }
-.deco-icon.primary::before { color: var(--peach); }
 
 /* CTAs */
 .ctas { display: flex; flex-direction: column; gap: 10px; }
 .btn {
-  display: block; padding: 14px 20px; text-align: center;
+  display: block; padding: 13px 20px; text-align: center;
   font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
   text-transform: uppercase; cursor: pointer; border-radius: 2px;
   text-decoration: none; transition: all 0.15s ease;
@@ -200,66 +193,33 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 .btn.primary { background: var(--cool-black); color: var(--white); border: 1px solid var(--cool-black); }
 .btn.primary:hover { background: var(--dark-green); border-color: var(--dark-green); }
 .btn.secondary { background: var(--white); color: var(--cool-black); border: 1px solid var(--cool-black); }
-.btn.tertiary {
-  background: transparent; color: var(--cool-black);
-  text-decoration: underline; border: none; text-transform: none;
-  letter-spacing: 0; font-size: 13px; padding: 6px;
-}
+.btn.secondary:hover { background: var(--cool-black); color: var(--white); }
 
-/* PRODUCT DETAILS ACCORDION */
-.product-details {
-  background: var(--light-grey); padding: 64px 0;
+/* Mini CTA row */
+.mini-ctas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.mini-cta {
+  border: 1px solid var(--border); background: var(--white);
+  border-radius: 2px; padding: 10px 8px; text-align: center;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+  color: var(--cool-black); text-decoration: none; line-height: 1.25;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s ease;
 }
-.product-details .container { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: flex-start; }
-.cert-strip {
-  display: flex; align-items: center; gap: 24px;
-}
-.cert-logo {
-  width: 80px; height: 80px; border-radius: 50%; background: var(--white);
-  border: 2px solid var(--dark-green); display: flex; align-items: center;
-  justify-content: center; color: var(--dark-green); font-weight: 700;
-  font-size: 14px; letter-spacing: 0.04em; flex-shrink: 0;
-}
-.cert-info h3 { font-size: 18px; margin-bottom: 4px; }
-.cert-info p { font-size: 13px; color: var(--muted); }
-.cert-info a { color: var(--cool-black); text-decoration: underline; }
+.mini-cta:hover { border-color: var(--cool-black); background: var(--light-grey); }
 
-.impact-block { margin-top: 32px; }
-.impact-block h3 { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
-.impact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
-.impact-stat {
-  background: var(--white); padding: 20px 16px; border-radius: 4px;
-  text-align: center; border-top: 3px solid var(--dark-green);
-}
-.impact-stat .number {
-  font-size: 28px; font-weight: 700; color: var(--dark-green);
-  font-family: "source-serif-pro", Georgia, serif; line-height: 1;
-}
-.impact-stat .label { font-size: 12px; color: var(--cool-black); margin-top: 8px; font-weight: 500; }
-.impact-stat .vs { font-size: 10px; color: var(--muted); margin-top: 2px; }
-.impact-footnote { font-size: 13px; color: var(--cool-black); }
-.impact-footnote strong { font-weight: 700; }
-.impact-disclaimer { font-size: 11px; color: var(--muted); font-style: italic; margin-top: 8px; }
-.placeholder-tag {
-  display: inline-block; background: var(--peach); color: var(--cool-black);
-  font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 1px 4px; border-radius: 2px; margin-left: 4px; font-weight: 700;
-  vertical-align: middle;
-}
-
-/* Accordion */
-.accordion { background: var(--white); border-radius: 4px; overflow: hidden; }
+/* Accordion (in buybox) */
+.accordion { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
 .accordion-row { border-bottom: 1px solid var(--border); }
 .accordion-row:last-child { border-bottom: none; }
 .accordion-trigger {
   width: 100%; background: var(--white); border: none; cursor: pointer;
-  padding: 20px 24px; display: flex; justify-content: space-between;
-  align-items: center; font-size: 15px; font-weight: 600;
+  padding: 15px 18px; display: flex; justify-content: space-between;
+  align-items: center; font-size: 14px; font-weight: 600;
   text-align: left; color: var(--cool-black); font-family: inherit;
 }
 .accordion-trigger:hover { background: #faf6f1; }
 .accordion-trigger .chevron {
-  width: 12px; height: 12px; border-right: 2px solid var(--cool-black);
+  width: 10px; height: 10px; border-right: 2px solid var(--cool-black);
   border-bottom: 2px solid var(--cool-black); transform: rotate(45deg);
   transition: transform 0.2s ease; flex-shrink: 0;
 }
@@ -267,155 +227,133 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 .accordion-content {
   max-height: 0; overflow: hidden;
   transition: max-height 0.3s ease;
-  padding: 0 24px;
+  padding: 0 18px;
 }
-.accordion-content.open {
-  max-height: 4000px;
-  padding: 0 24px 24px;
-}
-.accordion-content p { font-size: 14px; line-height: 1.6; margin-bottom: 12px; }
-.accordion-content .spec-table {
-  width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px;
-}
+.accordion-content.open { max-height: 3000px; padding: 0 18px 20px; }
+.accordion-content p { font-size: 13px; line-height: 1.55; margin-bottom: 10px; }
+.accordion-content .spec-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 14px; }
 .accordion-content .spec-table tr { border-bottom: 1px solid var(--border); }
 .accordion-content .spec-table tr:last-child { border-bottom: none; }
-.accordion-content .spec-table td { padding: 8px 0; vertical-align: top; }
+.accordion-content .spec-table td { padding: 7px 0; vertical-align: top; }
 .accordion-content .spec-table td:first-child { color: var(--muted); width: 45%; }
 .accordion-content .spec-table td:last-child { font-weight: 500; }
-.accordion-content .sku-table {
-  width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px;
-}
-.accordion-content .sku-table th, .accordion-content .sku-table td {
-  padding: 8px; text-align: left; border-bottom: 1px solid var(--border);
-}
+.accordion-content .sku-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 6px; }
+.accordion-content .sku-table th, .accordion-content .sku-table td { padding: 7px; text-align: left; border-bottom: 1px solid var(--border); }
 .accordion-content .sku-table th { background: var(--light-grey); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
-.accordion-content .button-link {
-  display: inline-block; padding: 10px 16px; border: 1px solid var(--cool-black);
-  color: var(--cool-black); text-decoration: none; border-radius: 2px;
-  font-size: 13px; font-weight: 500; margin-top: 8px;
+.accordion-note { font-size: 11px; color: var(--muted); font-style: italic; margin-top: 8px; }
+.placeholder-tag {
+  display: inline-block; background: var(--peach); color: var(--cool-black);
+  font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 1px 4px; border-radius: 2px; margin-left: 4px; font-weight: 700;
+  vertical-align: middle;
 }
-.accordion-content .button-link:hover { background: var(--cool-black); color: var(--white); }
-.accordion-content ul { padding-left: 20px; margin-bottom: 12px; font-size: 14px; }
-.accordion-content ul li { margin-bottom: 6px; }
-.expect-inline { display: flex; flex-direction: column; gap: 18px; }
-.expect-inline > div { padding-left: 14px; border-left: 2px solid var(--dark-green); }
-.expect-inline h4 {
-  font-family: "source-serif-pro", Georgia, serif;
-  font-weight: 400; font-size: 16px; margin-bottom: 6px;
+/* What to expect sub-blocks */
+.expect-inline { display: flex; flex-direction: column; gap: 12px; }
+.expect-inline > div { padding-left: 12px; border-left: 2px solid var(--dark-green); }
+.expect-inline h4 { font-family: "source-serif-pro", Georgia, serif; font-weight: 400; font-size: 15px; margin-bottom: 3px; }
+.expect-inline p { font-size: 13px; line-height: 1.5; color: var(--cool-black); margin: 0; }
+/* Composition & care icon row */
+.care-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+.care-icon { display: flex; flex-direction: column; align-items: center; gap: 5px; width: 64px; text-align: center; }
+.care-icon .glyph {
+  width: 40px; height: 40px; border: 1.5px solid var(--cool-black);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
 }
-.expect-inline p { font-size: 14px; line-height: 1.6; color: var(--cool-black); }
+.care-icon.no .glyph { border-color: var(--red); color: var(--red); position: relative; }
+.care-icon.no .glyph::after {
+  content: ""; position: absolute; inset: 0; margin: auto;
+  width: 130%; height: 1.5px; background: var(--red); transform: rotate(-45deg);
+}
+.care-icon .cap { font-size: 9px; color: var(--muted); line-height: 1.2; }
+.care-caption { font-size: 12px; color: var(--cool-black); }
+/* Impact stats */
+.impact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
+.impact-stat { background: var(--light-grey); padding: 16px 10px; border-radius: 4px; text-align: center; border-top: 3px solid var(--dark-green); }
+.impact-stat .number { font-size: 24px; font-weight: 700; color: var(--dark-green); font-family: "source-serif-pro", Georgia, serif; line-height: 1; }
+.impact-stat .label { font-size: 11px; color: var(--cool-black); margin-top: 6px; font-weight: 500; }
+.impact-stat .vs { font-size: 9px; color: var(--muted); margin-top: 2px; }
+.impact-footnote { font-size: 13px; color: var(--cool-black); }
+.impact-footnote strong { font-weight: 700; }
+.impact-disclaimer { font-size: 11px; color: var(--muted); font-style: italic; margin-top: 6px; }
 
-/* What to expect */
-.what-to-expect { background: var(--cool-black); color: var(--white); padding: 80px 0; }
-.what-to-expect h2 { color: var(--white); font-size: 32px; margin-bottom: 12px; }
-.what-to-expect .lede { color: rgba(255,255,255,0.65); margin-bottom: 48px; font-size: 16px; max-width: 720px; }
-.expect-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-.expect-block h3 {
-  font-family: "source-serif-pro", Georgia, serif;
-  font-weight: 400; font-size: 22px; margin-bottom: 12px;
-}
-.expect-block p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.85); }
-
-/* Fabric & Construction */
-.fabric-construction { background: var(--white); padding: 64px 0; }
-.retail-desc { max-width: 760px; }
-.retail-desc h2 { font-size: 28px; margin-bottom: 24px; }
-.retail-desc p {
-  font-family: "source-serif-pro", Georgia, serif;
-  font-size: 19px; line-height: 1.6;
-}
-
-/* Built for branding */
-.branding-block {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
-  align-items: center; padding: 64px 0;
-}
-.branding-block > .image { aspect-ratio: 4/3; overflow: hidden; }
-.branding-block h2 { font-size: 32px; margin-bottom: 16px; }
-.branding-block > div > p { font-size: 16px; margin-bottom: 24px; }
-.branding-methods { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
-.branding-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.branding-cta {
-  background: var(--white); border: 1px solid var(--cool-black);
-  padding: 16px 20px; text-decoration: none; color: var(--cool-black);
-  border-radius: 2px; transition: all 0.15s ease; cursor: pointer; display: block;
-}
-.branding-cta:hover { background: var(--cool-black); color: var(--white); }
-.branding-cta .arrow { float: right; }
-.branding-cta .title { font-size: 14px; font-weight: 700; display: block; margin-bottom: 2px; }
-.branding-cta .desc { font-size: 12px; color: var(--muted); }
-.branding-cta:hover .desc { color: rgba(255,255,255,0.7); }
-
-/* Section */
-.section { padding: 64px 0; border-top: 1px solid var(--border); }
+/* Generic section */
+.section { padding: 56px 0; }
 .section h2 { font-size: 28px; margin-bottom: 8px; }
-.section .lede { font-size: 16px; color: var(--muted); margin-bottom: 32px; max-width: 720px; }
+.section .lede { font-size: 16px; color: var(--muted); margin-bottom: 28px; max-width: 720px; }
 
-/* Editorial 3-tile row */
+/* (b) 3 technical features — tonally linked to buybox cards (light grey) */
+.feature-row-section { background: var(--light-grey); padding: 8px 0 56px; }
 .editorial-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.ed-tile { display: flex; flex-direction: column; gap: 16px; }
-.ed-tile .image { aspect-ratio: 1 / 1; overflow: hidden; }
+.ed-tile { display: flex; flex-direction: column; gap: 14px; }
+.ed-tile .image { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 4px; }
 .ed-tile h3 { font-size: 18px; margin-bottom: 4px; }
 .ed-tile p { font-size: 14px; color: var(--muted); }
 
-/* Secondary editorial */
-.secondary-ed { background: var(--light-grey); padding: 80px 0; }
-.secondary-ed h2 {
-  font-family: "source-serif-pro", Georgia, serif; font-weight: 400;
-  font-size: 36px; margin-bottom: 12px;
-}
-.secondary-ed .lede { font-size: 16px; margin-bottom: 40px; max-width: 600px; color: var(--cool-black); }
+/* (c) Retail description — own brand colour block, full-width body */
+.retail-desc { background: var(--light-green); padding: 64px 0; }
+.retail-desc h2 { font-size: 30px; margin-bottom: 20px; }
+.retail-desc p { font-family: "source-serif-pro", Georgia, serif; font-size: 21px; line-height: 1.6; max-width: none; }
+
+/* (d) Made to be worn */
+.secondary-ed { background: var(--light-grey); padding: 72px 0; }
+.secondary-ed h2 { font-family: "source-serif-pro", Georgia, serif; font-weight: 400; font-size: 34px; margin-bottom: 10px; }
+.secondary-ed .lede { font-size: 16px; margin-bottom: 32px; max-width: 600px; color: var(--cool-black); }
 .sec-grid {
-  display: grid; grid-template-columns: 2fr 1fr; gap: 16px;
-  grid-template-rows: 1fr 1fr;
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr; gap: 12px;
+  height: min(72vh, 620px);
 }
-.sec-large { grid-row: span 2; aspect-ratio: 4 / 5; overflow: hidden; }
-.sec-small { aspect-ratio: 4 / 3; overflow: hidden; }
+.sec-cell { overflow: hidden; border-radius: 4px; }
+.sec-video { grid-column: 1; grid-row: 1 / span 2; }
+.sec-still-a { grid-column: 2 / span 2; grid-row: 1; }
+.sec-still-b { grid-column: 2 / span 2; grid-row: 2; }
 
-/* Anatomy */
-.anatomy { background: var(--warm-grey); padding: 80px 0; }
-.anatomy-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: center; }
-.anatomy h2 {
-  font-family: "source-serif-pro", Georgia, serif; font-weight: 400;
-  font-size: 38px; margin-bottom: 24px;
-}
-.anatomy-callouts { list-style: none; }
-.anatomy-callouts li {
-  padding: 16px 0; border-bottom: 1px solid var(--border);
-  display: flex; gap: 16px;
-}
-.anatomy-callouts li:last-child { border-bottom: none; }
-.callout-num {
-  background: var(--cool-black); color: var(--white);
-  width: 28px; height: 28px; border-radius: 50%;
+/* (e) Built for branding + anatomy (merged) */
+.branding-block { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 64px 0; }
+.branding-figure { aspect-ratio: 4 / 5; border-radius: 4px; }
+.branding-figure .marker {
+  position: absolute; z-index: 2; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--cool-black); color: var(--white); border: 2px solid var(--white);
   display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 700; flex-shrink: 0;
+  font-size: 12px; font-weight: 700; box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
-.callout-content h4 { font-size: 15px; margin-bottom: 2px; }
-.callout-content p { font-size: 13px; color: var(--muted); }
-.anatomy-image { aspect-ratio: 4/5; overflow: hidden; }
-.anatomy-cta { margin-top: 32px; }
-.anatomy-cta .btn { display: inline-block; }
+.branding-block h2 { font-size: 30px; margin-bottom: 14px; }
+.branding-block .intro { font-size: 16px; margin-bottom: 18px; }
+.branding-callouts { list-style: none; margin-bottom: 24px; }
+.branding-callouts li { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--border); }
+.branding-callouts li:last-child { border-bottom: none; }
+.branding-callouts .num {
+  background: var(--cool-black); color: var(--white); width: 24px; height: 24px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; flex-shrink: 0;
+}
+.branding-callouts h4 { font-size: 14px; margin-bottom: 1px; }
+.branding-callouts p { font-size: 13px; color: var(--muted); }
+.branding-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.branding-actions .btn { display: inline-block; }
+.text-link { font-size: 13px; color: var(--cool-black); text-decoration: underline; font-weight: 500; }
+.text-link-group { display: flex; gap: 16px; flex-basis: 100%; margin-top: 4px; }
 
-/* Complete the look */
-.complete-look { padding: 80px 0; }
-.cl-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 56px; align-items: flex-start; }
-.cl-hero { aspect-ratio: 3/4; overflow: hidden; }
+/* (f) Complete the look */
+.complete-look { padding: 64px 0; border-top: 1px solid var(--border); }
+.cl-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; align-items: end; }
+.cl-hero { aspect-ratio: 1 / 1; border-radius: 4px; }
 .cl-products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.cl-product { background: var(--light-grey); padding: 16px; text-align: left; }
-.cl-product .image { aspect-ratio: 1 / 1; overflow: hidden; margin-bottom: 12px; }
+.cl-product { background: var(--light-grey); padding: 14px; text-align: left; border-radius: 4px; }
+.cl-product .image { aspect-ratio: 1 / 1; margin-bottom: 10px; border-radius: 2px; }
 .cl-product .brand { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .cl-product .name { font-size: 13px; margin: 4px 0; font-weight: 500; line-height: 1.3; }
 .cl-product .code { font-size: 12px; color: var(--muted); }
 .cl-product .add { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 8px; display: inline-block; text-decoration: underline; color: var(--cool-black); }
 
-/* Find the right cap */
-.find-right-cap { background: var(--light-grey); padding: 80px 0; }
-.comparison-table { background: var(--white); border-radius: 4px; overflow: hidden; margin-top: 32px; }
-.compare-products { display: grid; grid-template-columns: 200px 1fr 1fr 1fr; }
-.compare-products > div { padding: 24px; border-bottom: 1px solid var(--border); }
+/* (g) Find the right cap — compressed */
+.find-right-cap { background: var(--light-grey); padding: 56px 0; }
+.comparison-table { background: var(--white); border-radius: 4px; overflow: hidden; margin-top: 24px; }
+.compare-products { display: grid; grid-template-columns: 180px 1fr 1fr 1fr; }
+.compare-products > div { padding: 18px; border-bottom: 1px solid var(--border); }
 .compare-products > div:first-child { background: var(--light-grey); }
-.compare-products .product-image { aspect-ratio: 1/1; margin-bottom: 12px; overflow: hidden; }
+.compare-products .product-image { aspect-ratio: 1/1; margin-bottom: 10px; border-radius: 2px; }
 .compare-products .product-name { font-size: 13px; font-weight: 700; line-height: 1.2; }
 .compare-products .product-code { font-size: 11px; color: var(--muted); margin-top: 2px; }
 .compare-products .product-tag {
@@ -424,29 +362,25 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
   padding: 3px 8px; border-radius: 100px; margin-top: 6px; font-weight: 500;
 }
 .compare-products .product-tag.this { background: var(--dark-green); }
-.compare-row {
-  display: grid; grid-template-columns: 200px 1fr 1fr 1fr;
-  border-bottom: 1px solid var(--border); font-size: 13px;
-}
-.compare-row > div { padding: 16px 24px; }
+.compare-row { display: grid; grid-template-columns: 180px 1fr 1fr 1fr; border-bottom: 1px solid var(--border); font-size: 13px; }
+.compare-row > div { padding: 11px 18px; }
 .compare-row .label { background: var(--light-grey); font-weight: 500; color: var(--muted); }
 .compare-row.best-for { background: var(--light-green); }
 .compare-row.best-for > div { font-weight: 700; }
 .compare-row.best-for .label { background: var(--light-green); color: var(--cool-black); }
 
-/* More responsible options */
-.responsible { padding: 80px 0; border-top: 1px solid var(--border); }
-.resp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
-.resp-card { display: flex; flex-direction: column; gap: 12px; }
-.resp-card .image { aspect-ratio: 1/1; overflow: hidden; }
+/* (h) Additional responsible options */
+.responsible { padding: 64px 0; border-top: 1px solid var(--border); }
+.resp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 28px; }
+.resp-card { display: flex; flex-direction: column; gap: 10px; }
+.resp-card .image { aspect-ratio: 1/1; border-radius: 4px; }
 .resp-card .code { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; }
 .resp-card .name { font-size: 15px; font-weight: 700; }
 .resp-card .desc { font-size: 13px; color: var(--muted); }
 .resp-card .tag {
   display: inline-block; font-size: 10px; letter-spacing: 0.06em;
   text-transform: uppercase; background: var(--light-green);
-  padding: 3px 8px; border-radius: 100px; font-weight: 500;
-  align-self: flex-start;
+  padding: 3px 8px; border-radius: 100px; font-weight: 500; align-self: flex-start;
 }
 
 /* Footer */
@@ -455,16 +389,17 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 
 /* Mobile */
 @media (max-width: 900px) {
-  .product-top, .branding-block, .anatomy-layout, .cl-layout, .product-details .container, .sec-grid { grid-template-columns: 1fr; gap: 32px; }
+  .product-top, .branding-block, .cl-layout, .sec-grid { grid-template-columns: 1fr; gap: 28px; }
   .impact-row, .editorial-row, .resp-grid { grid-template-columns: 1fr; }
-  .expect-grid { grid-template-columns: 1fr; gap: 32px; }
-  .branding-grid { grid-template-columns: 1fr; }
-  .product-name { font-size: 28px; }
-  .sec-grid { grid-template-rows: auto auto auto; }
-  .sec-large { aspect-ratio: 16/9; grid-row: auto; }
+  .mini-ctas { grid-template-columns: 1fr; }
+  .product-name { font-size: 26px; }
+  .sec-grid { height: auto; grid-template-rows: auto; }
+  .sec-video, .sec-still-a, .sec-still-b { grid-column: 1; grid-row: auto; aspect-ratio: 4 / 3; }
+  .cl-layout { align-items: stretch; }
   .compare-products, .compare-row { grid-template-columns: 1fr; }
   .compare-row .label { padding: 8px 16px; background: var(--light-grey); }
   .compare-products > div:first-child { display: none; }
+  .retail-desc p { font-size: 18px; }
   .container { padding: 0 20px; }
   .nav .links { display: none; }
 }
@@ -473,7 +408,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 <body>
 
 <div class="mockup-banner">
-  <strong>Mockup V3</strong> — B191R PDP — images load from Media Hub; labelled placeholders show behind in case any fail
+  <strong>Mockup V4</strong> — B191R PDP — images load from Media Hub; labelled placeholders show behind in case any fail
 </div>
 
 <nav class="nav">
@@ -489,59 +424,50 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 </nav>
 
 <div class="breadcrumb container">
-  <a href="#">Headwear</a><span>›</span><a href="#">Caps</a><span>›</span><a href="#">Lifestyle</a><span>›</span>B191R Water Resistant Lifestyle Cap
+  <a href="#">Headwear</a><span>&rsaquo;</span><a href="#">Caps</a><span>&rsaquo;</span><a href="#">Lifestyle</a><span>&rsaquo;</span>B191R Water Resistant Lifestyle Cap
 </div>
 
-<!-- TOP PRODUCT AREA -->
+<!-- (a) TOP PRODUCT AREA: gallery + buybox (with accordion) -->
 <section class="container">
   <div class="product-top">
     <div class="gallery">
-      <div class="hero">
-        <div class="ph" data-colour="olive">
-          <div class="ph-label">B191R · Olive Green</div>
-          <div class="ph-sub">Hero front 3/4 shot</div>
-        </div>
-        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/0e346a5f-e070-4fe7-9a70-933b43cbf5f1/Product-medium/B191R-Water-Resistant-Lifetstyle-Cap-Olive-Green-Product-Shot-01.jpg" alt="B191R Olive Green hero" onerror="this.style.display='none'">
+      <div class="g-item">
+        <div class="ph" data-colour="black"><div class="ph-label">Model / ecommerce 1</div><div class="ph-sub">Head crop</div></div>
+        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/2f9ef5a5-a9f6-4ed7-adda-27a0583644b6/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Black-Ecommerce-shot.jpg" alt="B191R on model 1" onerror="this.style.display='none'">
       </div>
-      <div class="thumb">
-        <div class="ph" data-colour="olive">
-          <div class="ph-label">Front profile</div>
-          <div class="ph-sub">Low crown, curved peak</div>
-        </div>
+      <div class="g-item">
+        <div class="ph" data-colour="black"><div class="ph-label">Model / ecommerce 2</div><div class="ph-sub">Head crop</div></div>
+        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/aa2e23d7-333c-4ea8-b9e8-2eb2724e29d7/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Black-Ecommerce-shot.jpg" alt="B191R on model 2" onerror="this.style.display='none'">
+      </div>
+      <div class="g-item">
+        <div class="ph" data-colour="olive"><div class="ph-label">B191R · Olive Green</div><div class="ph-sub">Front 3/4</div></div>
+        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/0e346a5f-e070-4fe7-9a70-933b43cbf5f1/Product-medium/B191R-Water-Resistant-Lifetstyle-Cap-Olive-Green-Product-Shot-01.jpg" alt="Front 3/4" onerror="this.style.display='none'">
+      </div>
+      <div class="g-item">
+        <div class="ph" data-colour="olive"><div class="ph-label">Front profile</div><div class="ph-sub">Low crown, curved peak</div></div>
         <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/85a52ab5-996d-45cc-929a-c22bfb4ccaa9/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Front-On-Shot.jpg" alt="Front profile" onerror="this.style.display='none'">
       </div>
-      <div class="thumb">
-        <div class="ph" data-colour="olive">
-          <div class="ph-label">Rear view</div>
-        </div>
+      <div class="g-item">
+        <div class="ph" data-colour="olive"><div class="ph-label">Rear view</div></div>
         <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/4295b2c2-ffbb-4961-8cb2-c13973278e0b/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Rear.jpg" alt="Rear view" onerror="this.style.display='none'">
       </div>
-      <div class="thumb">
-        <div class="ph" data-colour="olive">
-          <div class="ph-label">Closure detail</div>
-          <div class="ph-sub">Tri-glide buckle</div>
-        </div>
+      <div class="g-item">
+        <div class="ph" data-colour="olive"><div class="ph-label">Closure detail</div><div class="ph-sub">Tri-glide buckle</div></div>
         <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/5d16227e-5348-4c32-898a-0ed084e888a5/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Tri-Glide-Buckle-Detail-Shot.jpg" alt="Tri-glide buckle" onerror="this.style.display='none'">
       </div>
-      <div class="thumb">
-        <div class="ph" data-colour="olive" data-tag="water">
-          <div class="ph-label">Water-resistance demo 1</div>
-          <div class="ph-sub">Beading on fabric</div>
-        </div>
-        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/ad4ac663-f678-4ba8-999e-da5d32aa15c8/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Water-Resistant-Fabric-Detail-Shot-01.jpg" alt="Water-resistance demo 1" onerror="this.style.display='none'">
+      <div class="g-item">
+        <div class="ph" data-colour="olive" data-tag="water"><div class="ph-label">Water-resistance demo 1</div></div>
+        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/ad4ac663-f678-4ba8-999e-da5d32aa15c8/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Water-Resistant-Fabric-Detail-Shot-01.jpg" alt="Water demo 1" onerror="this.style.display='none'">
       </div>
-      <div class="thumb">
-        <div class="ph" data-colour="olive" data-tag="water">
-          <div class="ph-label">Water-resistance demo 2</div>
-          <div class="ph-sub">Beading on fabric</div>
-        </div>
-        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/6f4e2770-3e12-4e0d-adc1-df77071a4fe5/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Water-Resistant-Fabric-Detail-Shot-02.jpg" alt="Water-resistance demo 2" onerror="this.style.display='none'">
+      <div class="g-item">
+        <div class="ph" data-colour="olive" data-tag="water"><div class="ph-label">Water-resistance demo 2</div></div>
+        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/6f4e2770-3e12-4e0d-adc1-df77071a4fe5/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Water-Resistant-Fabric-Detail-Shot-02.jpg" alt="Water demo 2" onerror="this.style.display='none'">
       </div>
     </div>
 
     <aside class="buybox">
       <div>
-        <div class="eyebrow">B191R · SS26 Hero</div>
+        <div class="eyebrow">B191R</div>
         <h1 class="product-name">Water Resistant Lifestyle Cap</h1>
         <div class="lozenges">
           <span class="lozenge primary">Water-Resistant</span>
@@ -549,7 +475,10 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
         </div>
       </div>
 
-      <p class="stock">In stock — ships within 24 hours</p>
+      <div class="stock-line">
+        <span class="dot"></span><span class="qty">501,128</span> in stock
+        <span class="ph-tag">Sample figure</span>
+      </div>
 
       <p class="blurb">Style that outlasts the forecast. Made from GRS-certified recycled polyester with a Non-PFAS water-repellent finish, breathable construction, and a clean low-profile silhouette. The cap that works for the commute, the dog walk, and the weekend.</p>
 
@@ -569,64 +498,19 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
         <div class="row"><span>Construction</span><span>6-panel, semi-structured</span></div>
         <div class="row"><span>Fabric</span><span>Recycled poly · 195gsm · WR</span></div>
         <div class="row"><span>Closure</span><span>Tri-glide buckle</span></div>
-        <div class="row"><span>Sizing</span><span>One size · 57–60 cm</span></div>
-        <div class="decoration">
-          <div class="label">Best for decoration</div>
-          <div class="deco-icons">
-            <span class="deco-icon primary">Transfer print</span>
-            <span class="deco-icon">Embroidery</span>
-            <span class="deco-icon">Appliqué</span>
-          </div>
-        </div>
+        <div class="row"><span>Sizing</span><span>One size · 57–60 cm head circumference</span></div>
+        <a href="#" class="dna-link">View Cap Studio Guides →</a>
       </div>
 
       <div class="ctas">
         <a href="#" class="btn primary">Find Stock</a>
-        <a href="#" class="btn secondary">Access Assets</a>
-        <a href="#" class="btn tertiary">Product Enquiry →</a>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<!-- PRODUCT DETAILS — ACCORDION + CERTS/IMPACT -->
-<section class="product-details">
-  <div class="container">
-    <div>
-      <div class="cert-strip">
-        <div class="cert-logo">GRS</div>
-        <div class="cert-info">
-          <h3>Global Recycled Standard</h3>
-          <p>Certified by Control Union, certificate CU811033. <a href="#">View certification →</a></p>
+        <div class="mini-ctas">
+          <a href="#" class="mini-cta">Spec Sheet</a>
+          <a href="#" class="mini-cta">Digital Product Passport</a>
+          <a href="#" class="mini-cta">Product Enquiry</a>
         </div>
       </div>
 
-      <div class="impact-block">
-        <h3>Sustainability impact <span class="placeholder-tag">Placeholder figures</span></h3>
-        <div class="impact-row">
-          <div class="impact-stat">
-            <div class="number">82L</div>
-            <div class="label">Water saved</div>
-            <div class="vs">vs virgin polyester</div>
-          </div>
-          <div class="impact-stat">
-            <div class="number">60%</div>
-            <div class="label">Less energy</div>
-            <div class="vs">vs virgin polyester</div>
-          </div>
-          <div class="impact-stat">
-            <div class="number">53%</div>
-            <div class="label">Less CO₂</div>
-            <div class="vs">vs virgin polyester</div>
-          </div>
-        </div>
-        <p class="impact-footnote">Equivalent to approximately <strong>3 plastic bottles</strong> diverted from landfill per cap.</p>
-        <p class="impact-disclaimer">Impact figures based on industry-standard comparisons of recycled vs virgin polyester. Validated against GRS chain-of-custody certificate CU811033.</p>
-      </div>
-    </div>
-
-    <div>
-      <h3 style="font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;">Product details</h3>
       <div class="accordion">
         <div class="accordion-row">
           <button class="accordion-trigger open" type="button">Specifications <span class="chevron"></span></button>
@@ -649,8 +533,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
               <tr><td>Carton weight</td><td>12.6 kg</td></tr>
               <tr><td>Carton dimensions</td><td>40 × 60 × 60 cm</td></tr>
             </table>
-
-            <h4 style="font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin:16px 0 8px;">SKU & colour reference</h4>
+            <h4 style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin:12px 0 6px;">SKU &amp; colour reference</h4>
             <table class="sku-table">
               <thead><tr><th>Colour</th><th>SKU</th><th>EAN</th><th>Pantone</th></tr></thead>
               <tbody>
@@ -660,237 +543,171 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
                 <tr><td>White</td><td>B191RWHI</td><td>5056514015271</td><td>N/A</td></tr>
               </tbody>
             </table>
+            <!-- FLAG (future): production build should show only the selected colourway's row, not all four. -->
+            <p class="accordion-note">Production build to show only the selected colourway's row.</p>
           </div>
         </div>
 
         <div class="accordion-row">
           <button class="accordion-trigger" type="button">What to expect <span class="chevron"></span></button>
           <div class="accordion-content">
-            <p style="font-size:14px; color:var(--muted); margin-bottom:16px;">Anyone buying a cap labelled water-resistant deserves a straight answer to "how water-resistant?" Here's ours.</p>
             <div class="expect-inline">
               <div>
-                <h4>What the finish does</h4>
-                <p>The B191R has a Non-PFAS, eco-friendly water-repellent finish. It resists light showers, brief splashes, and unexpected weather.</p>
+                <h4>How water-resistant it is</h4>
+                <p>The Non-PFAS finish sheds light showers and brief splashes. It is not seam-taped and not waterproof — heavy or prolonged rain will get through.</p>
               </div>
               <div>
-                <h4>What it doesn't do</h4>
-                <p>The fabric is breathable, which means the pores stay open. Under prolonged or heavy rain, water will eventually pass through both fabric and seams. The cap isn't seam-taped. It's not waterproof.</p>
+                <h4>Colour &amp; washing</h4>
+                <p>Slight colour variation between batches is normal. Wash darker shades separately for the first few washes, as some excess dye can release.</p>
               </div>
               <div>
-                <h4>Why Non-PFAS matters</h4>
-                <p>The treatment uses Non-PFAS chemistry, ahead of the France ban on PFAS-based treatments in textiles from 1 January 2026.</p>
+                <h4>Caring for the finish</h4>
+                <p>Avoid fabric softeners — they reduce water repellency. The finish softens gradually with washing and wear.</p>
+              </div>
+              <div>
+                <h4>One-size fit</h4>
+                <p>Unisex, 57–60 cm with an adjustable buckle. It suits most adults but isn't a guaranteed fit for every head.</p>
               </div>
             </div>
           </div>
         </div>
 
         <div class="accordion-row">
-          <button class="accordion-trigger" type="button">Composition & Care <span class="chevron"></span></button>
+          <button class="accordion-trigger" type="button">Composition &amp; Care <span class="chevron"></span></button>
           <div class="accordion-content">
-            <p><strong>Composition:</strong> 100% Recycled Polyester (195gsm) with Non-PFAS water-resistant finish.</p>
-            <p><strong>Care:</strong></p>
-            <ul>
-              <li>Machine wash at 30°C</li>
-              <li>Do not bleach</li>
-              <li>Low tumble dry</li>
-              <li>Cool iron</li>
-              <li>Do not dry clean</li>
-              <li><strong>Avoid fabric softeners</strong> — they will reduce the water-resistant finish</li>
-            </ul>
+            <div class="care-row">
+              <div class="care-icon"><div class="glyph">30°</div><div class="cap">Wash 30°</div></div>
+              <div class="care-icon no"><div class="glyph">CL</div><div class="cap">No bleach</div></div>
+              <div class="care-icon"><div class="glyph">○</div><div class="cap">Low tumble</div></div>
+              <div class="care-icon"><div class="glyph">⌐</div><div class="cap">Cool iron</div></div>
+              <div class="care-icon no"><div class="glyph">P</div><div class="cap">No dry clean</div></div>
+              <div class="care-icon no"><div class="glyph">≈</div><div class="cap">No softener</div></div>
+            </div>
+            <p class="care-caption">100% recycled polyester (195gsm) with a Non-PFAS water-resistant finish.</p>
           </div>
         </div>
 
         <div class="accordion-row">
-          <button class="accordion-trigger" type="button">Spec sheet <span class="chevron"></span></button>
+          <button class="accordion-trigger" type="button">Impact <span class="chevron"></span></button>
           <div class="accordion-content">
-            <p>Full product specification, including line drawing, decoration zones, dimensions, and all colourway references.</p>
-            <a href="#" class="button-link">Download spec sheet (PDF) ↓</a>
-          </div>
-        </div>
-
-        <div class="accordion-row">
-          <button class="accordion-trigger" type="button">Digital Product Passport <span class="chevron"></span></button>
-          <div class="accordion-content">
-            <p>Traceability from raw material through to finished product, validated against GRS chain-of-custody.</p>
-            <a href="#" class="button-link">View Digital Product Passport →</a>
-          </div>
-        </div>
-
-        <div class="accordion-row">
-          <button class="accordion-trigger" type="button">Certifications <span class="chevron"></span></button>
-          <div class="accordion-content">
-            <p><strong>GRS — Global Recycled Standard</strong></p>
-            <p>The Global Recycled Standard is an international, voluntary standard that sets requirements for third-party certification of recycled content, chain of custody, social and environmental practices, and chemical restrictions.</p>
-            <p>The B191R is certified by Control Union, certificate CU811033.</p>
-            <a href="#" class="button-link">View certification details →</a>
+            <div class="impact-row">
+              <div class="impact-stat"><div class="number">82L <span class="placeholder-tag">PH</span></div><div class="label">Water saved</div><div class="vs">vs virgin polyester</div></div>
+              <div class="impact-stat"><div class="number">60% <span class="placeholder-tag">PH</span></div><div class="label">Less energy</div><div class="vs">vs virgin polyester</div></div>
+              <div class="impact-stat"><div class="number">53% <span class="placeholder-tag">PH</span></div><div class="label">Less CO₂</div><div class="vs">vs virgin polyester</div></div>
+            </div>
+            <p class="impact-footnote">Made from 100% post-consumer recycled polyester — equivalent to approximately <strong>3 plastic bottles <span class="placeholder-tag">PH</span></strong> diverted from landfill per cap.</p>
+            <p class="impact-disclaimer">All figures vs virgin polyester. Validated against GRS chain-of-custody certificate CU811033.</p>
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   </div>
 </section>
 
-<!-- WHAT TO EXPECT — moved into accordion above -->
-
-<!-- FABRIC & CONSTRUCTION -->
-<section class="fabric-construction">
+<!-- (b) 3 TECHNICAL FEATURES — first below the fold, tonally linked -->
+<section class="feature-row-section">
   <div class="container">
-    <div class="retail-desc">
-      <h2>Fabric & Construction</h2>
-      <p>The B191R Water Resistant Lifestyle Cap combines everyday style with performance-led function. Made from 100% GRS-certified recycled polyester, it features a water-resistant finish and breathable construction. A curved peak and semi-structured panels give it a clean, modern look, while its unisex design and athleisure influence make it a versatile choice for any wardrobe. Seasonless and sustainable, it's built for life outdoors.</p>
-    </div>
-  </div>
-</section>
-
-<!-- BUILT FOR BRANDING -->
-<section class="container">
-  <div class="branding-block">
-    <div class="image">
-      <div class="ph" data-colour="olive">
-        <div class="ph-label">Decoration surface</div>
-        <div class="ph-sub">Front panel close-crop or decorated sample</div>
+    <div class="editorial-row">
+      <div class="ed-tile">
+        <div class="image">
+          <div class="ph" data-colour="navy" data-tag="water"><div class="ph-label">Water beading macro</div></div>
+          <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/d8ad79a5-0efd-4fdb-be0e-9dfbd816deae/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-French-Navy-Water-Resistant-Fabric-Detail-Shot-02.jpg" alt="Water beading" onerror="this.style.display='none'">
+        </div>
+        <h3>Handles a shower, not a storm.</h3>
+        <p>Water-resistant finish sheds light rain. Built for the in-between weather.</p>
       </div>
-      <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/85a52ab5-996d-45cc-929a-c22bfb4ccaa9/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Front-On-Shot.jpg" alt="B191R front panel for branding" onerror="this.style.display='none'">
-    </div>
-    <div>
-      <h2>Built for branding</h2>
-      <p>Curved peak and semi-structured front give a stable surface across the cap, suited to transfer print, embroidery, and appliqué. Four core colourways (Black, French Navy, Olive Green, White) provide a versatile base for retail collections, branded gifting, and promotional ranges.</p>
-      <div class="branding-methods">
-        <span class="deco-icon primary">Transfer print</span>
-        <span class="deco-icon">Embroidery</span>
-        <span class="deco-icon">Appliqué</span>
+      <div class="ed-tile">
+        <div class="image">
+          <div class="ph" data-colour="navy"><div class="ph-label">Eyelets &amp; weave</div><div class="ph-sub">Ventilation detail</div></div>
+          <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/ed9241ee-e6e0-4667-a6b1-19e616da0cbf/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-French-Navy-Tri-Glide-Buckle-Detail-Shot.jpg" alt="Ventilation detail" onerror="this.style.display='none'">
+        </div>
+        <h3>Keeps its cool.</h3>
+        <p>Stitched ventilation eyelets and breathable construction for airflow on the move.</p>
       </div>
-      <div class="branding-grid">
-        <a href="#" class="branding-cta">
-          <span class="title">View line drawing <span class="arrow">→</span></span>
-          <span class="desc">Understand the shape</span>
-        </a>
-        <a href="#" class="branding-cta">
-          <span class="title">View decoration zones <span class="arrow">→</span></span>
-          <span class="desc">Where to place a logo</span>
-        </a>
-        <a href="#" class="branding-cta">
-          <span class="title">Decoration Guide <span class="arrow">→</span></span>
-          <span class="desc">Method-by-method tips</span>
-        </a>
-        <a href="#" class="branding-cta">
-          <span class="title">Virtual Studio <span class="arrow">→</span></span>
-          <span class="desc">Try a design now</span>
-        </a>
+      <div class="ed-tile">
+        <div class="image">
+          <div class="ph" data-colour="grey"><div class="ph-label">rPET context shot</div><div class="ph-sub">Outstanding asset</div></div>
+          <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/ad4ac663-f678-4ba8-999e-da5d32aa15c8/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Water-Resistant-Fabric-Detail-Shot-01.jpg" alt="Recycled fabric texture" onerror="this.style.display='none'">
+        </div>
+        <h3>Made from recycled bottles.</h3>
+        <p>100% GRS-certified recycled polyester, traceable to source (CU811033).</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EDITORIAL ROW -->
-<section class="section container">
-  <div class="editorial-row">
-    <div class="ed-tile">
-      <div class="image">
-        <div class="ph" data-colour="navy" data-tag="water">
-          <div class="ph-label">Water beading macro</div>
-        </div>
-        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/d8ad79a5-0efd-4fdb-be0e-9dfbd816deae/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-French-Navy-Water-Resistant-Fabric-Detail-Shot-02.jpg" alt="Water beading on French Navy" onerror="this.style.display='none'">
-      </div>
-      <h3>Handles a shower, not a storm.</h3>
-      <p>Water-resistant finish sheds light rain. Built for the in-between weather.</p>
-    </div>
-    <div class="ed-tile">
-      <div class="image">
-        <div class="ph" data-colour="navy">
-          <div class="ph-label">Eyelets & weave</div>
-          <div class="ph-sub">Close-crop ventilation detail</div>
-        </div>
-        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/ed9241ee-e6e0-4667-a6b1-19e616da0cbf/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-French-Navy-Tri-Glide-Buckle-Detail-Shot.jpg" alt="French Navy detail" onerror="this.style.display='none'">
-      </div>
-      <h3>Keeps its cool.</h3>
-      <p>Stitched ventilation eyelets and breathable construction for airflow on the move.</p>
-    </div>
-    <div class="ed-tile">
-      <div class="image">
-        <div class="ph" data-colour="grey">
-          <div class="ph-label">rPET context shot</div>
-          <div class="ph-sub">Outstanding asset</div>
-        </div>
-        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/ad4ac663-f678-4ba8-999e-da5d32aa15c8/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Water-Resistant-Fabric-Detail-Shot-01.jpg" alt="Recycled fabric texture" onerror="this.style.display='none'">
-      </div>
-      <h3>Made from recycled bottles.</h3>
-      <p>100% GRS-certified recycled polyester, traceable to source (CU811033).</p>
-    </div>
+<!-- (c) RETAIL DESCRIPTION (SEO heading) -->
+<section class="retail-desc">
+  <div class="container">
+    <h2>B191R Water Resistant Lifestyle Cap</h2>
+    <p>The B191R Water Resistant Lifestyle Cap combines everyday style with performance-led function. Made from 100% GRS-certified recycled polyester, it features a water-resistant finish and breathable construction. A curved peak and semi-structured panels give it a clean, modern look, while its unisex design and athleisure influence make it a versatile choice for any wardrobe. Seasonless and sustainable, it's built for life outdoors.</p>
   </div>
 </section>
 
-<!-- SECONDARY EDITORIAL -->
+<!-- (d) MADE TO BE WORN -->
 <section class="secondary-ed">
   <div class="container">
     <h2>Made to be worn.</h2>
     <p class="lede">Low profile fit, clean lines, modern silhouette. A lifestyle cap, designed for everyday wear.</p>
     <div class="sec-grid">
-      <div class="sec-large">
-        <div class="ph" data-type="video">
-          <div class="ph-label">Product video</div>
-          <div class="ph-sub">B191R Olive Green — autoplay loop</div>
-        </div>
+      <div class="sec-cell sec-video">
+        <div class="ph" data-type="video"><div class="ph-label">Product video</div><div class="ph-sub">B191R Olive Green — autoplay loop</div></div>
         <video class="real-video" autoplay muted loop playsinline poster="https://mediahub.beechfieldbrands.com/asset/7f12a5d8-a051-4383-b3db-b5fefc1cee72/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Lifestyle-Shot.jpg" onerror="this.style.display='none'">
           <source src="https://mediahub.beechfieldbrands.com/asset/e9891ca7-b2be-4dd0-aabf-8e85e250cfb0/mp4/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Product-Video.mp4" type="video/mp4">
         </video>
       </div>
-      <div class="sec-small">
-        <div class="ph" data-type="lifestyle">
-          <div class="ph-label">Lifestyle shot 1</div>
-        </div>
-        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/7f12a5d8-a051-4383-b3db-b5fefc1cee72/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Lifestyle-Shot.jpg" alt="Lifestyle shot 1" onerror="this.style.display='none'">
+      <div class="sec-cell sec-still-a">
+        <div class="ph" data-type="lifestyle"><div class="ph-label">Lifestyle shot 1</div></div>
+        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/7f12a5d8-a051-4383-b3db-b5fefc1cee72/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Lifestyle-Shot.jpg" alt="Lifestyle 1" onerror="this.style.display='none'">
       </div>
-      <div class="sec-small">
-        <div class="ph" data-type="lifestyle">
-          <div class="ph-label">Lifestyle shot 2</div>
-        </div>
-        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/cfdb3db8-a4b2-4f6c-ac4c-8e15175d3e00/Product-medium/beechfield_b191r_olive-green_lifestyle_8327.jpg" alt="Lifestyle shot 2" onerror="this.style.display='none'">
+      <div class="sec-cell sec-still-b">
+        <div class="ph" data-type="lifestyle"><div class="ph-label">Lifestyle shot 2</div></div>
+        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/cfdb3db8-a4b2-4f6c-ac4c-8e15175d3e00/Product-medium/beechfield_b191r_olive-green_lifestyle_8327.jpg" alt="Lifestyle 2" onerror="this.style.display='none'">
       </div>
     </div>
   </div>
 </section>
 
-<!-- ANATOMY -->
-<section class="anatomy">
-  <div class="container">
-    <div class="anatomy-layout">
-      <div class="anatomy-image">
-        <div class="ph" data-colour="olive">
-          <div class="ph-label">Anatomy hero</div>
-          <div class="ph-sub">Side or 3/4 with callout lines</div>
-        </div>
-        <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/0e346a5f-e070-4fe7-9a70-933b43cbf5f1/Product-medium/B191R-Water-Resistant-Lifetstyle-Cap-Olive-Green-Product-Shot-01.jpg" alt="B191R anatomy" onerror="this.style.display='none'">
-      </div>
-      <div>
-        <h2>Anatomy of the B191R</h2>
-        <ul class="anatomy-callouts">
-          <li><span class="callout-num">1</span><div class="callout-content"><h4>Curved peak</h4><p>Pre-curved with stitched detailing</p></div></li>
-          <li><span class="callout-num">2</span><div class="callout-content"><h4>Semi-structured front</h4><p>Clean shape without buckram stiffness</p></div></li>
-          <li><span class="callout-num">3</span><div class="callout-content"><h4>Water-resistant fabric</h4><p>GRS-certified recycled polyester with Non-PFAS finish</p></div></li>
-          <li><span class="callout-num">4</span><div class="callout-content"><h4>Stitched ventilation eyelets</h4><p>Paired for airflow</p></div></li>
-          <li><span class="callout-num">5</span><div class="callout-content"><h4>Tri-glide buckle closure</h4><p>Self-fabric strap, secure adjustment</p></div></li>
-          <li><span class="callout-num">6</span><div class="callout-content"><h4>TearAway label</h4><p>Clean rebranding for decorators</p></div></li>
-        </ul>
-        <div class="anatomy-cta">
-          <a href="#" class="btn secondary">Download spec sheet ↓</a>
+<!-- (e) BUILT FOR BRANDING + ANATOMY (merged) -->
+<section class="container">
+  <div class="branding-block">
+    <div class="branding-figure">
+      <div class="ph" data-colour="olive"><div class="ph-label">Decoration surface</div><div class="ph-sub">Front-on with decoration callouts</div></div>
+      <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/85a52ab5-996d-45cc-929a-c22bfb4ccaa9/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Front-On-Shot.jpg" alt="B191R decoration surface" onerror="this.style.display='none'">
+      <span class="marker" style="top:30%; left:48%;">2</span>
+      <span class="marker" style="top:15%; left:30%;">3</span>
+      <span class="marker" style="top:58%; left:62%;">4</span>
+      <span class="marker" style="top:78%; left:24%;">1</span>
+    </div>
+    <div>
+      <h2>Built for branding</h2>
+      <p class="intro">A stable surface across the cap and a clean rebranding label make the B191R a strong base for retail collections, branded gifting, and promotional ranges — suited to transfer print, embroidery, and appliqué.</p>
+      <ul class="branding-callouts">
+        <li><span class="num">1</span><div><h4>TearAway® label</h4><p>Removes cleanly for rebranding without damaging the cap.</p></div></li>
+        <li><span class="num">2</span><div><h4>Front panel</h4><p>Primary decoration zone — flat, generous area for logos.</p></div></li>
+        <li><span class="num">3</span><div><h4>Semi-structured / buckram front</h4><p>Keeps shape for a stable, even decoration surface.</p></div></li>
+        <li><span class="num">4</span><div><h4>Curved peak</h4><p>Stable stitched surface for peak branding.</p></div></li>
+      </ul>
+      <div class="branding-actions">
+        <a href="#" class="btn primary">Decoration Guide</a>
+        <a href="#" class="btn secondary">Decorator Studio</a>
+        <div class="text-link-group">
+          <a href="#" class="text-link">View line drawing →</a>
+          <a href="#" class="text-link">View decoration zones →</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMPLETE THE LOOK -->
+<!-- (f) COMPLETE THE LOOK -->
 <section class="complete-look">
   <div class="container">
     <h2>Complete the look</h2>
     <p class="lede">Pair the B191R with bags from across Beechfield Brands. Same lifestyle, same recycled story.</p>
     <div class="cl-layout">
       <div class="cl-hero">
-        <div class="ph" data-type="lifestyle">
-          <div class="ph-label">Lookbook hero</div>
-          <div class="ph-sub">Cap + bags styled together</div>
-        </div>
+        <div class="ph" data-type="lifestyle"><div class="ph-label">Lookbook hero</div><div class="ph-sub">Cap + bags styled together</div></div>
         <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/9fc2615b-6f01-4885-8950-7a60fce94ee3/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Lifestyle-Shot.jpg" alt="Lookbook" onerror="this.style.display='none'">
       </div>
       <div class="cl-products">
@@ -929,12 +746,10 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
   </div>
 </section>
 
-<!-- FIND THE RIGHT CAP -->
+<!-- (g) FIND THE RIGHT CAP -->
 <section class="find-right-cap">
   <div class="container">
     <h2>Find the right cap for the conditions</h2>
-    <p class="lede">Three caps for three different conditions. The B191R handles everyday weather. The B187 is built for serious rain. The B196 is the breathable warm-weather option.</p>
-
     <div class="comparison-table">
       <div class="compare-products">
         <div></div>
@@ -945,7 +760,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
           </div>
           <div class="product-name">Water Resistant Lifestyle Cap</div>
           <div class="product-code">B191R</div>
-          <div class="product-tag this">This product</div>
+          <div class="product-tag this">For mixed conditions</div>
         </div>
         <div>
           <div class="product-image">
@@ -966,7 +781,6 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
           <div class="product-tag">For warm weather</div>
         </div>
       </div>
-
       <div class="compare-row best-for">
         <div class="label">Best for</div>
         <div>Showers and mixed conditions</div>
@@ -985,10 +799,10 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
   </div>
 </section>
 
-<!-- MORE RESPONSIBLE OPTIONS -->
+<!-- (h) ADDITIONAL RESPONSIBLE OPTIONS -->
 <section class="responsible">
   <div class="container">
-    <h2>More responsible options</h2>
+    <h2>Additional responsible options</h2>
     <p class="lede">GRS-certified recycled caps from across the Beechfield range.</p>
     <div class="resp-grid">
       <div class="resp-card">
@@ -1042,10 +856,8 @@ document.querySelectorAll('.swatch').forEach(s => {
 // Accordion behaviour
 document.querySelectorAll('.accordion-trigger').forEach(t => {
   t.addEventListener('click', () => {
-    const wasOpen = t.classList.contains('open');
     t.classList.toggle('open');
-    const content = t.nextElementSibling;
-    content.classList.toggle('open');
+    t.nextElementSibling.classList.toggle('open');
   });
 });
 </script>
