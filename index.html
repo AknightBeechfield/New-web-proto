@@ -5,32 +5,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>B191R Water Resistant Lifestyle Cap — Beechfield (Mockup V4)</title>
 <link rel="stylesheet" href="https://use.typekit.net/sep5cxb.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap">
 <style>
 :root {
+  /* Brand system */
   --cool-black: #0e1520;
-  --white: #ffffff;
-  --light-grey: #f5f0eb;
-  --warm-grey: #ece6df;
-  --border: #e5dfd7;
-  --peach: #ffb58d;
-  --dark-green: #1f614d;
-  --blue: #594fdf;
-  --light-green: #bde4ba;
-  --red: #fc614d;
+  --white: #FFFFFF;
+  --grey: #EAEAEA;
+  --navy: #1a2942;            /* accent only — sparing use */
+  /* UI neutrals */
+  --border: #dcdcdc;
   --muted: #6b6b6b;
+  /* dev-only placeholder indicator (not a brand surface) */
+  --peach: #ffb58d;
+  /* legacy aliases mapped onto the restrained palette */
+  --light-grey: var(--grey);
+  --warm-grey: var(--grey);
+  --dark-green: var(--cool-black);
+  --light-green: var(--grey);
+  --blue: var(--navy);
+  --red: var(--cool-black);
+  /* font stacks */
+  --font-sans: "helvetica-neue-lt-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-button: "baskerville", "Libre Baskerville", Baskerville, "Baskerville Old Face", Georgia, serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: "helvetica-neue-lt-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   font-weight: 300;
+  font-size: 16px;
   color: var(--cool-black);
   background: var(--white);
-  line-height: 1.55;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
-.serif { font-family: "source-serif-pro", Georgia, serif; font-weight: 400; }
+h1, h2, h3, h4, h5 { font-family: var(--font-sans); font-weight: 500; letter-spacing: -0.01em; line-height: 1.1; }
+h1 { font-size: 64px; }
+h2 { font-size: 48px; }
+h3 { font-size: 36px; }
+h4, h5 { font-size: 24px; }
 .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
 /* Mockup banner */
@@ -132,7 +147,8 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 /* Buy box */
 .buybox { display: flex; flex-direction: column; gap: 16px; }
 .eyebrow { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
-.product-name { font-size: 32px; margin-top: 4px; }
+/* Buybox title kept below the 64px brand H1 to preserve above-the-fold CTAs */
+.product-name { font-size: 36px; margin-top: 4px; }
 .lozenges { display: flex; gap: 8px; margin-top: 10px; }
 .lozenge {
   font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
@@ -161,7 +177,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
   width: 40px; height: 40px; border-radius: 50%;
   border: 2px solid var(--border); cursor: pointer; position: relative;
 }
-.swatch.active { border-color: var(--cool-black); }
+.swatch.active { border-color: var(--navy); }
 .swatch[data-colour="Black"] { background: #000; }
 .swatch[data-colour="French Navy"] { background: #002e56; }
 .swatch[data-colour="Olive Green"] { background: #524f26; }
@@ -186,12 +202,12 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 .ctas { display: flex; flex-direction: column; gap: 10px; }
 .btn {
   display: block; padding: 13px 20px; text-align: center;
-  font-size: 14px; font-weight: 500; letter-spacing: 0.04em;
-  text-transform: uppercase; cursor: pointer; border-radius: 2px;
+  font-family: var(--font-button); font-size: 16px; font-weight: 400;
+  cursor: pointer; border-radius: 2px;
   text-decoration: none; transition: all 0.15s ease;
 }
-.btn.primary { background: var(--cool-black); color: var(--white); border: 1px solid var(--cool-black); }
-.btn.primary:hover { background: var(--dark-green); border-color: var(--dark-green); }
+.btn.primary { background: var(--cool-black); color: var(--white); border: none; }
+.btn.primary:hover { background: var(--navy); }
 .btn.secondary { background: var(--white); color: var(--cool-black); border: 1px solid var(--cool-black); }
 .btn.secondary:hover { background: var(--cool-black); color: var(--white); }
 
@@ -245,7 +261,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 /* What to expect sub-blocks */
 .expect-inline { display: flex; flex-direction: column; gap: 12px; }
 .expect-inline > div { padding-left: 12px; border-left: 2px solid var(--dark-green); }
-.expect-inline h4 { font-family: "source-serif-pro", Georgia, serif; font-weight: 400; font-size: 15px; margin-bottom: 3px; }
+.expect-inline h4 { font-family: var(--font-sans); font-weight: 500; font-size: 16px; margin-bottom: 3px; }
 .expect-inline p { font-size: 13px; line-height: 1.5; color: var(--cool-black); margin: 0; }
 /* Composition & care icon row */
 .care-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
@@ -264,8 +280,8 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 .care-composition { font-size: 13px; color: var(--cool-black); margin-bottom: 12px; }
 /* Impact stats */
 .impact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
-.impact-stat { background: var(--light-grey); padding: 16px 10px; border-radius: 4px; text-align: center; border-top: 3px solid var(--dark-green); }
-.impact-stat .number { font-size: 24px; font-weight: 700; color: var(--dark-green); font-family: "source-serif-pro", Georgia, serif; line-height: 1; }
+.impact-stat { background: var(--grey); padding: 16px 10px; border-radius: 4px; text-align: center; border-top: 3px solid var(--cool-black); }
+.impact-stat .number { font-size: 24px; font-weight: 500; color: var(--cool-black); font-family: var(--font-sans); line-height: 1; }
 .impact-stat .label { font-size: 11px; color: var(--cool-black); margin-top: 6px; font-weight: 500; }
 .impact-stat .vs { font-size: 9px; color: var(--muted); margin-top: 2px; }
 .impact-footnote { font-size: 13px; color: var(--cool-black); }
@@ -286,14 +302,9 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 .ed-tile h3 { font-size: 18px; margin-bottom: 4px; }
 .ed-tile p { font-size: 14px; color: var(--muted); }
 
-/* (c) Retail description — own brand colour block, full-width body */
-.retail-desc { background: var(--light-green); padding: 64px 0; }
-.retail-desc h2 { font-size: 30px; margin-bottom: 20px; }
-.retail-desc p { font-family: "source-serif-pro", Georgia, serif; font-size: 21px; line-height: 1.6; max-width: none; }
-
-/* (d) Made to be worn */
+/* Made to be worn */
 .secondary-ed { background: var(--light-grey); padding: 72px 0; }
-.secondary-ed h2 { font-family: "source-serif-pro", Georgia, serif; font-weight: 400; font-size: 34px; margin-bottom: 10px; }
+.secondary-ed h2 { margin-bottom: 10px; }
 .secondary-ed .lede { font-size: 16px; margin-bottom: 32px; max-width: none; color: var(--cool-black); }
 .sec-grid {
   display: grid; grid-template-columns: 2fr 1fr 1fr;
@@ -314,7 +325,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
   display: flex; align-items: center; justify-content: center;
   font-size: 12px; font-weight: 700; box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
-.branding-block h2 { font-size: 30px; margin-bottom: 14px; }
+.branding-block h2 { margin-bottom: 14px; }
 .branding-block .intro { font-size: 16px; margin-bottom: 18px; }
 .branding-callouts { list-style: none; margin-bottom: 24px; }
 .branding-callouts li { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--border); }
@@ -361,9 +372,9 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 .compare-row { display: grid; grid-template-columns: 180px 1fr 1fr 1fr; border-bottom: 1px solid var(--border); font-size: 13px; }
 .compare-row > div { padding: 11px 18px; }
 .compare-row .label { background: var(--light-grey); font-weight: 500; color: var(--muted); }
-.compare-row.best-for { background: var(--light-green); }
-.compare-row.best-for > div { font-weight: 700; }
-.compare-row.best-for .label { background: var(--light-green); color: var(--cool-black); }
+.compare-row.best-for { background: var(--navy); }
+.compare-row.best-for > div { font-weight: 700; color: var(--white); }
+.compare-row.best-for .label { background: var(--navy); color: var(--white); }
 
 /* (h) Additional responsible options */
 .responsible { padding: 64px 0; border-top: 1px solid var(--border); }
@@ -395,7 +406,6 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
   .compare-products, .compare-row { grid-template-columns: 1fr; }
   .compare-row .label { padding: 8px 16px; background: var(--light-grey); }
   .compare-products > div:first-child { display: none; }
-  .retail-desc p { font-size: 18px; }
   .container { padding: 0 20px; }
   .nav .links { display: none; }
 }
