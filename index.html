@@ -195,17 +195,9 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 .btn.secondary { background: var(--white); color: var(--cool-black); border: 1px solid var(--cool-black); }
 .btn.secondary:hover { background: var(--cool-black); color: var(--white); }
 
-/* Mini CTA row */
-.mini-ctas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.mini-cta {
-  border: 1px solid var(--border); background: var(--white);
-  border-radius: 2px; padding: 10px 8px; text-align: center;
-  font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
-  color: var(--cool-black); text-decoration: none; line-height: 1.25;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.15s ease;
-}
-.mini-cta:hover { border-color: var(--cool-black); background: var(--light-grey); }
+/* Mini text links (tertiary) */
+.mini-links { display: flex; flex-wrap: wrap; gap: 16px; padding-top: 2px; }
+.mini-link { font-size: 14px; color: var(--cool-black); text-decoration: underline; }
 
 /* Accordion (in buybox) */
 .accordion { background: var(--white); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
@@ -266,7 +258,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
   width: 130%; height: 1.5px; background: var(--red); transform: rotate(-45deg);
 }
 .care-icon .cap { font-size: 9px; color: var(--muted); line-height: 1.2; }
-.care-caption { font-size: 12px; color: var(--cool-black); }
+.care-composition { font-size: 13px; color: var(--cool-black); margin-bottom: 12px; }
 /* Impact stats */
 .impact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
 .impact-stat { background: var(--light-grey); padding: 16px 10px; border-radius: 4px; text-align: center; border-top: 3px solid var(--dark-green); }
@@ -504,10 +496,11 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 
       <div class="ctas">
         <a href="#" class="btn primary">Find Stock</a>
-        <div class="mini-ctas">
-          <a href="#" class="mini-cta">Spec Sheet</a>
-          <a href="#" class="mini-cta">Digital Product Passport</a>
-          <a href="#" class="mini-cta">Product Enquiry</a>
+        <a href="#" class="btn secondary">Access Assets</a>
+        <div class="mini-links">
+          <a href="#" class="mini-link">Spec Sheet</a>
+          <a href="#" class="mini-link">Digital Product Passport</a>
+          <a href="#" class="mini-link">Product Enquiry</a>
         </div>
       </div>
 
@@ -575,6 +568,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
         <div class="accordion-row">
           <button class="accordion-trigger" type="button">Composition &amp; Care <span class="chevron"></span></button>
           <div class="accordion-content">
+            <p class="care-composition"><strong>Composition:</strong> 100% Recycled Polyester (195gsm) with Non-PFAS water-resistant finish.</p>
             <div class="care-row">
               <div class="care-icon"><div class="glyph">30°</div><div class="cap">Wash 30°</div></div>
               <div class="care-icon no"><div class="glyph">CL</div><div class="cap">No bleach</div></div>
@@ -583,7 +577,6 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
               <div class="care-icon no"><div class="glyph">P</div><div class="cap">No dry clean</div></div>
               <div class="care-icon no"><div class="glyph">≈</div><div class="cap">No softener</div></div>
             </div>
-            <p class="care-caption">100% recycled polyester (195gsm) with a Non-PFAS water-resistant finish.</p>
           </div>
         </div>
 
