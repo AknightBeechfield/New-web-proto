@@ -233,6 +233,9 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 .accordion-content .sku-table th, .accordion-content .sku-table td { padding: 7px; text-align: left; border-bottom: 1px solid var(--border); }
 .accordion-content .sku-table th { background: var(--light-grey); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
 .accordion-note { font-size: 11px; color: var(--muted); font-style: italic; margin-top: 8px; }
+.spec-subhead { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 14px 0 6px; }
+.spec-subhead.first { margin-top: 0; }
+.accordion-link { display: inline-block; margin-top: 4px; font-size: 13px; color: var(--cool-black); text-decoration: underline; font-weight: 500; }
 .placeholder-tag {
   display: inline-block; background: var(--peach); color: var(--cool-black);
   font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase;
@@ -508,6 +511,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
         <div class="accordion-row">
           <button class="accordion-trigger open" type="button">Specifications <span class="chevron"></span></button>
           <div class="accordion-content open">
+            <h4 class="spec-subhead first">Construction</h4>
             <table class="spec-table">
               <tr><td>Fabric composition</td><td>100% Recycled Polyester</td></tr>
               <tr><td>Fabric weight</td><td>195 gsm</td></tr>
@@ -517,16 +521,22 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
               <tr><td>Ventilation</td><td>Stitched eyelets</td></tr>
               <tr><td>Sweatband</td><td>To confirm <span class="placeholder-tag">Placeholder</span></td></tr>
               <tr><td>Label</td><td>TearAway</td></tr>
+            </table>
+            <h4 class="spec-subhead">Sizing &amp; origin</h4>
+            <table class="spec-table">
               <tr><td>Sizing</td><td>One size, 57–60 cm</td></tr>
               <tr><td>Gender</td><td>Adult, unisex</td></tr>
               <tr><td>Country of origin</td><td>China (CN)</td></tr>
               <tr><td>Commodity code (UK)</td><td>6505003000</td></tr>
+            </table>
+            <h4 class="spec-subhead">Logistics</h4>
+            <table class="spec-table">
               <tr><td>Unit weight</td><td>74 g</td></tr>
               <tr><td>Carton quantity (MoQ)</td><td>144 units</td></tr>
               <tr><td>Carton weight</td><td>12.6 kg</td></tr>
               <tr><td>Carton dimensions</td><td>40 × 60 × 60 cm</td></tr>
             </table>
-            <h4 style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin:12px 0 6px;">SKU &amp; colour reference</h4>
+            <h4 class="spec-subhead">SKU &amp; colour reference</h4>
             <table class="sku-table">
               <thead><tr><th>Colour</th><th>SKU</th><th>EAN</th><th>Pantone</th></tr></thead>
               <tbody>
@@ -590,6 +600,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
             </div>
             <p class="impact-footnote">Made from 100% post-consumer recycled polyester — equivalent to approximately <strong>3 plastic bottles <span class="placeholder-tag">PH</span></strong> diverted from landfill per cap.</p>
             <p class="impact-disclaimer">All figures vs virgin polyester. Validated against GRS chain-of-custody certificate CU811033.</p>
+            <a href="#" class="accordion-link">For full traceability and lifecycle data, view the Digital Product Passport →</a>
           </div>
         </div>
       </div>
