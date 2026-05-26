@@ -278,7 +278,8 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 .section .lede { font-size: 16px; color: var(--muted); margin-bottom: 28px; max-width: 720px; }
 
 /* (b) 3 technical features — tonally linked to buybox cards (light grey) */
-.feature-row-section { background: var(--light-grey); padding: 8px 0 56px; }
+.feature-row-section { background: var(--light-grey); padding: 56px 0; }
+.feature-row-section h2 { margin-bottom: 24px; }
 .editorial-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .ed-tile { display: flex; flex-direction: column; gap: 14px; }
 .ed-tile .image { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 4px; }
@@ -293,7 +294,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 /* (d) Made to be worn */
 .secondary-ed { background: var(--light-grey); padding: 72px 0; }
 .secondary-ed h2 { font-family: "source-serif-pro", Georgia, serif; font-weight: 400; font-size: 34px; margin-bottom: 10px; }
-.secondary-ed .lede { font-size: 16px; margin-bottom: 32px; max-width: 600px; color: var(--cool-black); }
+.secondary-ed .lede { font-size: 16px; margin-bottom: 32px; max-width: none; color: var(--cool-black); }
 .sec-grid {
   display: grid; grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 1fr 1fr; gap: 12px;
@@ -673,6 +674,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 <!-- KEY FEATURES (relocated 3-feature row) -->
 <section class="feature-row-section">
   <div class="container">
+    <h2>Key features</h2>
     <div class="editorial-row">
       <div class="ed-tile">
         <div class="image">
@@ -692,8 +694,7 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
       </div>
       <div class="ed-tile">
         <div class="image">
-          <div class="ph" data-colour="grey"><div class="ph-label">rPET context shot</div><div class="ph-sub">Outstanding asset</div></div>
-          <img class="real-img" src="https://mediahub.beechfieldbrands.com/asset/ad4ac663-f678-4ba8-999e-da5d32aa15c8/Product-medium/B191R-Water-Resistant-Lifestyle-Cap-Olive-Green-Water-Resistant-Fabric-Detail-Shot-01.jpg" alt="Recycled fabric texture" onerror="this.style.display='none'">
+          <div class="ph" data-colour="grey"><div class="ph-label">rPET / recycled context</div><div class="ph-sub">Unique asset outstanding (see open items)</div></div>
         </div>
         <h3>Made from recycled bottles.</h3>
         <p>100% GRS-certified recycled polyester, traceable to source (CU811033).</p>
