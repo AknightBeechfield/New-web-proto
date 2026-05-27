@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QD540 Zürich Travel Backpack — Quadra</title>
+
+    <!--
+        FONT NOTE
+        Production should load Rift Demi from Adobe Fonts (Beechfield Brands Typekit kit).
+        This mockup uses Oswald from Google Fonts as the closest free placeholder.
+        Helvetica Neue 57 Condensed for body — using system fallback chain since
+        no free Google Fonts equivalent matches the condensed body weight closely.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap">
+
+    <style>
+        /* =====================================================
+           QUADRA UI STYLE TOKENS (per uploaded style guide)
+           ===================================================== */
+        :root {
+            /* Colours */
+            --black: #000000;
+            --white: #FFFFFF;
+            --grey: #D0CEC9;
+            --grey-light: #E8E6E1;
+            --grey-mid: #B5B3AE;
+            --grey-dark: #6E6C68;
+            --teal: #0A4A56;
+            --teal-hover: #0D5A6A;
+            --placeholder-peach: #FFD8B5;
+
+            /* Typography
+               Display: Rift Demi (production) → Oswald (mockup placeholder)
+               Body: Helvetica Neue Regular
+               Caption: Helvetica Neue LT Pro 65 Bold
+               Button: Baskerville (system) */
+            --font-display: "Oswald", "Rift", "Bebas Neue", "Helvetica Neue Condensed", Impact, sans-serif;
+            --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --font-caption: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --font-button: Baskerville, "Baskerville Old Face", "Big Caslon", "Hoefler Text", Garamond, "Times New Roman", serif;
+
+            /* Spacing scale */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 40px;
+            --space-2xl: 64px;
+            --space-3xl: 96px;
+
+            /* Layout */
+            --max-width: 1440px;
+            --content-padding: 48px;
+        }
+
+        /* =====================================================
+           RESET + BASE
+           ===================================================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.55;
+            color: var(--black);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img { display: block; max-width: 100%; height: auto; }
+        button { font-family: inherit; cursor: pointer; }
+        a { color: inherit; text-decoration: none; }
+        video { display: block; max-width: 100%; }
+
+        /* =====================================================
+           TYPOGRAPHY — per Quadra UI Style guide
+           Sizes scaled down from brand guide (64/48/36/24/24)
+           for PDP content density. Brand guide max sizes used for hero only.
+           ===================================================== */
+        h1, h2, h3, h4, h5,
+        .display {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.05;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+        }
+        h1 { font-size: 48px; }      /* PDP-scaled from 64px brand max */
+        h2 { font-size: 36px; }      /* PDP-scaled from 48px */
+        h3 { font-size: 28px; }      /* PDP-scaled from 36px */
+        h4 { font-size: 20px; }
+        h5 { font-size: 18px; }
+
+        .caption {
+            font-family: var(--font-caption);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .body-sm { font-size: 14px; }
+        .body-lg { font-size: 18px; }
+
+        /* =====================================================
+           LAYOUT WRAPPERS
+           ===================================================== */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--content-padding);
+        }
+
+        section { padding: var(--space-3xl) 0; }
+
+        .section-bg-grey { background: var(--grey); }
+        .section-bg-light { background: var(--grey-light); }
+
+        /* Placeholder tags visible in mockup */
+        .ph {
+            display: inline-block;
+            background: var(--placeholder-peach);
+            color: var(--black);
+            font-family: var(--font-caption);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        /* =====================================================
+           HEADER + BREADCRUMB
+           ===================================================== */
+        .site-header {
+            border-bottom: 1px solid var(--grey);
+            padding: var(--space-md) var(--content-padding);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-header .logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            font-size: 22px;
+            text-transform: uppercase;
+        }
+        .site-header nav {
+            display: flex;
+            gap: var(--space-xl);
+            font-size: 14px;
+            font-family: var(--font-caption);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+        }
+
+        .breadcrumb {
+            padding: var(--space-md) var(--content-padding);
+            font-size: 13px;
+            color: var(--grey-dark);
+        }
+        .breadcrumb a { color: var(--grey-dark); }
+        .breadcrumb a:hover { color: var(--black); }
+        .breadcrumb .current { color: var(--black); }
+
+        /* =====================================================
+           TOP ROW — Gallery + Buy column
+           ===================================================== */
+        .top-row {
+            display: grid;
+            grid-template-columns: 1fr 480px;
+            gap: var(--space-2xl);
+            padding-top: var(--space-xl);
+            padding-bottom: var(--space-3xl);
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: 88px 1fr;
+            gap: var(--space-md);
+        }
+        .gallery-thumbs {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        .gallery-thumbs button {
+            border: 1px solid var(--grey);
+            background: var(--white);
+            padding: 0;
+            aspect-ratio: 1;
+            overflow: hidden;
+            transition: border-color 0.2s;
+            position: relative;
+        }
+        .gallery-thumbs button.active {
+            border-color: var(--black);
+            border-width: 2px;
+        }
+        .gallery-thumbs img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-thumb-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+        }
+        .gallery-main {
+            background: var(--grey-light);
+            aspect-ratio: 1;
+            overflow: hidden;
+            position: relative;
+        }
+        .gallery-main img,
+        .gallery-main video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: var(--space-lg);
+        }
+        .gallery-main video {
+            padding: 0;
+            object-fit: cover;
+        }
+
+        /* Buy column */
+        .buy-col { padding-top: var(--space-md); }
+        .buy-col .eyebrow {
+            font-family: var(--font-caption);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--grey-dark);
+            margin-bottom: var(--space-sm);
+        }
+        .buy-col h1 {
+            margin-bottom: var(--space-md);
+            font-size: 42px;
+        }
+
+        .buy-col .lozenges {
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+            flex-wrap: wrap;
+        }
+        .lozenge {
+            background: var(--teal);
+            color: var(--white);
+            font-family: var(--font-caption);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 100px;
+        }
+
+        .stock-indicator {
+            font-size: 13px;
+            color: var(--grey-dark);
+            margin-bottom: var(--space-md);
+        }
+        .stock-indicator::before {
+            content: '●';
+            color: #2D9B6B;
+            margin-right: var(--space-xs);
+        }
+
+        .positioning {
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+        .positioning-placeholder {
+            background: var(--placeholder-peach);
+            padding: var(--space-md);
+            border-radius: 2px;
+            font-style: italic;
+            color: var(--black);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Colour selector */
+        .colour-selector { margin-bottom: var(--space-lg); }
+        .colour-selector .label {
+            font-size: 13px;
+            margin-bottom: var(--space-sm);
+            font-weight: 500;
+        }
+        .colour-swatches { display: flex; gap: var(--space-sm); }
+        .swatch {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background: var(--black);
+            cursor: pointer;
+            outline: 1px solid var(--grey);
+        }
+        .swatch.active {
+            border-color: var(--black);
+            outline-color: var(--white);
+        }
+
+        /* =====================================================
+           BUILT FOR PURPOSE CARD
+           ===================================================== */
+        .built-for-purpose {
+            background: var(--grey-light);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            border-left: 3px solid var(--teal);
+        }
+        .built-for-purpose .panel-heading {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-md);
+        }
+        .purpose-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+        .purpose-row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: var(--space-md);
+            align-items: baseline;
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--grey);
+        }
+        .purpose-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .purpose-tag {
+            font-family: var(--font-caption);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--teal);
+        }
+        .purpose-proof {
+            font-size: 14px;
+            line-height: 1.45;
+        }
+        .quick-spec {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-sm) var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--grey);
+            margin-top: var(--space-md);
+        }
+        .quick-spec-item {
+            font-size: 13px;
+        }
+        .quick-spec-item .label {
+            color: var(--grey-dark);
+            font-family: var(--font-caption);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .decoration-row {
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--grey);
+            margin-top: var(--space-md);
+        }
+        .decoration-row .label {
+            font-family: var(--font-caption);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--grey-dark);
+            margin-bottom: var(--space-xs);
+        }
+        .decoration-row .techniques {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        .decoration-row .dimensions {
+            font-size: 12px;
+            color: var(--grey-dark);
+        }
+
+        /* Buttons — Quadra style: Teal primary, white secondary, teal tertiary text */
+        .btn {
+            font-family: var(--font-button);
+            font-size: 15px;
+            padding: 16px 24px;
+            border: 1px solid var(--teal);
+            background: var(--teal);
+            color: var(--white);
+            width: 100%;
+            margin-bottom: var(--space-sm);
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .btn::after {
+            content: '→';
+            font-family: var(--font-body);
+            margin-left: var(--space-md);
+        }
+        .btn:hover { background: var(--teal-hover); border-color: var(--teal-hover); }
+        .btn-secondary {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--black);
+        }
+        .btn-secondary:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+        .btn-tertiary {
+            background: none;
+            border: none;
+            color: var(--teal);
+            font-family: var(--font-button);
+            font-size: 15px;
+            padding: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .btn-tertiary::after { content: ' →'; }
+        .btn-tertiary:hover { color: var(--teal-hover); }
+
+        .tertiary-row {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+            margin-bottom: var(--space-lg);
+            font-size: 13px;
+            flex-wrap: wrap;
+        }
+        .tertiary-row a {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .tertiary-row .sep { color: var(--grey-dark); }
+
+        /* =====================================================
+           ACCORDION
+           ===================================================== */
+        .accordion-item { border-top: 1px solid var(--grey); }
+        .accordion-item:last-child { border-bottom: 1px solid var(--grey); }
+        .accordion-trigger {
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: var(--space-md) 0;
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .accordion-trigger::after {
+            content: '+';
+            font-size: 20px;
+            font-weight: 300;
+            transition: transform 0.2s;
+        }
+        .accordion-item.open .accordion-trigger::after { content: '−'; }
+        .accordion-body {
+            display: none;
+            padding-bottom: var(--space-lg);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .accordion-item.open .accordion-body { display: block; }
+
+        .spec-group { margin-bottom: var(--space-lg); }
+        .spec-group .group-heading {
+            font-family: var(--font-caption);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--grey-dark);
+            margin-bottom: var(--space-sm);
+        }
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .spec-table td {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--grey);
+            vertical-align: top;
+        }
+        .spec-table td:first-child {
+            color: var(--grey-dark);
+            width: 45%;
+        }
+
+        .expect-item { margin-bottom: var(--space-md); }
+        .expect-item h5 {
+            font-family: var(--font-caption);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .care-row {
+            display: flex;
+            gap: var(--space-md);
+            margin: var(--space-md) 0;
+            font-size: 11px;
+            color: var(--grey-dark);
+        }
+        .care-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--grey);
+            position: relative;
+        }
+        .care-icon::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 48%, var(--black) 49%, var(--black) 51%, transparent 52%);
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+        .impact-stat {
+            background: var(--grey-light);
+            padding: var(--space-md);
+            text-align: center;
+        }
+        .impact-stat .figure {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+        }
+        .impact-stat .label {
+            font-family: var(--font-caption);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--grey-dark);
+        }
+
+        /* =====================================================
+           SECTION HEADERS
+           ===================================================== */
+        .section-eyebrow {
+            font-family: var(--font-caption);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: var(--space-sm);
+        }
+        .section-lede {
+            font-size: 18px;
+            line-height: 1.45;
+            font-weight: 400;
+            max-width: 760px;
+            margin-bottom: var(--space-xl);
+            margin-top: var(--space-md);
+            color: var(--grey-dark);
+        }
+
+        /* =====================================================
+           FEATURE EXPLORER (now sits above Made to be Worn)
+           ===================================================== */
+        .feature-explorer {
+            background: var(--grey-light);
+        }
+        .feature-explorer h2 { margin-bottom: var(--space-lg); }
+        .fx-tabs {
+            display: flex;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--grey-mid);
+        }
+        .fx-tab {
+            background: none;
+            border: none;
+            padding: var(--space-md) 0;
+            font-family: var(--font-caption);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--grey-dark);
+            position: relative;
+            transition: color 0.2s;
+        }
+        .fx-tab.active { color: var(--black); }
+        .fx-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--teal);
+        }
+        .fx-stage {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: var(--space-xl);
+            align-items: start;
+        }
+        .fx-main {
+            position: relative;
+            background: var(--white);
+            aspect-ratio: 1;
+            overflow: hidden;
+        }
+        .fx-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: var(--space-lg);
+        }
+        .fx-hotspot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--white);
+            box-shadow: 0 0 0 2px var(--teal);
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+            transition: background 0.2s, transform 0.2s;
+            padding: 0;
+        }
+        .fx-hotspot:hover { transform: translate(-50%, -50%) scale(1.2); }
+        .fx-hotspot.active { background: var(--teal); }
+        .fx-hotspot:focus-visible {
+            outline: 2px solid var(--black);
+            outline-offset: 4px;
+        }
+
+        .fx-detail {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        .fx-detail-image {
+            background: var(--white);
+            aspect-ratio: 1;
+            overflow: hidden;
+            transition: opacity 0.2s;
+        }
+        .fx-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .fx-detail-image.fading { opacity: 0; }
+        .fx-detail-caption {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .fx-detail-caption .feature-name {
+            font-family: var(--font-caption);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: var(--space-xs);
+        }
+        .fx-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--grey);
+        }
+        .fx-nav-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            padding: 4px 8px;
+            color: var(--black);
+        }
+        .fx-nav-btn:hover { color: var(--teal); }
+        .fx-dots {
+            display: flex;
+            gap: 6px;
+        }
+        .fx-dot {
+            width: 24px;
+            height: 2px;
+            background: var(--grey-mid);
+            transition: background 0.2s;
+        }
+        .fx-dot.active { background: var(--teal); }
+
+        /* =====================================================
+           MADE TO BE WORN
+           ===================================================== */
+        .made-to-be-worn .lede {
+            font-family: var(--font-display);
+            font-size: 28px;
+            line-height: 1.15;
+            font-weight: 500;
+            margin-bottom: var(--space-xl);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            max-width: 100%;
+        }
+        .lifestyle-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-md);
+        }
+        .lifestyle-tile {
+            aspect-ratio: 1;
+            background: var(--grey-light);
+            overflow: hidden;
+            position: relative;
+        }
+        .lifestyle-tile:first-child {
+            aspect-ratio: 2/1;
+        }
+        .lifestyle-tile img,
+        .lifestyle-tile video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* =====================================================
+           DESIGNED FOR DECORATION
+           ===================================================== */
+        .designed-for-decoration {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+        .dfd-image {
+            background: var(--grey-light);
+            aspect-ratio: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        .dfd-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: var(--space-lg);
+        }
+        .dfd-callout {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--teal);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-caption);
+            font-size: 13px;
+            font-weight: 700;
+            transform: translate(-50%, -50%);
+        }
+        .dfd-body .lead-line {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: var(--space-md);
+        }
+        .dfd-body ul {
+            list-style: none;
+            padding: 0;
+            margin: var(--space-md) 0;
+        }
+        .dfd-body li {
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--grey);
+            padding-left: var(--space-md);
+            position: relative;
+            font-size: 14px;
+        }
+        .dfd-body li::before {
+            content: '+';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 700;
+        }
+        .dfd-ctas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-sm);
+            margin-top: var(--space-lg);
+        }
+        .dfd-secondary-links {
+            margin-top: var(--space-md);
+            font-size: 13px;
+            display: flex;
+            gap: var(--space-md);
+        }
+        .dfd-secondary-links a {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            color: var(--teal);
+        }
+
+        /* =====================================================
+           BROWSE THE ZÜRICH COLLECTION (replaces Complete the Look)
+           ===================================================== */
+        .collection-section h2 { margin-bottom: var(--space-md); }
+        .collection-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+        .collection-card {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .collection-card.current {
+            outline: 2px solid var(--teal);
+            outline-offset: -2px;
+        }
+        .collection-card .you-are-here {
+            position: absolute;
+            top: var(--space-sm);
+            left: var(--space-sm);
+            background: var(--teal);
+            color: var(--white);
+            font-family: var(--font-caption);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 100px;
+            z-index: 1;
+        }
+        .collection-card .card-image {
+            aspect-ratio: 1;
+            background: var(--grey-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-sm);
+            overflow: hidden;
+        }
+        .collection-card .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: var(--space-md);
+        }
+        .collection-card .code {
+            font-family: var(--font-caption);
+            font-size: 11px;
+            color: var(--grey-dark);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+        .collection-card .name {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            line-height: 1.15;
+        }
+        .collection-card .format {
+            font-size: 13px;
+            color: var(--grey-dark);
+            margin-top: 2px;
+        }
+
+        .collection-link {
+            margin-top: var(--space-xl);
+            text-align: center;
+        }
+
+        /* Comparison block sits inside collection section */
+        .comparison-wrap {
+            margin-top: var(--space-3xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--grey-mid);
+        }
+        .comparison-heading {
+            font-size: 28px;
+            margin-bottom: var(--space-md);
+        }
+
+        /* =====================================================
+           RELATED PRODUCTS / YOU MAY ALSO LIKE
+           ===================================================== */
+        .related-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        .related-card {
+            display: flex;
+            flex-direction: column;
+        }
+        .related-card .card-image {
+            aspect-ratio: 1;
+            background: var(--grey-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-sm);
+        }
+        .related-card .code {
+            font-family: var(--font-caption);
+            font-size: 11px;
+            color: var(--grey-dark);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+        .related-card .name {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            line-height: 1.15;
+            margin-bottom: 4px;
+        }
+        .related-card .format {
+            font-size: 13px;
+            color: var(--grey-dark);
+        }
+
+        /* =====================================================
+           COMPARISON LADDER (Zürich-only)
+           ===================================================== */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-top: var(--space-lg);
+        }
+        .comparison-table th,
+        .comparison-table td {
+            padding: var(--space-md);
+            text-align: left;
+            border-bottom: 1px solid var(--grey);
+            vertical-align: top;
+        }
+        .comparison-table th {
+            font-family: var(--font-display);
+            font-weight: 600;
+            background: var(--black);
+            color: var(--white);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .comparison-table th.current-product {
+            background: var(--teal);
+        }
+        .comparison-table tr.best-for-row {
+            background: var(--grey-light);
+        }
+        .comparison-table tr.best-for-row td {
+            font-weight: 500;
+        }
+        .comparison-table td.row-label {
+            font-family: var(--font-caption);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--grey-dark);
+            width: 18%;
+        }
+        .comparison-table td.current-col {
+            background: rgba(10, 74, 86, 0.05);
+        }
+        .position-tag {
+            font-family: var(--font-caption);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .tick { color: var(--teal); font-weight: 700; }
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+        .site-footer {
+            background: var(--black);
+            color: var(--white);
+            padding: var(--space-2xl) var(--content-padding);
+            font-size: 13px;
+            margin-top: var(--space-3xl);
+        }
+
+        /* =====================================================
+           UTILITIES
+           ===================================================== */
+        .text-grey { color: var(--grey-dark); }
+        .mt-md { margin-top: var(--space-md); }
+        .mt-lg { margin-top: var(--space-lg); }
+        .mb-md { margin-bottom: var(--space-md); }
+        .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+        @media (max-width: 960px) {
+            :root { --content-padding: 24px; }
+            .top-row { grid-template-columns: 1fr; }
+            .gallery { grid-template-columns: 1fr; }
+            .gallery-thumbs { flex-direction: row; }
+            .gallery-thumbs button { width: 64px; height: 64px; flex-shrink: 0; }
+            .lifestyle-grid { grid-template-columns: 1fr 1fr; }
+            .lifestyle-tile:first-child { aspect-ratio: 1; grid-column: span 2; }
+            .fx-stage { grid-template-columns: 1fr; }
+            .designed-for-decoration { grid-template-columns: 1fr; }
+            .collection-row { grid-template-columns: 1fr 1fr; }
+            .related-row { grid-template-columns: 1fr 1fr; }
+            .comparison-table { font-size: 12px; }
+            .comparison-table td.row-label { width: 30%; }
+            h1 { font-size: 32px; }
+            h2 { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+<div style="background:var(--black);color:var(--white);padding:10px var(--content-padding);font-family:var(--font-caption);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;">
+  <span>Quadra QD540 — mockup for sign-off</span>
+  <a href="index.html" style="color:var(--white);text-decoration:underline;text-underline-offset:3px;">← All mockups</a>
+</div>
+
+<!-- =====================================================
+     HEADER + BREADCRUMB
+     ===================================================== -->
+<header class="site-header">
+    <div class="logo">QUADRA®</div>
+    <nav>
+        <a href="#">Range</a>
+        <a href="#">Decoration</a>
+        <a href="#">About</a>
+        <a href="#">Where to Buy</a>
+    </nav>
+</header>
+
+<nav class="breadcrumb">
+    <a href="#">Range</a> / <a href="#">Backpacks</a> / <a href="#">Business & Commuter</a> / <span class="current">QD540 Zürich Travel Backpack</span>
+</nav>
+
+<!-- =====================================================
+     TOP ROW
+     ===================================================== -->
+<div class="container">
+    <div class="top-row">
+
+        <!-- Gallery -->
+        <div class="gallery">
+            <div class="gallery-thumbs">
+                <button class="active" data-type="video" data-src="https://mediahub.beechfieldbrands.com/asset/a0138976-e073-4141-8be5-bf7a7d2fcc2f/mp4/QD540-Zurich-Travel-Backpack-Usability-Video.mp4">
+                    <img src="images/quadra-qd540/hero-3q.jpg" alt="Usability video thumbnail">
+                    <div class="video-thumb-overlay">▶</div>
+                </button>
+                <button data-type="image" data-src="images/quadra-qd540/hero-3q.jpg"><img src="images/quadra-qd540/hero-3q.jpg" alt="3/4 view"></button>
+                <button data-type="image" data-src="images/quadra-qd540/hero-front.jpg"><img src="images/quadra-qd540/hero-front.jpg" alt="Front"></button>
+                <button data-type="image" data-src="images/quadra-qd540/hero-back.jpg"><img src="images/quadra-qd540/hero-back.jpg" alt="Back"></button>
+                <button data-type="image" data-src="images/quadra-qd540/detail-organiser.jpg"><img src="images/quadra-qd540/detail-organiser.jpg" alt="Organiser"></button>
+                <button data-type="image" data-src="images/quadra-qd540/detail-zip-closure.jpg"><img src="images/quadra-qd540/detail-zip-closure.jpg" alt="Zip detail"></button>
+            </div>
+            <div class="gallery-main" id="gallery-main">
+                <!-- Video gets injected on load (default) -->
+                <video id="gallery-video" controls poster="images/quadra-qd540/hero-3q.jpg" preload="metadata" style="display: block;">
+                    <source src="https://mediahub.beechfieldbrands.com/asset/a0138976-e073-4141-8be5-bf7a7d2fcc2f/mp4/QD540-Zurich-Travel-Backpack-Usability-Video.mp4" type="video/mp4">
+                    Your browser doesn't support video. View on Media Hub.
+                </video>
+                <img id="gallery-image" src="images/quadra-qd540/hero-3q.jpg" alt="QD540 Zürich Travel Backpack" style="display: none;">
+            </div>
+        </div>
+
+        <!-- Buy column -->
+        <div class="buy-col">
+            <div class="eyebrow">QD540</div>
+            <h1>Zürich Travel Backpack</h1>
+
+            <div class="lozenges">
+                <span class="lozenge">GRS Certified</span>
+                <span class="lozenge">Cabin-Compatible</span>
+            </div>
+
+            <div class="stock-indicator">
+                <span class="ph">STOCK COUNT</span> in stock
+            </div>
+
+            <!-- Positioning blurb -->
+            <p class="positioning">
+                Precision in every journey. The QD540 Zürich Travel Backpack is engineered for the working week and the weekend after. Every pocket placed. Every essential to hand. Every day on time. Clamshell main compartment, padded 16" laptop sleeve and rear luggage strap. Cabin-compatible at 50 × 31 × 20 cm, in 100% GRS certified recycled polyester. Like clockwork, every day.
+            </p>
+
+            <!-- Colour selector -->
+            <div class="colour-selector">
+                <div class="label">Colour — Black</div>
+                <div class="colour-swatches">
+                    <button class="swatch active" aria-label="Black"></button>
+                </div>
+            </div>
+
+            <!-- BUILT FOR PURPOSE CARD -->
+            <div class="built-for-purpose">
+                <div class="panel-heading">Built for Purpose</div>
+
+                <div class="purpose-list">
+                    <div class="purpose-row">
+                        <span class="purpose-tag">Commute</span>
+                        <span class="purpose-proof">Padded laptop compartment, security pocket, hands-free luggage strap.</span>
+                    </div>
+                    <div class="purpose-row">
+                        <span class="purpose-tag">Travel</span>
+                        <span class="purpose-proof">Cabin-compatible at 50 × 31 × 20 cm; clamshell opening; two-way zip.</span>
+                    </div>
+                    <div class="purpose-row">
+                        <span class="purpose-tag">Outdoors</span>
+                        <span class="purpose-proof">PU-coated weatherproof shell, dual compression straps, chest strap.</span>
+                    </div>
+                </div>
+
+                <div class="quick-spec">
+                    <div class="quick-spec-item">
+                        <span class="label">Capacity</span>
+                        30 L
+                    </div>
+                    <div class="quick-spec-item">
+                        <span class="label">Dimensions</span>
+                        H50 × W31 × D20 cm
+                    </div>
+                    <div class="quick-spec-item">
+                        <span class="label">Laptop</span>
+                        Up to 16"
+                    </div>
+                    <div class="quick-spec-item">
+                        <span class="label">Weight</span>
+                        905 g
+                    </div>
+                </div>
+
+                <div class="decoration-row">
+                    <div class="label">Decoration</div>
+                    <div class="techniques">Embroidery · Print · Patch · Heat Seal</div>
+                    <div class="dimensions">Main panel: 15 × 26 cm</div>
+                </div>
+            </div>
+
+            <button class="btn">Find Stock</button>
+            <button class="btn btn-secondary">Access Assets</button>
+
+            <div class="tertiary-row">
+                <a href="#">Spec Sheet</a>
+                <span class="sep">·</span>
+                <a href="#">Digital Product Passport</a>
+                <span class="sep">·</span>
+                <a href="#">Product Enquiry</a>
+            </div>
+
+            <!-- ACCORDION -->
+            <div class="accordion">
+
+                <!-- Row 1 — Specifications -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger">Specifications</button>
+                    <div class="accordion-body">
+
+                        <div class="spec-group">
+                            <div class="group-heading">Construction</div>
+                            <table class="spec-table">
+                                <tr><td>Type</td><td>Backpack</td></tr>
+                                <tr><td>Outer material</td><td>100% Recycled 600D Polyester Matte PU coating; 100% Recycled 900D Polyester</td></tr>
+                                <tr><td>Inner lining</td><td><span class="ph">CONFIRM HANNAH</span> light-grey woven polyester</td></tr>
+                                <tr><td>Padding level</td><td>Heavy</td></tr>
+                                <tr><td>Back panel</td><td>Air mesh padded</td></tr>
+                                <tr><td>Shoulder straps</td><td>Air mesh padded, adjustable</td></tr>
+                                <tr><td>Primary closure</td><td>Zip (two-way)</td></tr>
+                                <tr><td>Internal organiser</td><td>Yes</td></tr>
+                                <tr><td>Key clip</td><td>Yes</td></tr>
+                                <tr><td>Compression straps</td><td>Dual side compression</td></tr>
+                                <tr><td>Chest strap</td><td>Adjustable</td></tr>
+                                <tr><td>TearAway® label</td><td>Yes</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="spec-group">
+                            <div class="group-heading">Sizing & fit</div>
+                            <table class="spec-table">
+                                <tr><td>Capacity</td><td>30 L</td></tr>
+                                <tr><td>Dimensions</td><td>H50 × W31 × D20 cm</td></tr>
+                                <tr><td>Product weight</td><td>905 g</td></tr>
+                                <tr><td>A4 compatible</td><td>Yes</td></tr>
+                                <tr><td>Laptop carry type</td><td>Dedicated padded compartment</td></tr>
+                                <tr><td>Max laptop size</td><td>16"</td></tr>
+                                <tr><td>Cabin baggage</td><td>Fits standard cabin allowances on major carriers (see What to Expect)</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="spec-group">
+                            <div class="group-heading">Logistics & origin</div>
+                            <table class="spec-table">
+                                <tr><td>Country of origin</td><td>China</td></tr>
+                                <tr><td>Commodity code</td><td>4202921100</td></tr>
+                                <tr><td>Carton quantity</td><td>15</td></tr>
+                                <tr><td>Carton weight</td><td>16.7 kg</td></tr>
+                                <tr><td>Carton dimensions</td><td>40 × 60 × 75 cm</td></tr>
+                            </table>
+                        </div>
+
+                        <div class="spec-group">
+                            <div class="group-heading">SKU</div>
+                            <table class="spec-table">
+                                <tr>
+                                    <td>Q540.BLK</td>
+                                    <td>EAN 5056514016315 · Black · Pantone Black C / Black · One Size</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 — Product description -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger">Product description</button>
+                    <div class="accordion-body">
+                        <p>Made for the working week and the weekend after it. The QD540 Zürich Travel Backpack opens clamshell-style for organised packing, with a padded compartment for laptops up to 16 inches, a top valuables pocket, and an exterior front pocket sized for easy decoration. PU-coated recycled polyester sheds light weather and wipes clean. Air-mesh shoulder straps and a rear luggage strap take it from commute to cabin to weekend escape. Made from 100% recycled polyester. Responsible materials, same performance intent.</p>
+                    </div>
+                </div>
+
+                <!-- Row 3 — What to expect -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger">What to expect</button>
+                    <div class="accordion-body">
+                        <div class="expect-item">
+                            <h5>Cabin-baggage reality</h5>
+                            <p>At 50 × 31 × 20 cm the Zürich fits standard hand-luggage allowances on major carriers (IATA guideline is 55 × 40 × 22 cm). It is sized as primary hand luggage, not as a budget-airline free underseat bag. Always check your carrier's current dimensions before travel.</p>
+                        </div>
+                        <div class="expect-item">
+                            <h5>How the PU coating performs</h5>
+                            <p>The matte finish sheds light rain and wipes clean. It is water-resistant, not waterproof. Treat the bag as protected against weather, not submersion.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 4 — Composition & Care -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger">Composition & Care</button>
+                    <div class="accordion-body">
+                        <p><strong>Composition:</strong> 100% Recycled 600D Polyester Matte PU coating · 100% Recycled 900D Polyester</p>
+                        <div class="care-row">
+                            <div class="care-icon" title="Do not wash"></div>
+                            <div class="care-icon" title="Do not bleach"></div>
+                            <div class="care-icon" title="Do not tumble dry"></div>
+                            <div class="care-icon" title="Do not iron"></div>
+                            <div class="care-icon" title="Do not dry clean"></div>
+                        </div>
+                        <p class="body-sm text-grey"><em>Sponge clean only. Avoid solvents and harsh detergents — they break down the PU coating. Prolonged sun will degrade the finish over time.</em></p>
+                    </div>
+                </div>
+
+                <!-- Row 5 — Impact -->
+                <div class="accordion-item">
+                    <button class="accordion-trigger">Impact</button>
+                    <div class="accordion-body">
+                        <div class="impact-stats">
+                            <div class="impact-stat">
+                                <div class="figure"><span class="ph">XX L</span></div>
+                                <div class="label">Water saved</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="figure"><span class="ph">XX kWh</span></div>
+                                <div class="label">Energy saved</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="figure"><span class="ph">XX kg</span></div>
+                                <div class="label">CO₂ saved</div>
+                            </div>
+                        </div>
+                        <p>Equivalent to approximately <span class="ph">N</span> plastic bottles diverted from landfill per backpack.</p>
+                        <p class="body-sm text-grey mt-md">Validated against GRS chain-of-custody certificate CU811033 (Control Union).</p>
+                        <p class="mt-md"><a href="#" style="text-decoration: underline; text-underline-offset: 3px; color: var(--teal);">For full traceability and lifecycle data, view the Digital Product Passport →</a></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- =====================================================
+     ENGINEERED AROUND WHAT YOU ACTUALLY CARRY
+     Feature Explorer — MOVED UP per v2 feedback
+     ===================================================== -->
+<section class="feature-explorer">
+    <div class="container">
+        <div class="section-eyebrow">Feature Explorer</div>
+        <h2>Engineered around what you actually carry.</h2>
+
+        <!-- Tabs -->
+        <div class="fx-tabs" role="tablist">
+            <button class="fx-tab active" data-tab="front" role="tab" aria-selected="true">Front</button>
+            <button class="fx-tab" data-tab="back" role="tab" aria-selected="false">Back</button>
+            <button class="fx-tab" data-tab="inside" role="tab" aria-selected="false">Inside</button>
+        </div>
+
+        <!-- Stage -->
+        <div class="fx-stage">
+            <div class="fx-main" id="fx-main">
+                <img id="fx-main-image" src="images/quadra-qd540/hero-front.jpg" alt="">
+            </div>
+
+            <div class="fx-detail">
+                <div class="fx-detail-image" id="fx-detail-image">
+                    <img id="fx-detail-img" src="images/quadra-qd540/detail-zip-closure.jpg" alt="">
+                </div>
+                <div class="fx-detail-caption">
+                    <div class="feature-name" id="fx-feature-name">Clamshell main zip</div>
+                    <p id="fx-caption">Two-way zip opens the bag suitcase-style for organised packing.</p>
+                </div>
+
+                <div class="fx-pagination">
+                    <button class="fx-nav-btn" id="fx-prev" aria-label="Previous feature">←</button>
+                    <div class="fx-dots" id="fx-dots"></div>
+                    <button class="fx-nav-btn" id="fx-next" aria-label="Next feature">→</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     MADE TO BE WORN
+     ===================================================== -->
+<section class="made-to-be-worn">
+    <div class="container">
+        <div class="section-eyebrow">Made to be Worn</div>
+        <p class="lede">From Monday's commute to Friday's flight, on the back of the modern professional.</p>
+
+        <div class="lifestyle-grid">
+            <div class="lifestyle-tile">
+                <img src="images/quadra-qd540/lifestyle-1.jpg" alt="QD540 lifestyle — wearer environmental">
+            </div>
+            <div class="lifestyle-tile">
+                <img src="images/quadra-qd540/lifestyle-2.jpg" alt="QD540 lifestyle — wearer in profile">
+            </div>
+            <div class="lifestyle-tile">
+                <img src="images/quadra-qd540/lifestyle-3.jpg" alt="QD540 lifestyle — wearer seated">
+            </div>
+            <div class="lifestyle-tile">
+                <img src="images/quadra-qd540/lifestyle-complete.jpg" alt="QD540 lifestyle — urban wear">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     DESIGNED FOR DECORATION
+     ===================================================== -->
+<section>
+    <div class="container">
+        <div class="designed-for-decoration">
+            <div class="dfd-image">
+                <img src="images/quadra-qd540/hero-front.jpg" alt="QD540 decoration zones">
+                <div class="dfd-callout" style="top: 18%; left: 50%;">1</div>
+                <div class="dfd-callout" style="top: 38%; left: 36%;">2</div>
+                <div class="dfd-callout" style="top: 8%; left: 50%;">3</div>
+            </div>
+            <div class="dfd-body">
+                <div class="section-eyebrow">Made to brand.</div>
+                <h2>Designed for Decoration.</h2>
+                <p class="lead-line">The Zürich earns daily use. For corporate merch programmes, premium retail and travel-led loyalty schemes, that means a branded bag that stays in service, not one that gets retired after the launch event.</p>
+                <ul>
+                    <li>Flat exterior front pocket panel for clean placement, with internal organisation behind it</li>
+                    <li>15 × 26 cm maximum print area on the main front panel</li>
+                    <li>18 cm tubular hoop embroidery area on the main front panel</li>
+                    <li>Matte PU coating takes transfer and screen print cleanly; embroidery sits flush against the coating without dimpling</li>
+                    <li>TearAway® label removes in seconds for rebranding</li>
+                    <li>Main panel and front pocket both available as decoration surfaces</li>
+                </ul>
+                <div class="dfd-ctas">
+                    <button class="btn">Decoration Guide</button>
+                    <button class="btn btn-secondary">Decorator Studio</button>
+                </div>
+                <div class="dfd-secondary-links">
+                    <a href="#">View line drawing</a>
+                    <a href="#">View decoration zones</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     THE ZÜRICH COLLECTION (cards + comparison merged)
+     ===================================================== -->
+<section class="collection-section section-bg-light">
+    <div class="container">
+        <div class="section-eyebrow">The Zürich Collection</div>
+        <h2>One design language, five formats.</h2>
+        <p class="section-lede">Stock the range for a single brand programme, or pick the format that fits the journey. Browse the formats below, then compare them side by side.</p>
+
+        <!-- Cards row -->
+        <div class="collection-row">
+            <div class="collection-card current">
+                <span class="you-are-here">You're here</span>
+                <div class="card-image"><img src="images/quadra-qd540/hero-3q.jpg" alt="QD540 Zürich Travel Backpack"></div>
+                <div class="code">QD540</div>
+                <div class="name">Travel Backpack</div>
+                <div class="format">30 L</div>
+            </div>
+            <div class="collection-card">
+                <div class="card-image">
+                    <img src="https://mediahub.beechfieldbrands.com/asset/367692c3-ee28-48b3-899b-924c59dbfc52/Product-medium/QD542-Zurich-Toploader-Backpack-Black-Product-Shot-01.jpg" alt="QD542 Zürich Toploader Backpack">
+                </div>
+                <div class="code">QD542</div>
+                <div class="name">Toploader Backpack</div>
+                <div class="format"><span class="ph">CAPACITY</span></div>
+            </div>
+            <div class="collection-card">
+                <div class="card-image">
+                    <img src="https://mediahub.beechfieldbrands.com/asset/cb5de980-77d8-43f0-9366-16457d529ee5/Product-medium/QD543-Zurich-Rolltop-Backpack-Black-Product-Shot-01.jpg" alt="QD543 Zürich Roll-Top Backpack">
+                </div>
+                <div class="code">QD543</div>
+                <div class="name">Roll-Top Backpack</div>
+                <div class="format"><span class="ph">CAPACITY</span></div>
+            </div>
+            <div class="collection-card">
+                <div class="card-image">
+                    <img src="https://mediahub.beechfieldbrands.com/asset/d4fe1a4d-8939-4633-943d-4caf7d83a781/Product-medium/QD544-Zurich-30-Litre-Hybrid-Holdall-Black-Product-Shot-01.jpg" alt="QD544 Zürich 30L Hybrid Holdall">
+                </div>
+                <div class="code">QD544</div>
+                <div class="name">Hybrid Holdall</div>
+                <div class="format">30 L</div>
+            </div>
+            <div class="collection-card">
+                <div class="card-image">
+                    <img src="https://mediahub.beechfieldbrands.com/asset/f5028916-893d-4173-8fb5-64a4fad88d4f/Product-medium/QD545-Zurich-40-Litre-Hybrid-Holdall-Black-Product-Shot-01.jpg" alt="QD545 Zürich 40L Hybrid Holdall">
+                </div>
+                <div class="code">QD545</div>
+                <div class="name">Hybrid Holdall</div>
+                <div class="format">40 L</div>
+            </div>
+        </div>
+
+        <!-- Comparison table -->
+        <div class="comparison-wrap">
+            <h3 class="comparison-heading">Find the right Zürich for the journey.</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="current-product">QD540 Travel</th>
+                        <th>QD542 Toploader</th>
+                        <th>QD543 Roll-Top</th>
+                        <th>QD544 / QD545 Holdall</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="best-for-row">
+                        <td class="row-label">Best for</td>
+                        <td class="current-col"><span class="position-tag">Overnight + weekend</span></td>
+                        <td><span class="position-tag">Daily commute</span></td>
+                        <td><span class="position-tag">Weather-protected commute</span></td>
+                        <td><span class="position-tag">Multi-day travel</span></td>
+                    </tr>
+                    <tr>
+                        <td class="row-label">Format</td>
+                        <td class="current-col">Backpack</td>
+                        <td>Backpack</td>
+                        <td>Backpack</td>
+                        <td>Hybrid backpack / duffle</td>
+                    </tr>
+                    <tr>
+                        <td class="row-label">Capacity</td>
+                        <td class="current-col">30 L</td>
+                        <td><span class="ph">CONFIRM</span></td>
+                        <td><span class="ph">CONFIRM</span></td>
+                        <td>30 L / 40 L</td>
+                    </tr>
+                    <tr>
+                        <td class="row-label">Main access</td>
+                        <td class="current-col">Clamshell two-way zip</td>
+                        <td>Top zip</td>
+                        <td>Roll-top</td>
+                        <td>Clamshell + grab handles</td>
+                    </tr>
+                    <tr>
+                        <td class="row-label">Cabin-compatible</td>
+                        <td class="current-col"><span class="tick">✓</span> Yes (50 × 31 × 20)</td>
+                        <td><span class="ph">CONFIRM</span></td>
+                        <td><span class="ph">CONFIRM</span></td>
+                        <td>QD544 yes · QD545 check carrier</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="collection-link">
+            <button class="btn-tertiary">View the full Zürich Collection</button>
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     YOU MAY ALSO LIKE — cross-collection commuter discovery
+     ===================================================== -->
+<section class="related-products">
+    <div class="container">
+        <div class="section-eyebrow">More Quadra</div>
+        <h2>You may also like.</h2>
+        <p class="section-lede">Other Quadra backpacks for the commute. Different collections, same engineering intent.</p>
+
+        <div class="related-row">
+            <div class="related-card">
+                <div class="card-image"><span class="ph">QD271 image</span></div>
+                <div class="code">QD271</div>
+                <div class="name">Stockholm Laptop Backpack</div>
+                <div class="format">21 L · Recycled · GRS Certified</div>
+            </div>
+            <div class="related-card">
+                <div class="card-image"><span class="ph">QD552 image</span></div>
+                <div class="code">QD552</div>
+                <div class="name">Urban Commute Roll-Top</div>
+                <div class="format"><span class="ph">CAPACITY</span> · Reflective</div>
+            </div>
+            <div class="related-card">
+                <div class="card-image"><span class="ph">QD550 image</span></div>
+                <div class="code">QD550</div>
+                <div class="name">Endeavour Backpack</div>
+                <div class="format"><span class="ph">CAPACITY</span> · Reflective</div>
+            </div>
+            <div class="related-card">
+                <div class="card-image"><span class="ph">QD57 image</span></div>
+                <div class="code">QD57</div>
+                <div class="name">Pursuit Backpack</div>
+                <div class="format"><span class="ph">CAPACITY</span> · Entry tier</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+<footer class="site-footer">
+    <div class="container" style="padding: 0;">
+        <p>QUADRA® · Part of Beechfield Brands · Mockup v2 for sign-off — not production code</p>
+    </div>
+</footer>
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+<script>
+// ============= GALLERY (with video) =============
+const galleryVideo = document.getElementById('gallery-video');
+const galleryImage = document.getElementById('gallery-image');
+
+document.querySelectorAll('.gallery-thumbs button').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+        document.querySelectorAll('.gallery-thumbs button').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+
+        if (thumb.dataset.type === 'video') {
+            galleryVideo.style.display = 'block';
+            galleryImage.style.display = 'none';
+        } else {
+            galleryVideo.style.display = 'none';
+            galleryVideo.pause();
+            galleryImage.style.display = 'block';
+            galleryImage.src = thumb.dataset.src;
+        }
+    });
+});
+
+// ============= FEATURE EXPLORER DATA =============
+const fxData = {
+    front: {
+        image: 'images/quadra-qd540/hero-front.jpg',
+        defaultIndex: 4,
+        features: [
+            {
+                name: 'Padded grab handle',
+                caption: 'Padded grab handle for hand carry between gate and seat.',
+                position: { top: '6%', left: '50%' },
+                detailImage: 'images/quadra-qd540/hero-front.jpg'
+            },
+            {
+                name: 'Top zippered valuables pocket',
+                caption: 'Top-access pocket for the things you don\'t want at the bottom of the bag.',
+                position: { top: '20%', left: '46%' },
+                detailImage: 'images/quadra-qd540/detail-top-valuables.png'
+            },
+            {
+                name: 'Exterior zippered front pocket',
+                caption: 'Flat exterior panel sized for clean decoration placement, with internal organisation behind it.',
+                position: { top: '36%', left: '36%' },
+                detailImage: 'images/quadra-qd540/detail-front-pocket-use.png'
+            },
+            {
+                name: 'Dual compression straps',
+                caption: 'Side compression to hold the load steady when the bag runs light.',
+                position: { top: '50%', left: '76%' },
+                detailImage: 'images/quadra-qd540/detail-compression.jpg'
+            },
+            {
+                name: 'Clamshell main zip',
+                caption: 'Two-way zip opens the bag suitcase-style for organised packing.',
+                position: { top: '62%', left: '50%' },
+                detailImage: 'images/quadra-qd540/detail-clamshell-open.png'
+            }
+        ]
+    },
+    back: {
+        image: 'images/quadra-qd540/hero-back.jpg',
+        defaultIndex: 3,
+        features: [
+            {
+                name: 'Padded air mesh shoulder straps',
+                caption: 'Adjustable air-mesh straps for ventilation on warm commutes and longer carries.',
+                position: { top: '28%', left: '32%' },
+                detailImage: 'images/quadra-qd540/hero-back.jpg'
+            },
+            {
+                name: 'Adjustable chest strap',
+                caption: 'Sternum strap to keep the load balanced across uneven ground.',
+                position: { top: '46%', left: '40%' },
+                detailImage: 'images/quadra-qd540/detail-chest-strap.jpg'
+            },
+            {
+                name: 'Air mesh back panel',
+                caption: 'Ventilated padding against the back, sized for full-day carry.',
+                position: { top: '50%', left: '54%' },
+                detailImage: 'images/quadra-qd540/detail-air-mesh.png'
+            },
+            {
+                name: 'Rear luggage strap',
+                caption: 'Slots onto wheeled cabin bags for hands-free travel.',
+                position: { top: '34%', left: '66%' },
+                detailImage: 'images/quadra-qd540/detail-luggage-strap-suitcase.png'
+            },
+            {
+                name: 'TearAway® label',
+                caption: 'TearAway® label removes cleanly for rebranding.',
+                position: { top: '14%', left: '52%' },
+                detailImage: 'images/quadra-qd540/hero-back.jpg'
+            }
+        ]
+    },
+    inside: {
+        image: 'images/quadra-qd540/detail-organiser.jpg',
+        defaultIndex: 0,
+        features: [
+            {
+                name: 'Internal organiser',
+                caption: 'Sleeve, pen loops and card slots behind the front pocket. Built for what you actually carry.',
+                position: { top: '40%', left: '50%' },
+                detailImage: 'images/quadra-qd540/detail-organiser.jpg'
+            },
+            {
+                name: 'Internal mesh zippered pocket',
+                caption: 'Lined mesh pocket in the main compartment for cables, chargers and the easily-lost.',
+                position: { top: '60%', left: '60%' },
+                detailImage: 'images/quadra-qd540/detail-mesh-pocket.jpg'
+            },
+            {
+                name: 'Internal key clip',
+                caption: 'Anchored key clip in the front compartment.',
+                position: { top: '70%', left: '40%' },
+                detailImage: 'images/quadra-qd540/detail-key-clip.png'
+            },
+            {
+                name: 'Padded laptop compartment',
+                caption: 'Padded sleeve for laptops up to 16 inches, against the back panel.',
+                position: { top: '30%', left: '30%' },
+                detailImage: 'images/quadra-qd540/detail-laptop-compartment.png'
+            },
+            {
+                name: 'Two-way zip access',
+                caption: 'Twin sliders for access from either end of the main compartment.',
+                position: { top: '20%', left: '70%' },
+                detailImage: 'images/quadra-qd540/detail-zip-closure.jpg'
+            }
+        ]
+    }
+};
+
+// ============= FEATURE EXPLORER LOGIC =============
+let currentTab = 'front';
+let currentFeatureIndex = fxData.front.defaultIndex;
+
+const fxMain = document.getElementById('fx-main');
+const fxMainImage = document.getElementById('fx-main-image');
+const fxDetailImage = document.getElementById('fx-detail-image');
+const fxDetailImg = document.getElementById('fx-detail-img');
+const fxFeatureName = document.getElementById('fx-feature-name');
+const fxCaption = document.getElementById('fx-caption');
+const fxDots = document.getElementById('fx-dots');
+
+function renderTab(tabKey, featureIndex) {
+    const tab = fxData[tabKey];
+    currentTab = tabKey;
+    currentFeatureIndex = featureIndex !== undefined ? featureIndex : tab.defaultIndex;
+
+    fxMainImage.src = tab.image;
+    fxMain.querySelectorAll('.fx-hotspot').forEach(h => h.remove());
+
+    tab.features.forEach((feature, idx) => {
+        const dot = document.createElement('button');
+        dot.className = 'fx-hotspot';
+        dot.style.top = feature.position.top;
+        dot.style.left = feature.position.left;
+        dot.setAttribute('aria-label', feature.name);
+        if (idx === currentFeatureIndex) dot.classList.add('active');
+        dot.addEventListener('click', () => selectFeature(idx));
+        fxMain.appendChild(dot);
+    });
+
+    fxDots.innerHTML = '';
+    tab.features.forEach((_, idx) => {
+        const dot = document.createElement('span');
+        dot.className = 'fx-dot' + (idx === currentFeatureIndex ? ' active' : '');
+        fxDots.appendChild(dot);
+    });
+
+    updateDetail();
+}
+
+function selectFeature(idx) {
+    currentFeatureIndex = idx;
+    fxMain.querySelectorAll('.fx-hotspot').forEach((h, i) => {
+        h.classList.toggle('active', i === idx);
+    });
+    fxDots.querySelectorAll('.fx-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === idx);
+    });
+    updateDetail();
+}
+
+function updateDetail() {
+    const feature = fxData[currentTab].features[currentFeatureIndex];
+    fxDetailImage.classList.add('fading');
+    setTimeout(() => {
+        fxDetailImg.src = feature.detailImage;
+        fxFeatureName.textContent = feature.name;
+        fxCaption.textContent = feature.caption;
+        fxDetailImage.classList.remove('fading');
+    }, 200);
+}
+
+document.querySelectorAll('.fx-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const key = tab.dataset.tab;
+        document.querySelectorAll('.fx-tab').forEach(t => {
+            t.classList.toggle('active', t === tab);
+            t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+        });
+        renderTab(key);
+    });
+});
+
+document.getElementById('fx-prev').addEventListener('click', () => {
+    const count = fxData[currentTab].features.length;
+    selectFeature((currentFeatureIndex - 1 + count) % count);
+});
+document.getElementById('fx-next').addEventListener('click', () => {
+    const count = fxData[currentTab].features.length;
+    selectFeature((currentFeatureIndex + 1) % count);
+});
+
+renderTab('front');
+
+// ============= ACCORDION =============
+document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        const item = trigger.closest('.accordion-item');
+        item.classList.toggle('open');
+    });
+});
+
+// ============= IMAGE FALLBACK (mockup only) =============
+// Render any failed image — missing local asset or hotlink-blocked Media Hub
+// URL — as a clean labelled placeholder rather than a broken-image icon.
+(function () {
+    function placeholder(label) {
+        var text = (label || 'Image').toUpperCase()
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        var svg = "<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'>"
+            + "<rect width='100%' height='100%' fill='#E8E6E1'/>"
+            + "<rect x='8' y='8' width='584' height='584' fill='none' stroke='#B5B3AE' stroke-dasharray='10 8'/>"
+            + "<text x='50%' y='50%' fill='#6E6C68' font-family='Helvetica,Arial,sans-serif' font-size='24' letter-spacing='1' text-anchor='middle' dominant-baseline='middle'>"
+            + text + "</text></svg>";
+        return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    }
+    function handle(img) {
+        if (img.src.indexOf('data:') === 0) return;
+        img.src = placeholder(img.getAttribute('alt'));
+    }
+    document.querySelectorAll('img').forEach(function (img) {
+        img.addEventListener('error', function () { handle(img); });
+        if (img.complete && img.naturalWidth === 0) handle(img);
+    });
+})();
+</script>
+
+</body>
+</html>
