@@ -754,15 +754,20 @@
             letter-spacing: 0.02em;
             max-width: 100%;
         }
-        /* Hero video on top, supporting stills tessellate beneath at their
-           natural dimensions (no cropping). */
+        /* 3 small square stills on the left, big square hero video on the right */
         .lifestyle-grid {
-            columns: 3;
-            column-gap: var(--space-md);
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: var(--space-md);
+            align-items: stretch;
         }
+        .lifestyle-left {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        .lifestyle-left .lifestyle-tile { aspect-ratio: 1; }
         .lifestyle-tile {
-            break-inside: avoid;
-            margin: 0 0 var(--space-md);
             background: var(--grey-light);
             overflow: hidden;
             line-height: 0;
@@ -770,16 +775,9 @@
         .lifestyle-tile img,
         .lifestyle-tile video {
             width: 100%;
-            height: auto;
-            display: block;
-        }
-        .lifestyle-tile.hero {
-            column-span: all;
-            margin-bottom: var(--space-lg);
-        }
-        .lifestyle-tile.hero video {
-            max-height: 64vh;
+            height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         /* =====================================================
@@ -858,37 +856,6 @@
             text-decoration: underline;
             text-underline-offset: 3px;
             color: var(--teal);
-        }
-        .print-tips {
-            background: var(--grey-light);
-            border-left: 3px solid var(--teal);
-            padding: var(--space-md) var(--space-lg);
-            margin: var(--space-lg) 0;
-        }
-        .print-tips .panel-heading {
-            font-family: var(--font-display);
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            margin-bottom: var(--space-sm);
-        }
-        .print-tips-intro { font-size: 14px; margin-bottom: var(--space-sm); }
-        .print-tips ul { margin: 0; padding: 0; list-style: none; }
-        .print-tips li {
-            position: relative;
-            padding: 6px 0 6px var(--space-md);
-            font-size: 13px;
-            line-height: 1.45;
-            border-bottom: 1px solid var(--grey);
-        }
-        .print-tips li:last-child { border-bottom: none; }
-        .print-tips li::before {
-            content: '+';
-            position: absolute;
-            left: 0;
-            color: var(--teal);
-            font-weight: 700;
         }
 
         /* =====================================================
@@ -1115,7 +1082,8 @@
             .gallery { grid-template-columns: 1fr; }
             .gallery-thumbs { flex-direction: row; }
             .gallery-thumbs button { width: 64px; height: 64px; flex-shrink: 0; }
-            .lifestyle-grid { columns: 2; }
+            .lifestyle-grid { grid-template-columns: 1fr; }
+            .lifestyle-left { flex-direction: row; }
             .fx-stage { grid-template-columns: 1fr; }
             .designed-for-decoration { grid-template-columns: 1fr; }
             .related-row { grid-template-columns: 1fr 1fr; }
@@ -1443,17 +1411,19 @@
         <p class="lede">From Monday's commute to Friday's flight, on the back of the modern professional.</p>
 
         <div class="lifestyle-grid">
-            <div class="lifestyle-tile hero">
+            <div class="lifestyle-left">
+                <div class="lifestyle-tile">
+                    <img src="https://mediahub.beechfieldbrands.com/asset/1980ebfa-763a-4488-a816-21472f456815/Product-medium/QD540-Zurich-Travel-Backpack-Black-Lifestyle-shot.jpg" alt="QD540 lifestyle — wearer in profile">
+                </div>
+                <div class="lifestyle-tile">
+                    <img src="https://mediahub.beechfieldbrands.com/asset/e0382af2-6020-40c8-a59e-0c12d1592609/Product-medium/QD540-Zurich-Travel-Backpack-Black-Lifestyle-Shot-2.jpg" alt="QD540 lifestyle — wearer seated">
+                </div>
+                <div class="lifestyle-tile">
+                    <img src="https://mediahub.beechfieldbrands.com/asset/da79a653-7632-4a0c-9142-2e1993877a34/Product-medium/QD540-Zurich-Travel-Backpack-Black-Cropped-Ecommerce-Shot-01.jpg" alt="QD540 lifestyle — urban wear">
+                </div>
+            </div>
+            <div class="lifestyle-tile lifestyle-hero">
                 <video src="https://mediahub.beechfieldbrands.com/asset/8c229c66-79c3-429e-8b88-d31eabc038d7/mp4/QD540-Zurich-Travel-Backpack-Black-Product-Video.mp4" autoplay muted loop playsinline poster="https://mediahub.beechfieldbrands.com/asset/1980ebfa-763a-4488-a816-21472f456815/Product-medium/QD540-Zurich-Travel-Backpack-Black-Lifestyle-shot.jpg"></video>
-            </div>
-            <div class="lifestyle-tile">
-                <img src="https://mediahub.beechfieldbrands.com/asset/1980ebfa-763a-4488-a816-21472f456815/Product-medium/QD540-Zurich-Travel-Backpack-Black-Lifestyle-shot.jpg" alt="QD540 lifestyle — wearer in profile">
-            </div>
-            <div class="lifestyle-tile">
-                <img src="https://mediahub.beechfieldbrands.com/asset/e0382af2-6020-40c8-a59e-0c12d1592609/Product-medium/QD540-Zurich-Travel-Backpack-Black-Lifestyle-Shot-2.jpg" alt="QD540 lifestyle — wearer seated">
-            </div>
-            <div class="lifestyle-tile">
-                <img src="https://mediahub.beechfieldbrands.com/asset/da79a653-7632-4a0c-9142-2e1993877a34/Product-medium/QD540-Zurich-Travel-Backpack-Black-Cropped-Ecommerce-Shot-01.jpg" alt="QD540 lifestyle — urban wear">
             </div>
         </div>
     </div>
@@ -1482,18 +1452,8 @@
                     <li>Matte PU coating takes transfer and screen print cleanly; embroidery sits flush against the coating without dimpling</li>
                     <li>TearAway® label removes in seconds for rebranding</li>
                     <li>Main panel and front pocket both available as decoration surfaces</li>
+                    <li>Press around 15 seconds at 145°C, medium pressure. Works for both vinyl transfer and DTF.</li>
                 </ul>
-
-                <div class="print-tips">
-                    <div class="panel-heading">Printing the QD540</div>
-                    <p class="print-tips-intro">The coated fabric is heat-sensitive, so press with care:</p>
-                    <ul>
-                        <li>Protect the panel with a cushioned cover — polyester felt over Teflon — so the transfer edge doesn't imprint the bag.</li>
-                        <li>On a flatbed press, raise the print area on a Teflon cushion to keep pressure off the zip.</li>
-                        <li>Hold the transfer with heat-proof tape and let the rest of the bag hang clear of the platen.</li>
-                        <li>Press around 15 seconds at 145°C, medium pressure. Works for both vinyl transfer and DTF.</li>
-                    </ul>
-                </div>
 
                 <div class="dfd-ctas">
                     <button class="btn">Decoration Guide</button>
@@ -1538,7 +1498,7 @@
                                 <div class="card-image"><img src="https://mediahub.beechfieldbrands.com/asset/367692c3-ee28-48b3-899b-924c59dbfc52/Product-medium/QD542-Zurich-Toploader-Backpack-Black-Product-Shot-01.jpg" alt="QD542 Zürich Toploader Backpack"></div>
                                 <div class="code">QD542</div>
                                 <div class="name">Toploader Backpack</div>
-                                <div class="format"><span class="ph">CAPACITY</span></div>
+                                <div class="format">28 L</div>
                             </div>
                         </th>
                         <th class="product-head">
@@ -1546,7 +1506,7 @@
                                 <div class="card-image"><img src="https://mediahub.beechfieldbrands.com/asset/cb5de980-77d8-43f0-9366-16457d529ee5/Product-medium/QD543-Zurich-Rolltop-Backpack-Black-Product-Shot-01.jpg" alt="QD543 Zürich Roll-Top Backpack"></div>
                                 <div class="code">QD543</div>
                                 <div class="name">Roll-Top Backpack</div>
-                                <div class="format"><span class="ph">CAPACITY</span></div>
+                                <div class="format">25 L</div>
                             </div>
                         </th>
                         <th class="product-head">
@@ -1587,8 +1547,8 @@
                     <tr>
                         <td class="row-label">Capacity</td>
                         <td class="current-col">30 L</td>
-                        <td><span class="ph">CONFIRM</span></td>
-                        <td><span class="ph">CONFIRM</span></td>
+                        <td>28 L</td>
+                        <td>25 L</td>
                         <td>30 L</td>
                         <td>40 L</td>
                     </tr>
@@ -1603,8 +1563,8 @@
                     <tr>
                         <td class="row-label">Cabin-compatible</td>
                         <td class="current-col"><span class="tick">✓</span> Yes (50 × 31 × 20)</td>
-                        <td><span class="ph">CONFIRM</span></td>
-                        <td><span class="ph">CONFIRM</span></td>
+                        <td>No</td>
+                        <td>No</td>
                         <td><span class="tick">✓</span> Yes</td>
                         <td>Check carrier</td>
                     </tr>
@@ -1637,20 +1597,20 @@
             <div class="related-card">
                 <div class="card-image"><img src="https://mediahub.beechfieldbrands.com/asset/1c347b58-3463-4134-bffd-d34a586263cf/Product-medium/quadra_qd968_black_dark-graphite.jpg" alt="QD968"></div>
                 <div class="code">QD968</div>
-                <div class="name"><span class="ph">Confirm name</span></div>
-                <div class="format"><span class="ph">CAPACITY</span></div>
+                <div class="name">Tungsten™ Laptop Backpack</div>
+                <div class="format">23 L · 15.6" laptop</div>
             </div>
             <div class="related-card">
                 <div class="card-image"><img src="https://mediahub.beechfieldbrands.com/asset/947d4094-f803-4edd-9539-12afdbf70243/Product-medium/quadra_qd910_black.jpg" alt="QD910"></div>
                 <div class="code">QD910</div>
-                <div class="name"><span class="ph">Confirm name</span></div>
-                <div class="format"><span class="ph">CAPACITY</span></div>
+                <div class="name">Pro-Tech Charge Backpack</div>
+                <div class="format">25 L · 17" laptop</div>
             </div>
             <div class="related-card">
                 <div class="card-image"><img src="https://mediahub.beechfieldbrands.com/asset/df2cf3f5-5bc6-41f3-b0e3-986cb3ecc70f/Product-medium/quadra_qd565_black.jpg" alt="QD565"></div>
                 <div class="code">QD565</div>
-                <div class="name"><span class="ph">Confirm name</span></div>
-                <div class="format"><span class="ph">CAPACITY</span></div>
+                <div class="name">Pitch Black 24 Hour Backpack</div>
+                <div class="format">25 L · 15.6" laptop</div>
             </div>
         </div>
     </div>
@@ -1700,7 +1660,7 @@ const fxData = {
                 name: 'Padded grab handle',
                 caption: 'Padded grab handle for hand carry between gate and seat.',
                 position: { top: '10%', left: '50%' },
-                detailImage: 'https://mediahub.beechfieldbrands.com/asset/a54a9afd-4b00-4783-b946-9aae79b2a539/Product-medium/QD540-Zurich-Travel-Backpack-Black-Front-on-shot.jpg'
+                detailImage: 'images/quadra-qd540/detail-grab-handle.png'
             },
             {
                 name: 'Top zippered valuables pocket',
