@@ -39,6 +39,19 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
   font-size: 13px; text-align: center; font-weight: 500;
 }
 .mockup-banner strong { font-weight: 700; }
+.studio-banner {
+  background: var(--dark-green); color: var(--white); padding: 10px 32px;
+  font-size: 13px; text-align: center; font-weight: 500;
+}
+.studio-banner a {
+  color: var(--white); text-decoration: underline; font-weight: 700;
+}
+.studio-banner a:hover { color: var(--light-green); }
+.proto-footer {
+  background: var(--light-grey); border-top: 1px solid var(--border);
+  padding: 18px 32px; font-size: 12px; color: var(--muted); text-align: center;
+}
+.proto-footer a { color: var(--dark-green); font-weight: 600; }
 
 /* Image fallback pattern: real img/video layers over placeholder.
    If the URL loads, you see the image. If it fails, onerror hides it and the placeholder shows through. */
@@ -474,6 +487,9 @@ h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.1; }
 
 <div class="mockup-banner">
   <strong>Mockup V3</strong> — B191R PDP — images load from Media Hub; labelled placeholders show behind in case any fail
+</div>
+<div class="studio-banner">
+  Internal tool: open the <a href="cap-studio/index.html">Cap Studio taxonomy prototype →</a> (filters, scenario runner, feedback capture — 670 products from the master workbook)
 </div>
 
 <nav class="nav">
@@ -1049,6 +1065,10 @@ document.querySelectorAll('.accordion-trigger').forEach(t => {
   });
 });
 </script>
+
+<div class="proto-footer">
+  Internal prototypes from this build: <a href="cap-studio/index.html">Cap Studio taxonomy QA →</a>
+</div>
 
 </body>
 </html>

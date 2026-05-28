@@ -1,0 +1,202 @@
+[
+  {
+    "Scenario ID": "S01",
+    "Scenario Name": "High-volume event giveaway",
+    "Primary Question": "What should come up for a high-volume event giveaway?",
+    "Market Filter(s)": "Merchandise",
+    "Product Category Filter(s)": "Promo",
+    "Product Type Filter(s)": "Baseball; Trucker; Bucket Hat",
+    "Technical Filter Hints": "Prioritise broad colour range, simple decoration, core stock if available",
+    "Expected Product Type Notes": "Do not hard-code scoring. These filters are a test starting point.",
+    "Feedback Prompt": "Are these the products you expected for a high-volume event giveaway?",
+    "Market Filter(s) Array": [
+      "Merchandise"
+    ],
+    "Product Category Filter(s) Array": [
+      "Promo"
+    ],
+    "Product Type Filter(s) Array": [
+      "Baseball",
+      "Trucker",
+      "Bucket Hat"
+    ]
+  },
+  {
+    "Scenario ID": "S02",
+    "Scenario Name": "Retail merch cap",
+    "Primary Question": "What should come up for a retail merch cap?",
+    "Market Filter(s)": "Retail; Merchandise",
+    "Product Category Filter(s)": "Fashion; Gifting",
+    "Product Type Filter(s)": "Dad Hat; Camper; Flat Peak; Bucket Hat",
+    "Technical Filter Hints": "Use premium/retail filters only if supplied as explicit fields",
+    "Expected Product Type Notes": "This tests whether Fashion/Retail categories carry the right products.",
+    "Feedback Prompt": "Do these feel like products people would want to buy or wear voluntarily?",
+    "Market Filter(s) Array": [
+      "Retail",
+      "Merchandise"
+    ],
+    "Product Category Filter(s) Array": [
+      "Fashion",
+      "Gifting"
+    ],
+    "Product Type Filter(s) Array": [
+      "Dad Hat",
+      "Camper",
+      "Flat Peak",
+      "Bucket Hat"
+    ]
+  },
+  {
+    "Scenario ID": "S03",
+    "Scenario Name": "Teamwear and sport",
+    "Primary Question": "What should come up for teamwear and sport?",
+    "Market Filter(s)": "Teamwear; Performance; Fitness",
+    "Product Category Filter(s)": "Sports",
+    "Product Type Filter(s)": "Baseball; Visor; Trucker",
+    "Technical Filter Hints": "Breathability/ventilation/sweatband can be faceted filters, not extra scored tags",
+    "Expected Product Type Notes": "Check B188 and performance products are easy to find via factual filters.",
+    "Feedback Prompt": "Are the right sports and teamwear products appearing?",
+    "Market Filter(s) Array": [
+      "Teamwear",
+      "Performance",
+      "Fitness"
+    ],
+    "Product Category Filter(s) Array": [
+      "Sports"
+    ],
+    "Product Type Filter(s) Array": [
+      "Baseball",
+      "Visor",
+      "Trucker"
+    ]
+  },
+  {
+    "Scenario ID": "S04",
+    "Scenario Name": "Corporate uniform cap",
+    "Primary Question": "What should come up for a corporate or uniform brief?",
+    "Market Filter(s)": "Corporate; Uniform; Trade Workwear",
+    "Product Category Filter(s)": "Business and Study; Vocation",
+    "Product Type Filter(s)": "Baseball; Trucker",
+    "Technical Filter Hints": "Structured/semi-structured, neutral colours, clean branding can be optional filters",
+    "Expected Product Type Notes": "Tests market/category validity, not an inferred corporate score.",
+    "Feedback Prompt": "Do these products feel appropriate for a corporate or uniform brief?",
+    "Market Filter(s) Array": [
+      "Corporate",
+      "Uniform",
+      "Trade Workwear"
+    ],
+    "Product Category Filter(s) Array": [
+      "Business and Study",
+      "Vocation"
+    ],
+    "Product Type Filter(s) Array": [
+      "Baseball",
+      "Trucker"
+    ]
+  },
+  {
+    "Scenario ID": "S05",
+    "Scenario Name": "Outdoor and travel",
+    "Primary Question": "What should come up for outdoor/travel use?",
+    "Market Filter(s)": "Tourism; Commuter; Performance",
+    "Product Category Filter(s)": "Outdoor; Travel",
+    "Product Type Filter(s)": "Camper; Bucket Hat; Safari; Baseball; Trucker",
+    "Technical Filter Hints": "Filter by fabric, water resistance, ripstop, ventilation, sun/UPF if present",
+    "Expected Product Type Notes": "Include broader brimmed headwear, not just core five caps.",
+    "Feedback Prompt": "Are these products practical for outdoor or travel use?",
+    "Market Filter(s) Array": [
+      "Tourism",
+      "Commuter",
+      "Performance"
+    ],
+    "Product Category Filter(s) Array": [
+      "Outdoor",
+      "Travel"
+    ],
+    "Product Type Filter(s) Array": [
+      "Camper",
+      "Bucket Hat",
+      "Safari",
+      "Baseball",
+      "Trucker"
+    ]
+  },
+  {
+    "Scenario ID": "S06",
+    "Scenario Name": "School and campus",
+    "Primary Question": "What should come up for schools or campus use?",
+    "Market Filter(s)": "Campus; Uniform; Merchandise",
+    "Product Category Filter(s)": "Schools; Kids; Business and Study",
+    "Product Type Filter(s)": "Baseball; Dad Hat; Bucket Hat",
+    "Technical Filter Hints": "Junior availability, colour range and embroidery fields are useful filters",
+    "Expected Product Type Notes": "Tests junior/school data coverage and category accuracy.",
+    "Feedback Prompt": "Do these products make sense for schools, clubs or campus use?",
+    "Market Filter(s) Array": [
+      "Campus",
+      "Uniform",
+      "Merchandise"
+    ],
+    "Product Category Filter(s) Array": [
+      "Schools",
+      "Kids",
+      "Business and Study"
+    ],
+    "Product Type Filter(s) Array": [
+      "Baseball",
+      "Dad Hat",
+      "Bucket Hat"
+    ]
+  },
+  {
+    "Scenario ID": "S07",
+    "Scenario Name": "Fan wear and music merch",
+    "Primary Question": "What should come up for fan wear / music / merch?",
+    "Market Filter(s)": "Fan Wear; Merchandise; Retail",
+    "Product Category Filter(s)": "Promo; Fashion; Gifting",
+    "Product Type Filter(s)": "Flat Peak; Trucker; Dad Hat; Baseball; Bucket Hat",
+    "Technical Filter Hints": "Consider colourways, decoration areas and shape filters",
+    "Expected Product Type Notes": "Useful for festival, club, sports fan, band and creator merch.",
+    "Feedback Prompt": "Are the returned products right for fan wear and music merch?",
+    "Market Filter(s) Array": [
+      "Fan Wear",
+      "Merchandise",
+      "Retail"
+    ],
+    "Product Category Filter(s) Array": [
+      "Promo",
+      "Fashion",
+      "Gifting"
+    ],
+    "Product Type Filter(s) Array": [
+      "Flat Peak",
+      "Trucker",
+      "Dad Hat",
+      "Baseball",
+      "Bucket Hat"
+    ]
+  },
+  {
+    "Scenario ID": "S08",
+    "Scenario Name": "Sustainable brief",
+    "Primary Question": "What should come up when sustainability is required?",
+    "Market Filter(s)": "Retail; Merchandise; Corporate",
+    "Product Category Filter(s)": "Fashion; Promo; Business and Study",
+    "Product Type Filter(s)": "Any",
+    "Technical Filter Hints": "Use Sustainability / Certification as a hard filter when selected",
+    "Expected Product Type Notes": "Sustainability should remain a direct filter, not a derived tag.",
+    "Feedback Prompt": "Are any important certified/organic/recycled products missing?",
+    "Market Filter(s) Array": [
+      "Retail",
+      "Merchandise",
+      "Corporate"
+    ],
+    "Product Category Filter(s) Array": [
+      "Fashion",
+      "Promo",
+      "Business and Study"
+    ],
+    "Product Type Filter(s) Array": [
+      "Any"
+    ]
+  }
+]

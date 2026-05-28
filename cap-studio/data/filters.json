@@ -1,0 +1,456 @@
+{
+  "Market": [
+    {
+      "value": "Campus",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official market list"
+    },
+    {
+      "value": "Commuter",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official market list"
+    },
+    {
+      "value": "Corporate",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official market list"
+    },
+    {
+      "value": "Fan Wear",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official market list"
+    },
+    {
+      "value": "Fitness",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official market list"
+    },
+    {
+      "value": "Merchandise",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official market list"
+    },
+    {
+      "value": "Performance",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official market list"
+    },
+    {
+      "value": "Retail",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official market list"
+    },
+    {
+      "value": "Teamwear",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official market list"
+    },
+    {
+      "value": "Tourism",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official market list"
+    },
+    {
+      "value": "Trade Workwear",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official market list"
+    },
+    {
+      "value": "Uniform",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official market list"
+    }
+  ],
+  "Product Category": [
+    {
+      "value": "Business and Study",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official category list"
+    },
+    {
+      "value": "Fashion",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official category list"
+    },
+    {
+      "value": "Gifting",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official category list"
+    },
+    {
+      "value": "Kids",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official category list"
+    },
+    {
+      "value": "Outdoor",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official category list"
+    },
+    {
+      "value": "Promo",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official category list"
+    },
+    {
+      "value": "Schools",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official category list"
+    },
+    {
+      "value": "Sports",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official category list"
+    },
+    {
+      "value": "Travel",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official category list"
+    },
+    {
+      "value": "Vocation",
+      "source": "Product Category + Market.xlsx",
+      "notes": "Official category list"
+    }
+  ],
+  "Product Type": [
+    {
+      "value": "Army",
+      "source": "Caps Classification CSV",
+      "notes": "Source-of-truth style label"
+    },
+    {
+      "value": "Baseball",
+      "source": "Caps Classification CSV",
+      "notes": "Source-of-truth style label"
+    },
+    {
+      "value": "Bucket Hat",
+      "source": "Caps Classification CSV",
+      "notes": "Source-of-truth style label"
+    },
+    {
+      "value": "Camper",
+      "source": "Caps Classification CSV",
+      "notes": "Source-of-truth style label"
+    },
+    {
+      "value": "Dad Hat",
+      "source": "Caps Classification CSV",
+      "notes": "Source-of-truth style label"
+    },
+    {
+      "value": "Flat Cap",
+      "source": "Caps Classification CSV",
+      "notes": "Source-of-truth style label"
+    },
+    {
+      "value": "Flat Peak",
+      "source": "Caps Classification CSV",
+      "notes": "Source-of-truth style label"
+    },
+    {
+      "value": "Safari",
+      "source": "Caps Classification CSV",
+      "notes": "Source-of-truth style label"
+    },
+    {
+      "value": "Straw",
+      "source": "Caps Classification CSV",
+      "notes": "Source-of-truth style label"
+    },
+    {
+      "value": "Trilby",
+      "source": "Caps Classification CSV",
+      "notes": "Source-of-truth style label"
+    },
+    {
+      "value": "Trucker",
+      "source": "Caps Classification CSV",
+      "notes": "Source-of-truth style label"
+    },
+    {
+      "value": "Visor",
+      "source": "Caps Classification CSV",
+      "notes": "Source-of-truth style label"
+    }
+  ],
+  "Crown Profile": [
+    {
+      "value": "Domed crown",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Elasticated crown ?? (should this be \"elasticated size adjuster\"??)",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Flat top",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "HIGH",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "HIGH\n\nSHOULD BE MID",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "LOW",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "LOW",
+        "Low"
+      ]
+    },
+    {
+      "value": "Low",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "LOW",
+        "Low"
+      ]
+    },
+    {
+      "value": "MID",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "MID",
+        "Mid",
+        "mid"
+      ]
+    },
+    {
+      "value": "Mid",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "MID",
+        "Mid",
+        "mid"
+      ]
+    },
+    {
+      "value": "mid",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "MID",
+        "Mid",
+        "mid"
+      ]
+    }
+  ],
+  "Structure / Buckram": [
+    {
+      "value": "Fold down light buckram",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Lightly structured",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "Lightly structured",
+        "lightly structured"
+      ]
+    },
+    {
+      "value": "Padded",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Semi-structured",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Structured",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "Structured",
+        "structured"
+      ]
+    },
+    {
+      "value": "Unstructured",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "Unstructured",
+        "unstructured"
+      ]
+    },
+    {
+      "value": "lightly structured",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "Lightly structured",
+        "lightly structured"
+      ]
+    },
+    {
+      "value": "structured",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "Structured",
+        "structured"
+      ]
+    },
+    {
+      "value": "unstructured",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "Unstructured",
+        "unstructured"
+      ]
+    }
+  ],
+  "Peak": [
+    {
+      "value": "Curved",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "Curved",
+        "curved"
+      ]
+    },
+    {
+      "value": "Curvred",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Flat",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Semi-curved",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Soft",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "curved",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter",
+      "casing_duplicate_of": [
+        "Curved",
+        "curved"
+      ]
+    }
+  ],
+  "Closure": [
+    {
+      "value": "Adjustable elastic and webbing with clip closure",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Elastic",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Elastic and clip",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Elastic and toggle",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Elastic and tri-glide",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Flip-lock buckle",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Gunmetal buckle and grommit",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Matte Black",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Retro style snapback size adjuster",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Rip-Strip™",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Self fabric strap with buckle and grommet",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Self fabric strap with tri glide",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Snapback",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Snapback size adjuster",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Stretch-Fit",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Tri-glide",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "Webbing and clip",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    },
+    {
+      "value": "self fabric and tri glide",
+      "source": "Caps Classification CSV",
+      "notes": "Technical filter"
+    }
+  ]
+}

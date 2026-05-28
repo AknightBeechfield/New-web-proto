@@ -1,0 +1,86 @@
+[
+  {
+    "Field": "Market",
+    "Source": "Product Category + Market.xlsx",
+    "Description": "Primary market assignment for the product",
+    "Prototype Use": "Top-level buyer/use context filter",
+    "Notes": "Use as factual filter, not scoring layer"
+  },
+  {
+    "Field": "Product Category",
+    "Source": "Product Category + Market.xlsx",
+    "Description": "Commercial/product category assignment",
+    "Prototype Use": "Top-level product situation/category filter",
+    "Notes": "Normalise VOCATION/Vocation"
+  },
+  {
+    "Field": "Product Type",
+    "Source": "Caps Classification CSV",
+    "Description": "Source-of-truth cap/headwear style label",
+    "Prototype Use": "Shape/style filter",
+    "Notes": "Do not rename Flat Peak to Snapback in data layer"
+  },
+  {
+    "Field": "Crown Profile",
+    "Source": "Caps Classification CSV",
+    "Description": "Low, Mid, High profile",
+    "Prototype Use": "Technical filter and education content",
+    "Notes": "Use exact source values"
+  },
+  {
+    "Field": "Structure / Buckram",
+    "Source": "Caps Classification CSV",
+    "Description": "Buckram/structure detail",
+    "Prototype Use": "Technical filter and decoration education",
+    "Notes": "Do not infer subjective tags"
+  },
+  {
+    "Field": "Panel Count",
+    "Source": "Caps Classification CSV",
+    "Description": "Number of panels",
+    "Prototype Use": "Technical filter and education content",
+    "Notes": "5-panel/6-panel can be explained in guides"
+  },
+  {
+    "Field": "Peak",
+    "Source": "Caps Classification CSV",
+    "Description": "Curved, semi-curved, flat etc.",
+    "Prototype Use": "Technical filter",
+    "Notes": "Use exact source values"
+  },
+  {
+    "Field": "Closure / Adjuster",
+    "Source": "Caps Classification CSV",
+    "Description": "Detailed closure description",
+    "Prototype Use": "Technical filter",
+    "Notes": "Simplified closure can be used for UI if available"
+  },
+  {
+    "Field": "Decoration",
+    "Source": "Caps Classification CSV",
+    "Description": "Decoration dimensions where provided",
+    "Prototype Use": "Technical filter / PDP display",
+    "Notes": "Derived cm2 is provided for QA only"
+  },
+  {
+    "Field": "Colour Count",
+    "Source": "Falk export",
+    "Description": "Count of unique colours per product",
+    "Prototype Use": "Filter/sort and PLP proof point",
+    "Notes": "Colour count now available in master"
+  },
+  {
+    "Field": "Colour List",
+    "Source": "Falk export",
+    "Description": "Unique colour names per product",
+    "Prototype Use": "Search/filter support",
+    "Notes": "May need colour family mapping later"
+  },
+  {
+    "Field": "L12M Sales",
+    "Source": "MASTER PRODUCT SALES DATA.xlsx",
+    "Description": "Recent sales volume where available",
+    "Prototype Use": "Optional sort/QA signal",
+    "Notes": "Do not use as recommendation logic without business agreement"
+  }
+]
