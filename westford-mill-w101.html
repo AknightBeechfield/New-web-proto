@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>W101 Bag for Life | Westford Mill</title>
+<link rel="stylesheet" href="https://use.typekit.net/sep5cxb.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap">
+<style>
+  /* ---------- Brand system ---------- */
+  :root {
+    --cool-black: #0E1520;
+    --white: #FFFFFF;
+    --grey: #EAEAEA;
+    --grey-soft: #F4F4F2;
+    --grey-text: #6B6B6B;
+    --navy: #1A2942;
+    --placeholder: #F8D9C2;
+    --placeholder-text: #8A4A1F;
+    --font-sans: "helvetica-neue-lt-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-button: "Libre Baskerville", Baskerville, Georgia, serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--cool-black);
+    background: var(--white);
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    line-height: 1.1;
+    margin: 0;
+  }
+  h1 { font-size: 40px; }
+  h2 { font-size: 32px; }
+  h3 { font-size: 24px; }
+  h4 { font-size: 20px; }
+  h5 { font-size: 18px; }
+  p { margin: 0 0 1em 0; }
+  a { color: var(--cool-black); text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+  /* Placeholder tag */
+  .ph-tag {
+    display: inline-block;
+    background: var(--placeholder);
+    color: var(--placeholder-text);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .ph-block {
+    background: var(--placeholder);
+    color: var(--placeholder-text);
+    border: 1px dashed var(--placeholder-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    font-family: var(--font-button);
+    font-size: 15px;
+    padding: 14px 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--cool-black);
+    transition: background 0.15s, color 0.15s;
+    text-decoration: none;
+    width: 100%;
+  }
+  .btn-primary { background: var(--cool-black); color: var(--white); }
+  .btn-primary:hover { background: var(--navy); border-color: var(--navy); }
+  .btn-secondary { background: var(--white); color: var(--cool-black); }
+  .btn-secondary:hover { background: var(--cool-black); color: var(--white); }
+  .btn-tertiary {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--cool-black);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Caption / eyebrow */
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cool-black);
+  }
+  .caption {
+    font-size: 13px;
+    color: var(--grey-text);
+  }
+
+  /* ---------- Brand selector strip ---------- */
+  .brand-selector {
+    background: var(--cool-black);
+    color: var(--white);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .brand-selector .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 32px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .brand-selector .links a {
+    color: var(--white);
+    opacity: 0.7;
+    margin-right: 24px;
+    text-transform: uppercase;
+  }
+  .brand-selector .links a.active { opacity: 1; font-weight: 700; }
+  .brand-selector .meta a { color: var(--white); opacity: 0.85; margin-left: 16px; }
+
+  /* ---------- Main nav ---------- */
+  .main-nav {
+    border-bottom: 1px solid var(--grey);
+    background: var(--white);
+  }
+  .main-nav .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .logo-wm {
+    font-family: "minion-pro", "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 26px;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 28px;
+    color: var(--cool-black);
+  }
+  .nav-search {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--grey-text);
+  }
+  .nav-search input {
+    border: 1px solid var(--grey);
+    padding: 6px 12px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    width: 220px;
+  }
+
+  /* ---------- Breadcrumb ---------- */
+  .breadcrumb {
+    padding: 16px 32px;
+    font-size: 13px;
+    color: var(--grey-text);
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .breadcrumb a { color: var(--grey-text); }
+  .breadcrumb .current { color: var(--cool-black); }
+
+  /* ---------- Top row: gallery + buy column ---------- */
+  .top-row {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 48px;
+    padding: 16px 32px 64px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Gallery */
+  .gallery .hero-img {
+    aspect-ratio: 1 / 1;
+    background: var(--grey-soft);
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery .hero-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--grey-soft);
+    color: var(--grey-text);
+    font-size: 14px;
+    z-index: 0;
+  }
+  .gallery .hero-img img { position: relative; z-index: 1; }
+  .gallery .thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .gallery .thumb {
+    aspect-ratio: 1 / 1;
+    background: var(--grey-soft);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .gallery .thumb img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
+  .gallery .thumb .ph {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--grey-text);
+    font-size: 10px;
+    text-align: center;
+    padding: 6px;
+    z-index: 0;
+  }
+  .gallery .thumb.video::after {
+    content: "▶";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    font-size: 12px;
+  }
+  .gallery .thumb.active { border-color: var(--cool-black); }
+
+  /* Buy column */
+  .buy-column .brand-stamp {
+    font-family: "minion-pro", "Times New Roman", serif;
+    font-style: italic;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--grey-text);
+  }
+  .buy-column h1 {
+    font-size: 34px;
+    margin-bottom: 8px;
+  }
+  .buy-column .product-code {
+    font-size: 13px;
+    color: var(--grey-text);
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+  .lozenges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .lozenge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border: 1px solid var(--cool-black);
+    background: transparent;
+  }
+  .lozenge.filled {
+    background: var(--cool-black);
+    color: var(--white);
+  }
+  .stock-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    margin-bottom: 16px;
+    padding: 10px 14px;
+    background: var(--grey-soft);
+    border-left: 3px solid #2D7A4F;
+  }
+  .stock-dot {
+    width: 8px;
+    height: 8px;
+    background: #2D7A4F;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .stock-indicator .number { font-weight: 700; }
+  .stock-indicator .audience-tag {
+    font-size: 10px;
+    background: var(--cool-black);
+    color: var(--white);
+    padding: 2px 6px;
+    margin-left: auto;
+    letter-spacing: 0.05em;
+  }
+  .positioning {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+    color: var(--cool-black);
+  }
+  .colour-selector { margin-bottom: 24px; }
+  .colour-label {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .colour-label .name { font-weight: 700; }
+  .colour-label .pantone {
+    color: var(--grey-text);
+    margin-left: 8px;
+    font-size: 12px;
+  }
+  .swatch-row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 4px;
+  }
+  .swatch {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.1);
+    position: relative;
+  }
+  .swatch.active {
+    box-shadow: 0 0 0 2px var(--white), 0 0 0 3px var(--cool-black);
+  }
+  .swatch-more {
+    background: var(--grey-soft);
+    color: var(--cool-black);
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  /* DNA panel */
+  .dna-panel {
+    background: var(--grey-soft);
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .dna-panel table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .dna-panel td {
+    padding: 6px 0;
+    vertical-align: top;
+  }
+  .dna-panel td:first-child {
+    color: var(--grey-text);
+    width: 130px;
+  }
+  .dna-panel td:last-child { font-weight: 500; }
+
+  /* Highlights, value-led version of the DNA panel */
+  .highlights {
+    background: var(--grey-soft);
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .highlights-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 14px 0;
+    color: var(--grey-text);
+  }
+  .highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .highlights-list li {
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .highlights-list li:last-child { border-bottom: none; padding-bottom: 0; }
+  .highlights-list li:first-child { padding-top: 0; }
+  .highlights-list strong {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .tertiary-link {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 16px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .cta-stack { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+
+  .tertiary-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 12px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--grey);
+    margin-bottom: 16px;
+  }
+  .tertiary-row a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: var(--grey-text);
+  }
+
+  /* Accordion */
+  .accordion-row {
+    border-bottom: 1px solid var(--grey);
+  }
+  .accordion-row summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .accordion-row summary::-webkit-details-marker { display: none; }
+  .accordion-row summary::after {
+    content: "+";
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--cool-black);
+  }
+  .accordion-row[open] summary::after { content: "−"; }
+  .accordion-content {
+    padding: 4px 0 20px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .accordion-content h6 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 12px 0 6px 0;
+    font-weight: 700;
+  }
+  .accordion-content ul { padding-left: 18px; margin: 4px 0 8px 0; }
+  .sku-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  .sku-table th, .sku-table td {
+    padding: 6px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--grey);
+  }
+  .sku-table th {
+    background: var(--grey-soft);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .what-to-expect-item {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--grey);
+  }
+  .what-to-expect-item:last-child { border-bottom: none; }
+  .what-to-expect-item .heading {
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .care-icons {
+    display: flex;
+    gap: 14px;
+    margin: 12px 0 8px 0;
+    align-items: center;
+  }
+  .care-icon {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--cool-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    text-align: center;
+    line-height: 1;
+    padding: 4px;
+  }
+
+  /* ---------- USP tiles ---------- */
+  .usp-section {
+    background: var(--grey);
+    padding: 64px 32px;
+  }
+  .usp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .usp-tile {
+    background: var(--white);
+    padding: 24px;
+  }
+  .usp-tile .img {
+    aspect-ratio: 4 / 3;
+    background: var(--grey-soft);
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .usp-tile .img img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
+  .usp-tile .img .ph-block {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .usp-tile h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .usp-tile p { font-size: 14px; line-height: 1.55; margin: 0; color: var(--grey-text); }
+
+  /* ---------- Designed for decoration ---------- */
+  .decoration-section {
+    padding: 80px 32px;
+    background: var(--white);
+  }
+  .decoration-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 48px;
+    align-items: start;
+  }
+  .decoration-image {
+    aspect-ratio: 4 / 3;
+    background: var(--grey-soft);
+    position: relative;
+    overflow: hidden;
+  }
+  .decoration-image img { width: 100%; height: 100%; object-fit: cover; }
+  .decoration-image .callout {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background: var(--white);
+    border: 2px solid var(--cool-black);
+    border-radius: 50%;
+    color: var(--cool-black);
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+  .callout-1 { top: 22%; left: 35%; }
+  .callout-2 { top: 55%; left: 50%; }
+  .callout-3 { top: 75%; left: 30%; }
+  .callout-4 { top: 35%; left: 70%; }
+
+  .decoration-copy h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  .decoration-callout-list { padding-left: 0; list-style: none; margin: 0 0 20px 0; }
+  .decoration-callout-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--grey);
+    font-size: 14px;
+  }
+  .decoration-callout-list li .num {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: var(--cool-black);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .decoration-bullets {
+    padding-left: 18px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--grey-text);
+    margin-bottom: 24px;
+  }
+  .decoration-cta-row { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+  .decoration-tertiary {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+  }
+  .decoration-tertiary a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ---------- Full palette ---------- */
+  .palette-section {
+    background: var(--grey-soft);
+    padding: 80px 32px;
+  }
+  .palette-inner { max-width: 1280px; margin: 0 auto; }
+  .palette-header { margin-bottom: 32px; text-align: left; }
+  .palette-header h2 { font-size: 32px; margin-bottom: 8px; }
+  .palette-header p { font-size: 16px; color: var(--grey-text); margin: 0; max-width: 640px; }
+
+  .palette-filter {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .filter-pill {
+    padding: 8px 16px;
+    border: 1px solid var(--cool-black);
+    background: transparent;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+  }
+  .filter-pill.active {
+    background: var(--cool-black);
+    color: var(--white);
+  }
+
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 12px;
+  }
+  .palette-swatch {
+    text-align: center;
+  }
+  .palette-swatch .colour {
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgba(0,0,0,0.06);
+    margin-bottom: 6px;
+  }
+  .palette-swatch .name {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .palette-swatch .pantone {
+    font-size: 10px;
+    color: var(--grey-text);
+  }
+
+  .palette-cta { margin-top: 32px; text-align: left; }
+  .palette-cta .btn { width: auto; padding: 14px 28px; }
+
+  /* ---------- Lifestyle row ---------- */
+  .lifestyle-section { padding: 80px 32px; }
+  .lifestyle-inner { max-width: 1280px; margin: 0 auto; }
+  .lifestyle-intro {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 32px;
+    max-width: 720px;
+  }
+  .lifestyle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .lifestyle-img {
+    aspect-ratio: 4 / 5;
+    background: var(--grey-soft);
+    position: relative;
+    overflow: hidden;
+  }
+  .lifestyle-img img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
+
+  /* ---------- Comparison ladder ---------- */
+  .comparison-section {
+    background: var(--grey);
+    padding: 80px 32px;
+  }
+  .comparison-inner { max-width: 1280px; margin: 0 auto; }
+  .comparison-section h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  .comparison-section .subtitle {
+    font-size: 15px;
+    color: var(--grey-text);
+    margin-bottom: 32px;
+  }
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .comparison-card {
+    background: var(--white);
+    padding: 24px;
+  }
+  .comparison-card.current {
+    border: 2px solid var(--cool-black);
+  }
+  .comparison-card .position-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--grey-text);
+    margin-bottom: 16px;
+  }
+  .comparison-card .img {
+    aspect-ratio: 1 / 1;
+    background: var(--grey-soft);
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .comparison-card .img img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
+  .comparison-card .code {
+    font-size: 13px;
+    color: var(--grey-text);
+    margin-bottom: 4px;
+  }
+  .comparison-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .comparison-card table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .comparison-card td {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--grey);
+    vertical-align: top;
+  }
+  .comparison-card td:first-child {
+    color: var(--grey-text);
+    width: 45%;
+  }
+  .comparison-card .best-for {
+    background: var(--grey-soft);
+    margin: 0 -24px;
+    padding: 12px 24px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .comparison-card .best-for .label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ---------- Family block ---------- */
+  .family-section { padding: 80px 32px; }
+  .family-inner { max-width: 1280px; margin: 0 auto; }
+  .family-section h2 {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+  .family-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .family-card .img {
+    aspect-ratio: 1 / 1;
+    background: var(--grey-soft);
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .family-card .img img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
+  .family-card .tag {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 8px;
+    z-index: 3;
+  }
+  .family-card .code { font-size: 12px; color: var(--grey-text); margin-bottom: 4px; }
+  .family-card h4 { font-size: 16px; margin-bottom: 4px; }
+  .family-card p { font-size: 13px; color: var(--grey-text); margin: 0; }
+
+  /* ---------- Editorial ---------- */
+  .editorial-section {
+    background: var(--grey-soft);
+    padding: 80px 32px;
+  }
+  .editorial-inner { max-width: 1280px; margin: 0 auto; }
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .editorial-card {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+    align-items: center;
+    background: var(--white);
+    padding: 24px;
+  }
+  .editorial-card .img {
+    aspect-ratio: 1 / 1;
+    background: var(--grey-soft);
+    position: relative;
+    overflow: hidden;
+  }
+  .editorial-card .img img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1; }
+  .editorial-card .eyebrow { margin-bottom: 8px; }
+  .editorial-card h3 { font-size: 20px; margin-bottom: 8px; line-height: 1.2; }
+  .editorial-card p { font-size: 13px; color: var(--grey-text); margin-bottom: 12px; }
+  .editorial-card a.btn-tertiary { font-size: 13px; }
+
+  /* ---------- Certifications band ---------- */
+  .certs-section {
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .certs-eyebrow { margin-bottom: 24px; }
+  .certs-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    flex-wrap: wrap;
+    max-width: 1280px;
+    margin: 0 auto 16px;
+  }
+  .cert-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    color: var(--grey-text);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-align: center;
+    line-height: 1.3;
+    padding: 0 8px;
+  }
+  .certs-caveat {
+    font-size: 12px;
+    color: var(--grey-text);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--cool-black);
+    color: var(--white);
+    padding: 48px 32px 24px;
+    font-size: 13px;
+  }
+  footer .inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  footer h6 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; font-weight: 700; }
+  footer a { color: var(--white); opacity: 0.7; display: block; padding: 4px 0; }
+  footer a:hover { opacity: 1; }
+  footer .copyright {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin-top: 32px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.6;
+  }
+
+  /* ---------- Mockup-only review banner ---------- */
+  .mockup-banner {
+    background: #2a2a2a;
+    color: #fff;
+    font-size: 12px;
+    padding: 8px 16px;
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+  .mockup-banner strong { color: var(--placeholder); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1024px) {
+    .top-row { grid-template-columns: 1fr; gap: 32px; }
+    .buy-column { max-width: 560px; }
+    .decoration-inner { grid-template-columns: 1fr; }
+    .palette-grid { grid-template-columns: repeat(6, 1fr); }
+    .editorial-card { grid-template-columns: 1fr; }
+    .editorial-card .img { aspect-ratio: 16 / 9; }
+    footer .inner { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    h1 { font-size: 28px; }
+    .nav-links { display: none; }
+    .usp-grid, .lifestyle-grid, .comparison-grid, .family-grid, .editorial-grid { grid-template-columns: 1fr; }
+    .palette-grid { grid-template-columns: repeat(4, 1fr); }
+    .swatch-row { grid-template-columns: repeat(10, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Mockup banner -->
+<div class="mockup-banner">
+  W101 PDP MOCKUP V1 · <strong>Peach tags = placeholders / decisions outstanding</strong> · For Alex review before House Digital handover
+</div>
+
+<!-- Brand selector -->
+<div class="brand-selector">
+  <div class="inner">
+    <div class="links">
+      <a href="#">Beechfield</a>
+      <a href="#">BagBase</a>
+      <a href="#">Quadra</a>
+      <a href="#" class="active">Westford Mill</a>
+    </div>
+    <div class="meta">
+      <a href="#">EN / £ GBP</a>
+      <a href="#">Trade Login</a>
+      <a href="#">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+<!-- Main nav -->
+<nav class="main-nav">
+  <div class="inner">
+    <div class="logo-wm">WestfordMill.</div>
+    <div class="nav-links">
+      <a href="#">Products</a>
+      <a href="#">Collections</a>
+      <a href="#">Decorators</a>
+      <a href="#">Sustainability</a>
+      <a href="#">About</a>
+    </div>
+    <div class="nav-search">
+      <input type="text" placeholder="Search products…">
+      <span>♡</span>
+    </div>
+  </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <a href="#">Products</a> / <a href="#">Totes &amp; Shoppers</a> / <a href="#">Bag for Life</a> / <span class="current">W101 Long Handles</span>
+</div>
+
+<!-- TOP ROW: gallery + buy column -->
+<section class="top-row">
+  <!-- Gallery -->
+  <div class="gallery">
+    <div class="hero-img">
+      <div class="hero-placeholder">Decorated multi-colour set, gallery hero</div>
+      <img src="https://mediahub.beechfieldbrands.com/asset/657fbba1-1ca8-4233-a520-eda50a22aca3/Product-medium/Westfordmill-W101-colour-selection-world-cup-V3.jpg" alt="W101 multi-colour decorated set">
+    </div>
+    <div class="thumbs">
+      <div class="thumb active">
+        <div class="ph">Decorated multi-colour V3</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/657fbba1-1ca8-4233-a520-eda50a22aca3/Product-medium/Westfordmill-W101-colour-selection-world-cup-V3.jpg" alt="">
+      </div>
+      <div class="thumb">
+        <div class="ph">Decorated trio, Royal / Kelly / Pink</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/1b33e9c9-9606-49a8-8754-9a285cfc3cd2/Product-medium/W101-Bag-For-Life-Long-Handles-Bright-Royal-Kelly-Green-True-Pink-Decorated-01.jpg" alt="">
+      </div>
+      <div class="thumb">
+        <div class="ph">Decorated, True Pink</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/d2afc3b6-c830-4d00-b774-a5078f8ec5e1/Product-medium/W101-Bag-For-Life-Long-Handles-True-Pink-Decorated-01.jpg" alt="">
+      </div>
+      <div class="thumb">
+        <div class="ph">Decorated, Kelly Green</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/0ae5eba1-a846-4ef1-b131-245ea5260e24/Product-medium/W101-Bag-For-Life-Long-Handles-Kelly-Green-Decorated-01.jpg" alt="">
+      </div>
+      <div class="thumb">
+        <div class="ph">Decorated, Bright Royal</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/1652e2a3-af74-4816-8d0d-619254db4a9d/Product-medium/W101-Bag-For-Life-Long-Handles-Bright-Royal-Decorated-01.jpg" alt="">
+      </div>
+      <div class="thumb">
+        <div class="ph">Natural, primary shot</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/88b08ef2-af62-4e3b-bfb5-a3a8ca01157e/Product-medium/westfordmill_w101_natural.jpg" alt="">
+      </div>
+      <div class="thumb">
+        <div class="ph">Lifestyle, Sapphire Blue</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/9c848a35-0d13-48af-9ee3-b47c816b9079/Product-medium/westfordmill-w101-sapphire-blue-lifestyle-cropped.jpg" alt="">
+      </div>
+      <div class="thumb video">
+        <div class="ph">Video, Sapphire Blue</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/9c848a35-0d13-48af-9ee3-b47c816b9079/Product-medium/westfordmill-w101-sapphire-blue-lifestyle-cropped.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- Buy column -->
+  <aside class="buy-column">
+    <div class="brand-stamp">Westford Mill</div>
+    <h1>Bag for Life, Long Handles</h1>
+    <div class="product-code">W101</div>
+
+    <div class="lozenges">
+      <span class="lozenge filled">Best Seller</span>
+      <span class="lozenge">Decorator's Choice</span>
+    </div>
+
+    <div class="stock-indicator">
+      <span class="stock-dot"></span>
+      <span><span class="number">501,128</span> in stock <span class="caption">· UK warehouse</span></span>
+      <span class="audience-tag">TRADE</span>
+    </div>
+
+    <p class="positioning">A trusted canvas for everyday carry, in 48 considered colours. Westford Mill's original Bag for Life, a smooth, tightly woven 140gsm cotton tote with a long handle drop. Ready to decorate, ready to ship at volume.</p>
+
+    <div class="colour-selector">
+      <div class="colour-label">
+        <span class="caption">Colour:</span>
+        <span class="name">Natural</span>
+        <span class="pantone">Pantone 7506 / 12-0605</span>
+      </div>
+      <div class="swatch-row" id="swatch-row"></div>
+      <p class="caption" style="margin-top:10px; font-size:12px;">View all 48 colours below ↓</p>
+    </div>
+
+    <div class="highlights">
+      <h5 class="highlights-title">Why the W101</h5>
+      <ul class="highlights-list">
+        <li><strong>Lightweight cotton tote.</strong> 140gsm, soft hand-feel, easy to fold and carry.</li>
+        <li><strong>48 considered colours.</strong> Every shade with a Pantone reference for confident brand matching.</li>
+        <li><strong>Print-ready surface.</strong> Smooth, tightly woven, ready from box to press.</li>
+        <li><strong>Held in UK stock at volume.</strong> Available year-round for large-print runs and repeat orders.</li>
+      </ul>
+    </div>
+
+    <a href="#" class="tertiary-link">View Decorator Studio guides →</a>
+
+    <div class="cta-stack">
+      <a href="#" class="btn btn-primary">Find Stock</a>
+      <a href="#" class="btn btn-secondary">Access Assets</a>
+    </div>
+
+    <div class="tertiary-row">
+      <a href="#">Product Spec Sheet (PDF)<span class="ph-tag">link TBC</span></a>
+      <a href="#">Decoration Mockup Tool<span class="ph-tag">link TBC</span></a>
+      <a href="#">Product Enquiry</a>
+      <a href="#">Find a Distributor</a>
+    </div>
+
+    <!-- Accordion -->
+    <details class="accordion-row">
+      <summary>Specifications</summary>
+      <div class="accordion-content">
+        <h6>Construction</h6>
+        <ul>
+          <li>Composition: 100% cotton, 140gsm (4.1 oz/yd²)</li>
+          <li>Tight, smooth weave for clean print results</li>
+          <li>Bleached chlorine-free using hydrogen peroxide</li>
+          <li>Cut-away care label for easy rebranding</li>
+          <li>67 cm long handles for over-the-shoulder carry</li>
+        </ul>
+        <h6>Sizing &amp; origin</h6>
+        <ul>
+          <li>One size · 38 × 42 cm · 10 L capacity</li>
+          <li>Max print area: 33 × 36 cm</li>
+          <li>Max embroidery: 18 tubular hoop</li>
+          <li>Made in Pakistan</li>
+          <li>Commodity code: 4202929890</li>
+        </ul>
+        <h6>Logistics</h6>
+        <ul>
+          <li>Unit weight: 65g</li>
+          <li>Box quantity: 250 · Carton weight: 17.3kg</li>
+          <li>Box size: 40 × 50 × 35 cm</li>
+        </ul>
+        <h6>SKUs (sample, full list in spec sheet)</h6>
+        <table class="sku-table">
+          <thead>
+            <tr><th>Colour</th><th>SKU</th><th>EAN</th><th>Pantone</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Natural</td><td>W101.NAT</td><td><span class="ph-tag">EAN TBC</span></td><td>7506 / 12-0605</td></tr>
+            <tr><td>Airforce Blue</td><td>W101.AIR</td><td>5060566341639</td><td>2167C / 18-4026</td></tr>
+            <tr><td>Black</td><td>W101.BLK</td><td><span class="ph-tag">EAN TBC</span></td><td>Black C</td></tr>
+            <tr><td>French Navy</td><td>W101.FNV</td><td><span class="ph-tag">EAN TBC</span></td><td>296 / 19-3921</td></tr>
+            <tr><td colspan="4" style="text-align:center; color: var(--grey-text);">+ 44 more colours in the full spec sheet</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details class="accordion-row">
+      <summary>Product description</summary>
+      <div class="accordion-content">
+        <p>Westford Mill's original Bag for Life, made for daily use and built for branding. A smooth, tightly woven 140gsm cotton with a 67 cm long handle drop, the W101 carries clean print results across all 48 shades. Bleached chlorine-free, finished with a cut-away label for easy rebranding, and packed for volume. Ready to go from box to press.</p>
+      </div>
+    </details>
+
+    <details class="accordion-row">
+      <summary>What to expect</summary>
+      <div class="accordion-content">
+        <div class="what-to-expect-item">
+          <div class="heading">Cotton, not canvas.</div>
+          The W101 is a 140gsm shopper-weight cotton. Lightweight, easy to carry, easy to fold. For heavier weights, see the W201 (200gsm) or W801 (340gsm organic canvas).
+        </div>
+        <div class="what-to-expect-item">
+          <div class="heading">Colour and washing.</div>
+          Bleached chlorine-free with hydrogen peroxide. Pigment-dyed colours may show minor variation between dye lots. Order matched batches for large single-run jobs.
+        </div>
+        <div class="what-to-expect-item">
+          <div class="heading">Decoration prep.</div>
+          Pre-prepared for decoration, no pre-press cleaning required. For heat transfer, pre-press at 150°C for 15 seconds to flatten the surface and remove moisture.
+        </div>
+        <div class="what-to-expect-item">
+          <div class="heading">Care reality.</div>
+          Cold wash, low-temperature iron. Avoid heat over 150°C on decorated areas. Cotton softens with use, the bag will live in well over time.
+        </div>
+      </div>
+    </details>
+
+    <details class="accordion-row">
+      <summary>Composition &amp; care</summary>
+      <div class="accordion-content">
+        <p style="font-weight:700; margin-bottom: 4px;">Composition: 100% cotton · 140gsm</p>
+        <div class="care-icons">
+          <div class="care-icon">30°<br>Cold</div>
+          <div class="care-icon">No<br>Bleach</div>
+          <div class="care-icon">Low<br>Iron</div>
+          <div class="care-icon">No<br>Tumble</div>
+          <div class="care-icon">No<br>Dry-clean</div>
+        </div>
+        <p class="caption">Wash cold inside-out to protect decoration. Avoid bleach and high heat.</p>
+      </div>
+    </details>
+
+    <details class="accordion-row">
+      <summary>Documentation &amp; assets</summary>
+      <div class="accordion-content">
+        <ul>
+          <li>Product Spec Sheet (PDF) <span class="ph-tag">link TBC</span></li>
+          <li>Decoration Guide (PDF) <span class="ph-tag">link TBC</span></li>
+          <li>Digital Product Passport →</li>
+          <li>Line drawing &amp; decoration zones <span class="ph-tag">asset TBC</span></li>
+          <li>Watch the decoration video → <a href="https://www.youtube.com/watch?v=59DfGeTZck8" target="_blank">YouTube</a></li>
+        </ul>
+      </div>
+    </details>
+
+  </aside>
+</section>
+
+<!-- USP TILES -->
+<section class="usp-section">
+  <div class="usp-grid">
+    <div class="usp-tile">
+      <div class="img">
+        <div class="ph-block">Decorated detail, close-up of print on weave</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/d2afc3b6-c830-4d00-b774-a5078f8ec5e1/Product-medium/W101-Bag-For-Life-Long-Handles-True-Pink-Decorated-01.jpg" alt="">
+      </div>
+      <h3>A surface that's print-ready.</h3>
+      <p>Tightly woven 140gsm cotton, pre-prepared for clean transfer, screen and embroidery results.</p>
+    </div>
+    <div class="usp-tile">
+      <div class="img">
+        <div class="ph-block">Multi-colour palette shot</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/b976b3c8-bf5a-449c-ad98-d2ecec2d2e64/Product-medium/Westfordmill-W101-colour-selection-world-cup-V1.jpg" alt="">
+      </div>
+      <h3>48 considered colours.</h3>
+      <p>From Natural to Bright Royal, every shade with a Pantone reference for confident brand matching.</p>
+    </div>
+    <div class="usp-tile">
+      <div class="img">
+        <div class="ph-block">Warehouse / volume shot, TBC<br><span class="ph-tag" style="margin-top:8px;">asset gap</span></div>
+      </div>
+      <h3>In stock, at scale.</h3>
+      <p>A deep inventory in the UK warehouse. Held in volume year-round to support large-print runs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGNED FOR DECORATION -->
+<section class="decoration-section">
+  <div class="decoration-inner">
+    <div class="decoration-image">
+      <div class="ph-block" style="position:absolute; inset:0; z-index:0;">
+        Annotated decoration shot, process or finished close-up<br>
+        <span class="ph-tag" style="margin-top:8px;">Process TIFs → JPG + Media Hub upload pending</span>
+      </div>
+      <img src="https://mediahub.beechfieldbrands.com/asset/1b33e9c9-9606-49a8-8754-9a285cfc3cd2/Product-medium/W101-Bag-For-Life-Long-Handles-Bright-Royal-Kelly-Green-True-Pink-Decorated-01.jpg" alt="" style="position:relative; z-index:1;">
+      <div class="callout callout-1">1</div>
+      <div class="callout callout-2">2</div>
+      <div class="callout callout-3">3</div>
+      <div class="callout callout-4">4</div>
+    </div>
+    <div class="decoration-copy">
+      <h2>Designed for decoration.</h2>
+      <ul class="decoration-callout-list">
+        <li><span class="num">1</span> Pre-prepared cotton surface, ready to print from the box</li>
+        <li><span class="num">2</span> Tight, consistent weave for clean lines and reduced strike-through</li>
+        <li><span class="num">3</span> Cut-away care label, easy to remove for clean rebranding</li>
+        <li><span class="num">4</span> 33 × 36 cm print area, a generous central decoration zone</li>
+      </ul>
+      <ul class="decoration-bullets">
+        <li>Suitable for heat transfer, DTF, screen print and embroidery</li>
+        <li>Pre-press recommended: 150°C, 15 seconds, medium pressure</li>
+        <li>18 tubular hoop for embroidery, full coverage of the print area</li>
+      </ul>
+      <div class="decoration-cta-row">
+        <a href="#" class="btn btn-primary">Decoration Guide</a>
+        <a href="#" class="btn btn-secondary">Decorator Academy</a>
+      </div>
+      <div class="decoration-tertiary">
+        <a href="#">View line drawing <span class="ph-tag">asset TBC</span></a>
+        <a href="https://www.youtube.com/watch?v=59DfGeTZck8" target="_blank">Watch the decoration video →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE FULL PALETTE -->
+<section class="palette-section">
+  <div class="palette-inner">
+    <div class="palette-header">
+      <h2>The full palette.</h2>
+      <p>48 considered colours, every shade with a Pantone reference. Available from a single SKU. Order any combination, any quantity.</p>
+    </div>
+    <div class="palette-filter">
+      <button class="filter-pill active">All (48)</button>
+      <button class="filter-pill">Brights</button>
+      <button class="filter-pill">Pastels</button>
+      <button class="filter-pill">Neutrals</button>
+      <button class="filter-pill">Darks</button>
+    </div>
+    <div class="palette-grid" id="palette-grid"></div>
+    <div class="palette-cta">
+      <a href="#" class="btn btn-secondary">Download the full Pantone palette (PDF) <span class="ph-tag">PDF to be built</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- MADE TO BE LIVED WITH -->
+<section class="lifestyle-section">
+  <div class="lifestyle-inner">
+    <p class="lifestyle-intro">Carried to markets, gifted at events, used in stores and at home. The W101 is a tote with no single use.</p>
+    <div class="lifestyle-grid">
+      <div class="lifestyle-img">
+        <div class="ph-block" style="position:absolute; inset:0; z-index:0;">Sunflower / Bright Red lifestyle</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/2bd74f62-0362-47fa-9e1c-825f3a21cd22/Product-medium/W101-Bag-For-Life-Long-Handles-Sunflower-Bright-Red-Lifestyle-Shot.jpg" alt="">
+      </div>
+      <div class="lifestyle-img">
+        <div class="ph-block" style="position:absolute; inset:0; z-index:0;">Orange Rust lifestyle</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/c27e62ff-094c-49c8-8978-2866af386e4c/Product-medium/westfordmill_w101_orange-rust_lifestyle_3601.jpg" alt="">
+      </div>
+      <div class="lifestyle-img">
+        <div class="ph-block" style="position:absolute; inset:0; z-index:0;">Sapphire Blue lifestyle</div>
+        <img src="https://mediahub.beechfieldbrands.com/asset/9c848a35-0d13-48af-9ee3-b47c816b9079/Product-medium/westfordmill-w101-sapphire-blue-lifestyle-cropped.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON LADDER: W101 / W201 / W801 -->
+<section class="comparison-section">
+  <div class="comparison-inner">
+    <h2>Find the right Bag for Life.</h2>
+    <p class="subtitle">Same form, three weights. Trade up for durability, organic certification or premium feel.</p>
+    <div class="comparison-grid">
+
+      <!-- W101 (current product) -->
+      <div class="comparison-card current">
+        <div class="position-tag">Everyday volume promo</div>
+        <div class="img">
+          <div class="ph-block" style="position:absolute; inset:0; z-index:0;">W101 Natural</div>
+          <img src="https://mediahub.beechfieldbrands.com/asset/88b08ef2-af62-4e3b-bfb5-a3a8ca01157e/Product-medium/westfordmill_w101_natural.jpg" alt="">
+        </div>
+        <div class="code">W101</div>
+        <h3>Bag for Life, Long Handles</h3>
+        <table>
+          <tr><td>Fabric</td><td>100% cotton</td></tr>
+          <tr><td>Weight</td><td><strong>140gsm</strong></td></tr>
+          <tr><td>Colours</td><td>48</td></tr>
+          <tr><td>Dimensions</td><td>38 × 42 cm · 10 L</td></tr>
+          <tr><td>Certification</td><td>None</td></tr>
+        </table>
+        <div class="best-for">
+          <span class="label">Best for</span>
+          High-volume promo and merchandise. The everyday workhorse, broad colour breadth and deep stock.
+        </div>
+      </div>
+
+      <!-- W201 -->
+      <div class="comparison-card">
+        <div class="position-tag">Premium feel</div>
+        <div class="img">
+          <div class="ph-block" style="position:absolute; inset:0; z-index:0;">W201 Premium Cotton Tote<br><span class="ph-tag" style="margin-top:6px;">image TBC</span></div>
+        </div>
+        <div class="code">W201</div>
+        <h3>Premium Cotton Tote</h3>
+        <table>
+          <tr><td>Fabric</td><td>100% cotton</td></tr>
+          <tr><td>Weight</td><td><strong>200gsm</strong></td></tr>
+          <tr><td>Colours</td><td>9 essentials</td></tr>
+          <tr><td>Dimensions</td><td>38 × 42 cm · 10 L</td></tr>
+          <tr><td>Certification</td><td>None</td></tr>
+        </table>
+        <div class="best-for">
+          <span class="label">Best for</span>
+          Retail, gifting, considered events. Heavier hand, longer life, premium tactile feel.
+        </div>
+      </div>
+
+      <!-- W801 -->
+      <div class="comparison-card">
+        <div class="position-tag">Certified organic</div>
+        <div class="img">
+          <div class="ph-block" style="position:absolute; inset:0; z-index:0;">W801 EarthAware Organic<br><span class="ph-tag" style="margin-top:6px;">image TBC</span></div>
+        </div>
+        <div class="code">W801</div>
+        <h3>EarthAware® Organic Bag for Life</h3>
+        <table>
+          <tr><td>Fabric</td><td>100% organic cotton canvas</td></tr>
+          <tr><td>Weight</td><td><strong>340gsm</strong></td></tr>
+          <tr><td>Colours</td><td>16</td></tr>
+          <tr><td>Dimensions</td><td>38 × 42 cm · 10 L</td></tr>
+          <tr><td>Certification</td><td><strong>GOTS · CU 811033</strong></td></tr>
+        </table>
+        <div class="best-for">
+          <span class="label">Best for</span>
+          Brands needing certified organic credentials. Heavyweight canvas, premium decoration surface.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MORE FROM THE BAG FOR LIFE FAMILY -->
+<section class="family-section">
+  <div class="family-inner">
+    <h2>More from the Bag for Life family.</h2>
+    <div class="family-grid">
+      <div class="family-card">
+        <div class="img" style="position:relative;">
+          <span class="tag">Contrast</span>
+          <div class="ph-block" style="position:absolute; inset:0; z-index:0;">W101C Contrast Handles</div>
+        </div>
+        <div class="code">W101C</div>
+        <h4>Bag for Life, Contrast Handles</h4>
+        <p>The W101 with five natural / colour-contrast combinations. For brand pop and lifestyle work.</p>
+      </div>
+      <div class="family-card">
+        <div class="img" style="position:relative;">
+          <span class="tag">Short handles</span>
+          <div class="ph-block" style="position:absolute; inset:0; z-index:0;">W101S Short Handles</div>
+        </div>
+        <div class="code">W101S</div>
+        <h4>Bag for Life, Short Handles</h4>
+        <p>Hand-carry version of the W101 for conferences, gifting and compact merchandise runs.</p>
+      </div>
+      <div class="family-card">
+        <div class="img" style="position:relative;">
+          <span class="tag">Larger</span>
+          <div class="ph-block" style="position:absolute; inset:0; z-index:0;">W125 Maxi Bag for Life</div>
+        </div>
+        <div class="code">W125</div>
+        <h4>Maxi Bag for Life</h4>
+        <p>Larger capacity for heavier carry. Same 140gsm cotton, fewer colours, bigger footprint.</p>
+      </div>
+      <div class="family-card">
+        <div class="img" style="position:relative;">
+          <span class="tag">Smaller</span>
+          <div class="ph-block" style="position:absolute; inset:0; z-index:0;">W104 Mini Bag for Life</div>
+        </div>
+        <div class="code">W104</div>
+        <h4>Mini Bag for Life</h4>
+        <p>A smaller W101 for compact gifting, lighter loads and smaller print runs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDITORIAL SLOTS -->
+<section class="editorial-section">
+  <div class="editorial-inner">
+    <h2 style="margin-bottom: 32px;">Stories from the W101.</h2>
+    <div class="editorial-grid">
+      <article class="editorial-card">
+        <div class="img">
+          <div class="ph-block" style="position:absolute; inset:0; z-index:0;">Decorator case-study image<br><span class="ph-tag" style="margin-top:6px;">editorial TBC</span></div>
+        </div>
+        <div>
+          <div class="eyebrow">Case study</div>
+          <h3>How printers built their year around the W101.</h3>
+          <p>From festival merchandise to charity tote programmes. Three decorators on why the W101 is the fixture they plan around.</p>
+          <a href="#" class="btn-tertiary">Read the story →</a>
+        </div>
+      </article>
+      <article class="editorial-card">
+        <div class="img">
+          <div class="ph-block" style="position:absolute; inset:0; z-index:0;">Palette / design editorial image<br><span class="ph-tag" style="margin-top:6px;">editorial TBC</span></div>
+        </div>
+        <div>
+          <div class="eyebrow">Design</div>
+          <h3>Designing for the W101 palette.</h3>
+          <p>A colour-and-design feature on how brands use the 48-colour palette to express identity across retail, hospitality and culture.</p>
+          <a href="#" class="btn-tertiary">Read the feature →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS BAND -->
+<section class="certs-section">
+  <p class="eyebrow certs-eyebrow">Westford Mill is a partner of</p>
+  <div class="certs-row">
+    <div class="cert-badge">Carbon Literacy<br>Project</div>
+    <div class="cert-badge">1% for the<br>Planet</div>
+    <div class="cert-badge">EarthAware®<br>Programme</div>
+    <div class="cert-badge">Digital Product<br>Passport</div>
+  </div>
+  <p class="certs-caveat">Westford Mill's company-level partnerships. For product-specific certifications (GOTS, OCS), see our <a href="#" style="text-decoration: underline;">EarthAware® organic range</a>.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="inner">
+    <div>
+      <h6>Westford Mill</h6>
+      <a href="#">About</a>
+      <a href="#">Sustainability</a>
+      <a href="#">Decorators</a>
+      <a href="#">Collections</a>
+    </div>
+    <div>
+      <h6>Products</h6>
+      <a href="#">All products</a>
+      <a href="#">Totes &amp; Shoppers</a>
+      <a href="#">Bag for Life</a>
+      <a href="#">Homeware</a>
+    </div>
+    <div>
+      <h6>Resources</h6>
+      <a href="#">Decorator Academy</a>
+      <a href="#">Spec sheets</a>
+      <a href="#">Media Hub</a>
+      <a href="#">Pantone palette</a>
+    </div>
+    <div>
+      <h6>Connect</h6>
+      <a href="#">Find a distributor</a>
+      <a href="#">Trade login</a>
+      <a href="#">Contact</a>
+      <a href="#">Newsletter</a>
+    </div>
+  </div>
+  <div class="copyright">
+    Part of Beechfield Brands Ltd · © 2026
+  </div>
+</footer>
+
+<script>
+  // ---------- 48-colour palette data ----------
+  const palette = [
+    { name: "Natural", pantone: "7506 / 12-0605", hex: "#E8DCC4", group: "neutral" },
+    { name: "White", pantone: "", hex: "#FFFFFF", group: "neutral" },
+    { name: "Black", pantone: "Black C", hex: "#1A1A1A", group: "dark" },
+    { name: "French Navy", pantone: "296 / 19-3921", hex: "#1F2A4A", group: "dark" },
+    { name: "Bottle Green", pantone: "560 / 19-5511", hex: "#1F4634", group: "dark" },
+    { name: "Burgundy", pantone: "209C / 19-2024", hex: "#5C1A2D", group: "dark" },
+    { name: "Plum", pantone: "518C / 19-2520", hex: "#5A3A52", group: "dark" },
+    { name: "Chocolate", pantone: "476 / 19-1012", hex: "#4E342B", group: "dark" },
+    { name: "Graphite Grey", pantone: "425 / 18-0201", hex: "#4F5253", group: "dark" },
+    { name: "Pure Grey", pantone: "430C / 17-4405", hex: "#7D8487", group: "neutral" },
+    { name: "Light Grey", pantone: "Cool Gray 6C / 15-4101", hex: "#A8AAAB", group: "neutral" },
+    { name: "Sand", pantone: "4267C / 15-1308", hex: "#C7B299", group: "neutral" },
+    { name: "Caramel", pantone: "", hex: "#A5754D", group: "neutral" },
+    { name: "Olive Green", pantone: "448C / 19-0512", hex: "#5C5A38", group: "dark" },
+    { name: "Petrol", pantone: "7477C / 19-4241", hex: "#1F4C5C", group: "dark" },
+    { name: "Airforce Blue", pantone: "2167C / 18-4026", hex: "#4A6E91", group: "dark" },
+    { name: "Sapphire Blue", pantone: "", hex: "#1B4F8C", group: "bright" },
+    { name: "Bright Royal", pantone: "280 / 19-4057", hex: "#1E3A8C", group: "bright" },
+    { name: "Cornflower Blue", pantone: "2386C / 18-4043", hex: "#4F73C8", group: "bright" },
+    { name: "Sky Blue", pantone: "278 / 16-4132", hex: "#82B6E2", group: "pastel" },
+    { name: "Surf Blue", pantone: "306 / 16-4535", hex: "#5BB9D5", group: "bright" },
+    { name: "Pastel Blue", pantone: "642C / 13-4304", hex: "#C5D9E6", group: "pastel" },
+    { name: "Emerald", pantone: "3282 / 17-5029", hex: "#008C6E", group: "bright" },
+    { name: "Kelly Green", pantone: "7482 / 17-6030", hex: "#00A04E", group: "bright" },
+    { name: "Apple Green", pantone: "361C / 16-6340", hex: "#4FAB3D", group: "bright" },
+    { name: "Lime Green", pantone: "375 / 14-0452", hex: "#9ED83B", group: "bright" },
+    { name: "Kiwi", pantone: "7490 / 16-0343", hex: "#7BAE3F", group: "bright" },
+    { name: "Mint Green", pantone: "", hex: "#7FBFA0", group: "bright" },
+    { name: "Pastel Mint", pantone: "621C / 12-6205", hex: "#CFE3D5", group: "pastel" },
+    { name: "Yellow", pantone: "107C / 12-0752", hex: "#FBDD3C", group: "bright" },
+    { name: "Sunflower", pantone: "", hex: "#F5C500", group: "bright" },
+    { name: "Lemon", pantone: "601C / 12-0740", hex: "#F1E27A", group: "pastel" },
+    { name: "Mustard", pantone: "131C / 15-0953", hex: "#C99A22", group: "bright" },
+    { name: "Orange", pantone: "165C / 16-1462", hex: "#F07E2B", group: "bright" },
+    { name: "Orange Rust", pantone: "4055C / 18-1343", hex: "#B25A28", group: "bright" },
+    { name: "Coral", pantone: "171C / 18-1649", hex: "#F26B5A", group: "bright" },
+    { name: "Bright Red", pantone: "186 / 18-1763", hex: "#D81E32", group: "bright" },
+    { name: "Classic Red", pantone: "201 / 19-1664", hex: "#A8132B", group: "bright" },
+    { name: "Cranberry", pantone: "", hex: "#931D3F", group: "dark" },
+    { name: "Raspberry Pink", pantone: "198C / 18-1755", hex: "#D3315F", group: "bright" },
+    { name: "Fuchsia", pantone: "219 / 18-2143", hex: "#D02080", group: "bright" },
+    { name: "Magenta", pantone: "", hex: "#B1306E", group: "bright" },
+    { name: "True Pink", pantone: "", hex: "#E96B9C", group: "bright" },
+    { name: "Classic Pink", pantone: "672C / 14-2710", hex: "#D89BBE", group: "pastel" },
+    { name: "Pastel Pink", pantone: "7604C / 12-2102", hex: "#EED1D7", group: "pastel" },
+    { name: "Lavender", pantone: "522C / 15-3817", hex: "#A89CC7", group: "pastel" },
+    { name: "Violet", pantone: "2075C / 17-3834", hex: "#7A6DBD", group: "bright" },
+    { name: "Purple", pantone: "668C / 19-3748", hex: "#5B3B95", group: "dark" }
+  ];
+
+  // Render full palette grid
+  const paletteGrid = document.getElementById('palette-grid');
+  palette.forEach(c => {
+    const el = document.createElement('div');
+    el.className = 'palette-swatch';
+    el.innerHTML = `
+      <div class="colour" style="background:${c.hex};"></div>
+      <div class="name">${c.name}</div>
+      <div class="pantone">${c.pantone}</div>
+    `;
+    paletteGrid.appendChild(el);
+  });
+
+  // Render swatch row in buy column (first 11 colours + "more")
+  const swatchRow = document.getElementById('swatch-row');
+  const colourLabel = document.querySelector('.colour-label .name');
+  const pantoneLabel = document.querySelector('.colour-label .pantone');
+  palette.slice(0, 11).forEach((c, i) => {
+    const el = document.createElement('div');
+    el.className = 'swatch' + (i === 0 ? ' active' : '');
+    el.style.background = c.hex;
+    el.title = `${c.name} · ${c.pantone}`;
+    el.addEventListener('click', () => {
+      document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+      el.classList.add('active');
+      colourLabel.textContent = c.name;
+      pantoneLabel.textContent = c.pantone ? 'Pantone ' + c.pantone : '';
+    });
+    swatchRow.appendChild(el);
+  });
+  // "+37 more" pill
+  const more = document.createElement('div');
+  more.className = 'swatch-more';
+  more.textContent = '+37';
+  more.title = 'View all 48 colours';
+  swatchRow.appendChild(more);
+
+  // Palette filter (visual only)
+  document.querySelectorAll('.filter-pill').forEach(p => {
+    p.addEventListener('click', () => {
+      document.querySelectorAll('.filter-pill').forEach(x => x.classList.remove('active'));
+      p.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
