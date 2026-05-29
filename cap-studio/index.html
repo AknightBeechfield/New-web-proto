@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cap Studio — Taxonomy QA Prototype (Internal)</title>
+<link rel="stylesheet" href="https://use.typekit.net/sep5cxb.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="banner">
+  <span><strong>Cap Studio · Internal Prototype</strong> — taxonomy QA, not a configurator. No scoring, no derived buyer tags.</span>
+  <a href="../index.html">← Back to B191R PDP mockup</a>
+</div>
+
+<div id="qa-warn" class="qa-warn-banner" style="display:none;"></div>
+
+<header class="app-header">
+  <div>
+    <div class="brand">BEECHFIELD</div>
+    <div class="title">Cap Studio <small class="serif">taxonomy QA prototype</small></div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-view="browse">Browse</button>
+    <button class="tab" data-view="scenario">Scenario runner</button>
+  </div>
+</header>
+
+<main>
+  <aside class="filters">
+    <button class="clear-btn" id="clear-filters">Clear all filters</button>
+    <div id="filter-list"></div>
+  </aside>
+
+  <section class="results">
+    <div class="scenarios-panel hidden" id="scenarios-panel">
+      <h2>Scenario runner</h2>
+      <select id="scenario-select">
+        <option value="">— Select a test scenario —</option>
+      </select>
+      <div class="scenario-body" id="scenario-body"></div>
+    </div>
+
+    <div class="results-header">
+      <div class="result-count"><strong id="count">0</strong> products match</div>
+      <div class="sort-toggle">
+        Sort by
+        <select id="sort">
+          <option value="code">Product code (A–Z)</option>
+          <option value="sales">L12M sales (high → low)</option>
+        </select>
+      </div>
+    </div>
+    <div class="active-chips" id="active-chips"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+</main>
+
+<section class="feedback-panel">
+  <h2>Capture feedback</h2>
+  <div class="row">
+    <div>
+      <label>Tester name</label>
+      <input type="text" id="fb-tester" placeholder="Your name">
+    </div>
+    <div>
+      <label>Scenario</label>
+      <input type="text" id="fb-scenario" readonly placeholder="(none — open browse)">
+    </div>
+    <div>
+      <label>Overall rating</label>
+      <select id="fb-rating">
+        <option>Yes</option>
+        <option>Mostly</option>
+        <option>Somewhat</option>
+        <option>No</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <label>Expected products missing (codes / notes)</label>
+      <textarea id="fb-missing"></textarea>
+    </div>
+    <div>
+      <label>Unexpected products shown</label>
+      <textarea id="fb-unexpected"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <label>Market label feedback</label>
+      <textarea id="fb-market"></textarea>
+    </div>
+    <div>
+      <label>Product category feedback</label>
+      <textarea id="fb-category"></textarea>
+    </div>
+    <div>
+      <label>Technical data feedback</label>
+      <textarea id="fb-technical"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <label>Notes</label>
+      <textarea id="fb-notes"></textarea>
+    </div>
+    <div>
+      <label>Action required</label>
+      <input type="text" id="fb-action" placeholder="e.g. fix Crown Profile casing">
+    </div>
+  </div>
+  <div class="auto" id="fb-auto"></div>
+  <div class="actions">
+    <button id="fb-submit">Save feedback entry</button>
+    <button class="secondary" id="fb-export-csv">Export all feedback (CSV)</button>
+    <button class="secondary" id="fb-export-json">Export all feedback (JSON)</button>
+    <button class="secondary" id="fb-clear">Clear stored feedback</button>
+    <span class="count" id="fb-count">0 entries stored</span>
+  </div>
+</section>
+
+<footer class="app-footer">
+  <span>Data source: <code>Beechfield_Cap_Studio_Master_Data_v1.xlsx</code> · feedback stored in browser localStorage</span>
+  <span>Out of scope: scoring, inferred buyer tags, configurator behaviour</span>
+</footer>
+
+<div class="drawer-bg" id="drawer-bg"></div>
+<aside class="drawer" id="drawer">
+  <header>
+    <h2 id="drawer-title">Product debug</h2>
+    <button class="close" id="drawer-close">×</button>
+  </header>
+  <div class="body" id="drawer-body"></div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>
