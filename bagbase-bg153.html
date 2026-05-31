@@ -62,11 +62,14 @@
     letter-spacing:0.02em;           /* body +20 tracking */
   }
 
-  h1,h2,h3,h4{
+  /* Single weight throughout (brand: 45 Light). Nothing renders bold —
+     hierarchy comes from size, not weight. Neutralise default <b>/<strong>. */
+  h1,h2,h3,h4,h5,h6{
     font-weight:300;                 /* headlines also 45 Light */
     letter-spacing:-0.03em;          /* headlines -30 tracking */
     line-height:1.1;
   }
+  b,strong{ font-weight:300; }
   h1{ font-size:clamp(28px,4vw,44px); }
   h2{ font-size:clamp(26px,3vw,36px); }
   h3{ font-size:22px; }
@@ -177,13 +180,21 @@
   .care-icons{ display:flex; gap:14px; font-size:24px; margin:10px 0; }
 
   /* ===================== WEAR IT YOUR WAY (mood strip) ===================== */
+  /* Full-bleed, big imagery; headings overlaid. No sub-copy — show, don't tell. */
   .mood{ background:var(--cream); }
-  .mood .head{ max-width:46ch; margin-bottom:34px; }
-  .mood .head p{ color:var(--muted); margin-top:8px; }
-  .mood-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-  .mood-tile .imgbox{ aspect-ratio:3/4; border-radius:4px; margin-bottom:14px; }
-  .mood-tile h4{ margin-bottom:4px; }
-  .mood-tile p{ font-size:14px; color:var(--muted); }
+  .mood .head{ margin-bottom:40px; }
+  .mood-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:0 10px; }
+  .mood-tile{ position:relative; }
+  .mood-tile .imgbox{ aspect-ratio:3/4; border-radius:4px; }
+  .mood-tile .imgbox img, .mood-tile .imgbox video{ position:relative; z-index:1; }
+  .mood-tile .imgbox::after{
+    content:""; position:absolute; inset:0; z-index:2;
+    background:linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,0) 45%);
+  }
+  .mood-tile h4{
+    position:absolute; left:24px; bottom:22px; z-index:3; margin:0;
+    color:var(--white); font-size:clamp(22px,1.8vw,30px);
+  }
   video{ width:100%; height:100%; object-fit:cover; }
 
   /* ===================== DESIGNED FOR DECORATION ===================== */
@@ -196,6 +207,10 @@
   .deco li:first-child{ border-top:1px solid var(--line); }
   .deco li b{ font-weight:300; }
   .deco .num{ color:var(--purple); font-size:18px; min-width:14px; }
+  .deco-techniques{ margin-bottom:34px; }
+  .deco-techniques .dt-label{ display:block; font-size:13px; letter-spacing:0.05em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+  .deco-techniques .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .deco-techniques .chip{ font-size:13px; letter-spacing:0.03em; padding:7px 14px; border:1px solid var(--black); border-radius:100px; }
   .deco-cta{ display:flex; gap:12px; margin-bottom:18px; }
   .deco-cta .btn{ width:auto; flex:1; }
   .deco-links{ display:flex; gap:24px; font-size:13px; }
@@ -206,30 +221,47 @@
   .features h2{ margin-bottom:34px; }
   .feat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
   .feat .imgbox{ aspect-ratio:1/1; border-radius:4px; margin-bottom:14px; background:#16302f; }
+  .feat .imgbox img{ object-position:center; }
   .feat h4{ margin-bottom:4px; }
   .feat p{ font-size:14px; opacity:.8; }
+  /* colour tile — all 15 shades as a mosaic (the USP, shown not told) */
+  .feat-colours{
+    aspect-ratio:1/1; border-radius:4px; margin-bottom:14px; overflow:hidden;
+    display:grid; grid-template-columns:repeat(5,1fr); grid-template-rows:repeat(3,1fr);
+  }
+  .feat-colours span{ display:block; }
 
   /* ===================== COMPLETE THE LOOK ===================== */
-  .ctl h2{ margin-bottom:8px; }
-  .ctl .sub{ color:var(--muted); margin-bottom:30px; max-width:54ch; }
-  .ctl-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:18px; align-items:end; }
-  .ctl-hero .imgbox{ aspect-ratio:1/1; border-radius:4px; }
-  .ctl-card .imgbox{ aspect-ratio:1/1; border-radius:4px; margin-bottom:12px; }
-  .ctl-card .code{ font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
-  .ctl-card h4{ margin:2px 0 4px; }
-  .ctl-card p{ font-size:13px; color:var(--muted); }
-  .ctl-note{ font-size:13px; color:var(--muted); margin-top:18px; }
+  /* Cream section so the white product cards read as distinct cards. */
+  .ctl{ background:var(--cream); }
+  .ctl h2{ margin-bottom:12px; }
+  .ctl .sub{ color:var(--muted); margin-bottom:48px; max-width:54ch; }
+  .ctl-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:20px; align-items:stretch; }
+  .ctl-hero, .ctl-card{
+    background:var(--white); border:1px solid var(--line); border-radius:6px;
+    padding:16px; display:flex; flex-direction:column;
+  }
+  .ctl-hero .imgbox, .ctl-card .imgbox{ aspect-ratio:1/1; border-radius:4px; margin-bottom:14px; }
+  .ctl-hero .code, .ctl-card .code{ font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
+  .ctl-hero h4, .ctl-card h4{ margin:3px 0 6px; }
+  .ctl-hero p, .ctl-card p{ font-size:13px; color:var(--muted); margin-bottom:14px; }
+  .ctl-colours{
+    align-self:flex-start; margin-top:auto; font-size:12px; letter-spacing:0.04em;
+    text-transform:uppercase; background:var(--cream); border:1px solid var(--line);
+    color:var(--black); padding:5px 11px; border-radius:100px;
+  }
+  .ctl-note{ font-size:13px; color:var(--muted); margin-top:28px; }
 
   /* ===================== MORE MINIS (discovery) ===================== */
   .more{ background:var(--cream); }
   .more h2{ margin-bottom:8px; }
   .more .sub{ color:var(--muted); margin-bottom:30px; }
-  .more-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; max-width:760px; }
-  .more-card .imgbox{ aspect-ratio:4/3; border-radius:4px; margin-bottom:12px; }
+  .more-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .more-card .imgbox{ aspect-ratio:3/4; border-radius:4px; margin-bottom:14px; }
   .more-card .code{ font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
   .more-card h4{ margin:2px 0 4px; }
   .more-card p{ font-size:14px; color:var(--muted); }
-  .more-card .tag{ display:inline-block; font-size:11px; letter-spacing:0.04em; text-transform:uppercase; background:var(--green); color:var(--black); padding:3px 8px; border-radius:2px; margin-bottom:8px; }
+  .more-card .tag{ position:absolute; left:12px; top:12px; z-index:2; display:inline-block; font-size:11px; letter-spacing:0.04em; text-transform:uppercase; background:var(--green); color:var(--black); padding:4px 9px; border-radius:2px; }
 
   /* ===================== FOOTER ===================== */
   footer{ background:var(--black); color:var(--white); padding:48px 0; }
@@ -289,8 +321,8 @@
         <span class="loz alt">Best Seller</span>
       </div>
 
-      <!-- [PLACEHOLDER] dynamic per variant at build -->
-      <div class="stock"><b>501,128</b> in stock <span class="ph" data-ph="dynamic" style="padding:1px 6px;border-radius:2px;"></span></div>
+      <!-- Stock figure is a sample — bind to live inventory, dynamic per variant. -->
+      <div class="stock"><b>501,128</b> in stock</div>
 
       <p class="blurb">Small shape, big colour. Fifteen shades, a clean front to brand and room for the everyday essentials &mdash; a mini made to be handed out, worn off-duty and kept.</p>
 
@@ -314,16 +346,16 @@
         <span class="sw" style="background:#FFFFFF" data-n="White"        data-p="N/A"          data-sku="G153.WHI" data-ean="5060424726509"></span>
       </div>
 
-      <!-- THE BASICS (renamed from Bag DNA) — vibe-led, decoration last + biggest -->
+      <!-- THE BASICS (renamed from Bag DNA) — vibe-led. Colour high, decoration the payoff. -->
       <div class="basics">
         <h4>The Basics</h4>
         <dl>
-          <dt>Wear it for</dt><dd>Everyday, campus, off-duty</dd>
-          <dt>Size</dt><dd>Mini &middot; 7L &middot; one size</dd>
+          <dt>Wear it for</dt><dd>Everyday, campus and off-duty</dd>
+          <dt>Size</dt><dd>Mini &middot; 7L</dd>
+          <dt>Colours</dt><dd>15 shades</dd>
           <dt>Carry</dt><dd>Padded back, adjustable straps, grab handle</dd>
-          <dt>Colours</dt><dd>15</dd>
-          <dt>Made to brand</dt><dd>TearAway&reg; label &middot; clean front panel</dd>
-          <dt>Decoration</dt><dd>Heat press, sublimation, screen print, embroidery</dd>
+          <dt>Branding</dt><dd>Clean front panel &middot; TearAway&reg; label</dd>
+          <dt>Decoration</dt><dd>Heat press, sublimation, screen print and embroidery</dd>
         </dl>
       </div>
 
@@ -343,11 +375,31 @@
           <summary>Specifications</summary>
           <div class="acc-body">
             <h5>Size &amp; carry</h5>
-            <p>Capacity 7L &middot; 23 &times; 35 &times; 12 cm &middot; 260g &middot; one size. Padded back panel, fully adjustable shoulder straps, grab handle.</p>
+            <div class="spec-rows">
+              <div><span>Capacity</span><span>7L</span></div>
+              <div><span>Height</span><span>35 cm</span></div>
+              <div><span>Width</span><span>23 cm</span></div>
+              <div><span>Depth</span><span>12 cm</span></div>
+              <div><span>Weight</span><span>260g</span></div>
+              <div><span>Sizing</span><span>One size</span></div>
+              <div><span>Back panel</span><span>Padded</span></div>
+              <div><span>Shoulder straps</span><span>Fully adjustable</span></div>
+              <div><span>Handle</span><span>Grab handle</span></div>
+            </div>
             <h5>Materials &amp; build</h5>
-            <p>600D Polyester. Zipped main compartment, zippered front pocket. No laptop sleeve. TearAway&reg; label for easy rebranding.</p>
+            <div class="spec-rows">
+              <div><span>Main fabric</span><span>600D polyester</span></div>
+              <div><span>Main compartment</span><span>Zipped</span></div>
+              <div><span>Front pocket</span><span>Zipped</span></div>
+              <div><span>Laptop sleeve</span><span>None</span></div>
+              <div><span>Brand label</span><span>TearAway&reg;</span></div>
+            </div>
             <h5>Decoration</h5>
-            <p>Primary area: front panel (arch, zipped access). Heat press (HTV/DTF), sublimation, screen print and embroidery all suitable. <span class="ph" data-ph="decoration zone diagram" style="padding:2px 6px;border-radius:2px;"></span></p>
+            <div class="spec-rows">
+              <div><span>Primary area</span><span>Front panel (arch, zipped access)</span></div>
+              <div><span>Techniques</span><span>Heat press (HTV/DTF), sublimation, screen print, embroidery</span></div>
+            </div>
+            <p style="margin-top:10px;"><span class="ph" data-ph="decoration zone diagram" style="padding:2px 6px;border-radius:2px;"></span></p>
             <h5>Logistics</h5>
             <div class="spec-rows">
               <div><span>Unit weight</span><span>260g</span></div>
@@ -371,8 +423,7 @@
           <div class="acc-body">
             <div class="expect-item"><h5>It's a real backpack, not a novelty</h5><p>"Mini" is the shape, not a gimmick. At 23 &times; 35 &times; 12 cm it holds the daily essentials &mdash; phone, purse, keys, a few extras. Roomier than the name suggests.</p></div>
             <div class="expect-item"><h5>Colour &amp; batches</h5><p>Shades are consistent batch to batch, but screens and lighting shift colour. Order a sample if an exact match matters for your brand.</p></div>
-            <div class="expect-item"><h5>Decorating it</h5><p>The flat front panel takes print and embroidery cleanly. The TearAway&reg; label lifts out so you can brand it as your own.</p></div>
-            <div class="expect-item"><h5>Keeping it clean</h5><p>Polyester wipes down easily. Lighter shades show marks sooner &mdash; a damp cloth handles most of it.</p></div>
+            <div class="expect-item"><h5>Decorating it</h5><p>The flat front panel takes a logo cleanly. The 600D polyester face suits heat press (HTV/DTF), sublimation, screen print and embroidery alike &mdash; a forgiving surface for most decoration methods. The TearAway&reg; label lifts out so you can brand it as your own.</p></div>
           </div>
         </details>
 
@@ -396,21 +447,20 @@
   <div class="wrap">
     <div class="head">
       <h2>Wear it your way</h2>
-      <p>One bag, three moods. The mini that moves from the lecture hall to the weekend.</p>
     </div>
-    <div class="mood-grid">
-      <div class="mood-tile">
-        <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/3dcbd5fe-f4f6-4e02-97ca-cdfbe37da9eb/Product-medium/Bagbase-BG153-light-grey-lifestyle-021.jpg" alt="On campus"></div>
-        <h4>On campus</h4><p>Light, hands-free, holds the day's essentials.</p>
-      </div>
-      <div class="mood-tile">
-        <div class="imgbox"><video src="https://mediahub.beechfieldbrands.com/asset/e9973392-13b2-4693-aa77-21cdb5f214da/mp4/bg153_olive-green_no_logo.mp4" muted loop autoplay playsinline></video></div>
-        <h4>Off duty</h4><p>A clean shape that works with anything.</p>
-      </div>
-      <div class="mood-tile">
-        <div class="imgbox"><video src="https://mediahub.beechfieldbrands.com/asset/b05b10ff-374a-4616-9bcb-d87bad1885d9/mp4/bg153_olive-green_no_logo.mp4" muted loop autoplay playsinline></video></div>
-        <h4>Out with the kids</h4><p>Sized for smaller shoulders too.</p>
-      </div>
+  </div>
+  <div class="mood-grid">
+    <div class="mood-tile">
+      <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/3dcbd5fe-f4f6-4e02-97ca-cdfbe37da9eb/Product-medium/Bagbase-BG153-light-grey-lifestyle-021.jpg" alt="On campus"></div>
+      <h4>On campus</h4>
+    </div>
+    <div class="mood-tile">
+      <div class="imgbox"><video src="https://mediahub.beechfieldbrands.com/asset/e9973392-13b2-4693-aa77-21cdb5f214da/mp4/bg153_olive-green_no_logo.mp4" muted loop autoplay playsinline></video></div>
+      <h4>Off duty</h4>
+    </div>
+    <div class="mood-tile">
+      <div class="imgbox"><video src="https://mediahub.beechfieldbrands.com/asset/b05b10ff-374a-4616-9bcb-d87bad1885d9/mp4/bg153_olive-green_no_logo.mp4" muted loop autoplay playsinline></video></div>
+      <h4>Out with the kids</h4>
     </div>
   </div>
 </section>
@@ -431,6 +481,15 @@
         <li><span class="num">3</span><span><b>Print or embroider.</b> Heat press, sublimation, screen and embroidery all work on the 600D face.</span></li>
         <li><span class="num">4</span><span><b>15 colours to match.</b> Brand to the bag, or match the bag to the brand.</span></li>
       </ul>
+      <div class="deco-techniques">
+        <span class="dt-label">Decoration techniques</span>
+        <div class="chips">
+          <span class="chip">Heat press (HTV/DTF)</span>
+          <span class="chip">Sublimation</span>
+          <span class="chip">Screen print</span>
+          <span class="chip">Embroidery</span>
+        </div>
+      </div>
       <div class="deco-cta">
         <a class="btn btn-primary" href="#">Decoration Guide</a>
         <a class="btn btn-secondary" href="#">Decorator Studio</a>
@@ -448,7 +507,7 @@
     <h2>The everyday essentials</h2>
     <div class="feat-grid">
       <div class="feat">
-        <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/74bd5a2f-e341-4c3e-b887-8ee99c1fc3aa/Product-medium/BG153-Mini-Essential-Fashion-Backpack-Candy-Pink-Interior-detail.jpg" alt="Interior"></div>
+        <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/acde8c66-0e77-404e-a9d2-ad529f07cbe6/Product-medium/BG153-Mini-Essential-Fashion-Backpack-Candy-Pink-Cropped-Ecommerce-shot-01.jpg" alt="Full bag"></div>
         <h4>Room for the run-around</h4><p>7L and a zipped front pocket &mdash; enough for the daily carry, no bulk.</p>
       </div>
       <div class="feat">
@@ -456,8 +515,24 @@
         <h4>Comfortable to carry</h4><p>Padded back panel and fully adjustable straps.</p>
       </div>
       <div class="feat">
-        <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/802fcd96-d4f6-4f2f-84ee-db205af190ba/Product-medium/bagbase_bg153_olive-green_lifestyle_28691_cropped.jpg" alt="Colour range"></div>
-        <h4>Colour, fifteen ways</h4><p>From soft pastels to standout shades. Pick the one that's you.</p>
+        <div class="feat-colours" aria-label="All 15 colourways">
+          <span style="background:#EE6D8A"></span>
+          <span style="background:#A7BAC9"></span>
+          <span style="background:#F6CDD4"></span>
+          <span style="background:#002E56"></span>
+          <span style="background:#EA4498"></span>
+          <span style="background:#BD9BC4"></span>
+          <span style="background:#BABCBE"></span>
+          <span style="background:#958B84"></span>
+          <span style="background:#FFF0D9"></span>
+          <span style="background:#524F26"></span>
+          <span style="background:#DEAA9B"></span>
+          <span style="background:#D4D6B9"></span>
+          <span style="background:#8A9691"></span>
+          <span style="background:#000000"></span>
+          <span style="background:#FFFFFF"></span>
+        </div>
+        <h4>Colour, fifteen ways</h4><p>From soft pastels to standout shades. Fifteen, one SKU.</p>
       </div>
     </div>
   </div>
@@ -466,27 +541,35 @@
 <!-- ===================== COMPLETE THE LOOK (coordinated drop) ===================== -->
 <!-- Merch-buyer kit: BG153 + B10 cap + BG100 key clip. Same brand colours.
      B10 + BG100 product images not yet supplied → placeholders. -->
-<section class="ctl wrap">
-  <h2>Complete the drop</h2>
-  <p class="sub">Spec a coordinated giveaway &mdash; one bag, one cap, one brandable add-on, all in your brand colours.</p>
-  <div class="ctl-grid">
-    <div class="ctl-hero">
-      <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/3eb73e0e-ce18-4d5a-8e7d-1b2824c28c20/Product-medium/BG153-Mini-Essential-Fashion-Backpack-Candy-Pink-Ecommerce-Shot-05.jpg" alt="BG153"></div>
+<section class="ctl">
+  <div class="wrap">
+    <h2>Complete the drop</h2>
+    <p class="sub">Spec a coordinated giveaway &mdash; one bag, one cap, one brandable add-on, all in your brand colours.</p>
+    <div class="ctl-grid">
+      <div class="ctl-hero">
+        <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/3eb73e0e-ce18-4d5a-8e7d-1b2824c28c20/Product-medium/BG153-Mini-Essential-Fashion-Backpack-Candy-Pink-Ecommerce-Shot-05.jpg" alt="BG153"></div>
+        <div class="code">BG153 &middot; BagBase</div>
+        <h4>Mini Essential Fashion Backpack</h4>
+        <p>The hero of the set &mdash; your canvas in fifteen shades.</p>
+        <span class="ctl-colours">15 colours</span>
+      </div>
+      <div class="ctl-card">
+        <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/8a5fb4ae-6d4d-4625-95d3-3b4edab329b3/Product-medium/beechfield_b10b_classic-pink.jpg" alt="B10b Junior Original 5 Panel Cap"></div>
+        <div class="code">B10b &middot; Beechfield</div>
+        <h4>Junior Original 5 Panel Cap</h4>
+        <p>Soft pastels that track the bag's best-sellers. Built for decoration.</p>
+        <span class="ctl-colours">25 colours</span>
+      </div>
+      <div class="ctl-card">
+        <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/6d72e847-704f-417a-9989-07048a0ee92d/Product-medium/bagbase_bg100_fuchsia.jpg" alt="BG100 Brandable Key Clip"></div>
+        <div class="code">BG100 &middot; BagBase</div>
+        <h4>Brandable Key Clip</h4>
+        <p>The cheap, cheerful add-on.</p>
+        <span class="ctl-colours">8 colours</span>
+      </div>
     </div>
-    <div class="ctl-card">
-      <div class="imgbox" style="aspect-ratio:1/1;"><img src="https://mediahub.beechfieldbrands.com/asset/8a5fb4ae-6d4d-4625-95d3-3b4edab329b3/Product-medium/beechfield_b10b_classic-pink.jpg" alt="B10b Junior Original 5 Panel Cap"></div>
-      <div class="code">B10b &middot; Beechfield</div>
-      <h4>Junior Original 5 Panel Cap</h4>
-      <p>Soft pastels that track the bag's best-sellers. Built for decoration.</p>
-    </div>
-    <div class="ctl-card">
-      <div class="imgbox" style="aspect-ratio:1/1;"><img src="https://mediahub.beechfieldbrands.com/asset/6d72e847-704f-417a-9989-07048a0ee92d/Product-medium/bagbase_bg100_fuchsia.jpg" alt="BG100 Brandable Key Clip"></div>
-      <div class="code">BG100 &middot; BagBase</div>
-      <h4>Brandable Key Clip</h4>
-      <p>The cheap, cheerful add-on. Eight bold colours.</p>
-    </div>
+    <p class="ctl-note">Need the grown-up version? Swap in the B10 Original 5 Panel Cap.</p>
   </div>
-  <p class="ctl-note">Need the grown-up version? Swap in the <b>B10 Original 5 Panel Cap</b>.</p>
 </section>
 
 <!-- ===================== MORE MINIS (discovery, not alternatives) ===================== -->
@@ -496,17 +579,22 @@
     <p class="sub">Not quite the one? Two more compact backpacks worth a look.</p>
     <div class="more-grid">
       <div class="more-card">
-        <span class="tag">Recycled</span>
-        <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/f6f444e3-6dd7-461a-9222-eb823d4809a3/Product-medium/bagbase_bg185s_dusty-green.jpg" alt="BG185S"></div>
+        <div class="imgbox"><span class="tag">GRS Certified</span><img src="https://mediahub.beechfieldbrands.com/asset/1b7e3276-5459-43ea-88d3-08572991fce2/Product-medium/bagbase_bg185s_rose_lifestyle_5089.jpg" alt="BG185S"></div>
         <div class="code">BG185S &middot; BagBase</div>
         <h4>Premium Recycled Mini Backpack</h4>
-        <p>The responsible mini &mdash; recycled fabric, same clean shape.</p>
+        <p>The more sustainable mini &mdash; GRS-certified recycled fabric, same clean shape.</p>
       </div>
       <div class="more-card">
-        <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/bdffaed2-87dd-4c55-a57e-d1325a3757a6/Product-medium/bagbase_bg886_mint-choc-chip.jpg" alt="BG886"></div>
+        <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/0705cd12-1f5a-472f-bd86-63190681bf71/Product-medium/BG195S-Leopard-Print-Mini-Backpack-Leopard-Print-Lifestyle-Shot.jpg" alt="BG195S Leopard Print"></div>
+        <div class="code">BG195S &middot; BagBase</div>
+        <h4>Leopard Print Mini Backpack</h4>
+        <p>The same clean mini, turned up &mdash; a bold all-over leopard print.</p>
+      </div>
+      <div class="more-card">
+        <div class="imgbox"><img src="https://mediahub.beechfieldbrands.com/asset/8849876b-3af0-4c1b-93b1-fb9686f0483c/Product-medium/bagbase_bg886_blueberry-swirl_still-life_8955.jpg" alt="BG886 Sundae"></div>
         <div class="code">BG886 &middot; BagBase</div>
         <h4>Sundae Mini Backpack</h4>
-        <p>Premium finish, bolder colour-pop palette.</p>
+        <p>Premium finish in bolder, colour-pop swirls.</p>
       </div>
     </div>
   </div>
